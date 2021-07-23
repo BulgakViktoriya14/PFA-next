@@ -1,0 +1,56 @@
+.profile {
+  display: flex;
+  align-items: flex-start;
+  flex-basis: 100%;
+
+  &__image {
+    flex-basis: 35%;
+    margin: 0 5% 0 0;
+    max-width: 400px;
+  }
+
+  &__info-form {
+    flex-basis: 45%;
+    flex-direction: column;
+  }
+
+  &__wrapper-buttons {
+    display: flex;
+    margin: 50px 0 0 0;
+  }
+
+  @include breakpoint(mobile) {
+    flex-direction: column;
+
+    &__image {
+      flex-basis: 100%;
+      margin: 0 0 20px 0;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    &__info-form {
+      flex-basis: 100%;
+      width: 100%;
+    }
+
+    &__wrapper-buttons {
+      flex-direction: column;
+      margin: 20px 0 0 0;
+    }
+  }
+}
+
+.button-edit-profile,
+.button-change-password,
+.button-logout,
+.button-change-avatar,
+.button-category,
+.button-delete-profile {
+  @include buttonRed;
+  margin: 0 20px 0 0;
+
+  @include breakpoint(mobile) {
+    margin: 0 0 20px 0;
+  }
+}
