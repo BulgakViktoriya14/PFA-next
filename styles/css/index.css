@@ -459,12 +459,15 @@ a:hover:after, a:focus:after {
   line-height: 14px;
   border-bottom: 1px solid #000;
 }
+.form__input:focus, .form__textarea:focus {
+  border-bottom: 1px solid #b90000;
+}
 .form__input[readonly], .form__textarea[readonly] {
   cursor: default;
   border-bottom: 1px solid #fff;
 }
-.form__input:focus, .form__textarea:focus {
-  border-bottom: 1px solid #b90000;
+.form__input[readonly]:focus, .form__textarea[readonly]:focus {
+  border-bottom: 1px solid #fff;
 }
 @media (max-width: 768px) {
   .form__input, .form__textarea {
@@ -956,6 +959,9 @@ a:hover:after, a:focus:after {
   flex-basis: 35%;
   margin: 0 5% 0 0;
   max-width: 400px;
+}
+.profile__image div {
+  width: 100%;
 }
 .profile__info-form {
   flex-basis: 45%;

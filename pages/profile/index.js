@@ -24,6 +24,8 @@ class Profile extends React.Component {
             idUser: '',
             loc: props.router.query.loc,
         }
+
+        this.containerImage = React.createRef();
     }
 
     componentDidMount() {
@@ -54,10 +56,13 @@ class Profile extends React.Component {
 
     getAvatar = (userId) => {
         let _this = this;
-        firebase.storage().ref(`/avatars/${userId}`).getDownloadURL()
+        let imageWrapper = this.containerImage.current;
+        firebase.storage().ref().child(`avatars/${userId}`).getDownloadURL()
             .then(function (url) {
-                console.log(url)
-                _this.props.setUserAvatarFunction(url);
+                if(url) {
+                    imageWrapper.innerHTML = `<img src=${url} alt="photo"/>`;
+                    _this.props.setUserAvatarFunction(url);
+                }
             })
     }
 
@@ -124,8 +129,8 @@ class Profile extends React.Component {
                     <ModalWindow idUser={this.props.userId} page={"profile-avatar"} nameClass={"modal-window modal-window__change-avatar"} history={this.props.history}/>
                     <h1 className="title">Profile</h1>
                     <div className="profile">
-                        <div className="profile__image wrapper-img">
-                            <Image src={this.props.userAvatar ? this.props.userAvatar : photo} alt="photo"/>
+                        <div className="profile__image wrapper-img" ref={this.containerImage}>
+                            <Image src={photo} alt="photo"/>
                         </div>
                         <FormInfoProfile handleChange={this.handleChange} flag={this.state.flag} userName={this.props.userName} userEmail={this.props.userEmail}/>
                     </div>

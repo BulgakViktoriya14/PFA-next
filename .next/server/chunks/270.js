@@ -68,6 +68,24 @@ class ProfileMini extends (external_react_default()).Component {
         document.querySelector(".sidebar").classList.remove("sidebar_open");
       }
     });
+
+    this.containerImage = /*#__PURE__*/external_react_default().createRef();
+  }
+
+  setPhotoUser() {
+    let imageWrapper = this.containerImage.current;
+
+    if (this.props.userAvatar) {
+      imageWrapper.innerHTML = `<img src=${this.props.userAvatar} alt="photo"/>`;
+    }
+  }
+
+  componentDidMount() {
+    this.setPhotoUser();
+  }
+
+  componentDidUpdate() {
+    this.setPhotoUser();
   }
 
   render() {
@@ -88,8 +106,9 @@ class ProfileMini extends (external_react_default()).Component {
           href: "/profile",
           children: /*#__PURE__*/jsx_runtime_.jsx("a", {
             onClick: this.closeSidebar,
+            ref: this.containerImage,
             children: /*#__PURE__*/jsx_runtime_.jsx(next_image.default, {
-              src: this.props.userAvatar ? this.props.userAvatar : profile/* default */.Z,
+              src: profile/* default */.Z,
               alt: "photo"
             })
           })

@@ -7,6 +7,23 @@ import Image from "next/image";
 class ProfileMini extends React.Component {
 	constructor(props) {
 		super(props);
+
+		this.containerImage = React.createRef();
+	}
+
+	setPhotoUser() {
+		let imageWrapper = this.containerImage.current;
+		if(this.props.userAvatar) {
+			imageWrapper.innerHTML = `<img src=${this.props.userAvatar} alt="photo"/>`;
+		}
+	}
+
+	componentDidMount() {
+		this.setPhotoUser();
+	}
+
+	componentDidUpdate() {
+		this.setPhotoUser();
 	}
 
 	closeSidebar = () => {
@@ -27,8 +44,8 @@ class ProfileMini extends React.Component {
 				</h3>
 				<div className="header__photo wrapper-img">
 					<Link href="/profile">
-						<a onClick={this.closeSidebar}>
-							<Image src={this.props.userAvatar ? this.props.userAvatar : photo} alt="photo"/>
+						<a onClick={this.closeSidebar} ref={this.containerImage}>
+							<Image src={photo} alt="photo"/>
 						</a>
 					</Link>
 				</div>

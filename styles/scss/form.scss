@@ -93,6 +93,10 @@
         &[readonly] {
             cursor: default;
             border-bottom: 1px solid $colorWhite;
+
+            &:focus {
+                border-bottom: 1px solid $colorWhite;
+            }
         }
 
         &:focus {
