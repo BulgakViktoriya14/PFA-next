@@ -45,7 +45,7 @@ class ProfileMini extends React.Component {
 				<div className="header__photo wrapper-img">
 					<Link href="/profile">
 						<a onClick={this.closeSidebar} ref={this.containerImage}>
-							<Image src={photo} alt="photo"/>
+							<Image src={photo} alt="photo" width="70" height="70" layout="responsive"/>
 						</a>
 					</Link>
 				</div>

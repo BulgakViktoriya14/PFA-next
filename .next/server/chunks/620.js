@@ -486,7 +486,9 @@ class CreationCard extends (external_react_default()).Component {
         onClick: this.closePopupCreationCard,
         children: /*#__PURE__*/jsx_runtime_.jsx(next_image.default, {
           src: images_close/* default */.Z,
-          alt: "close"
+          alt: "close",
+          width: "30",
+          height: "30"
         })
       }), /*#__PURE__*/jsx_runtime_.jsx("h2", {
         className: "subtitle",

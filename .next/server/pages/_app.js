@@ -4,7 +4,7 @@ exports.id = 888;
 exports.ids = [888];
 exports.modules = {
 
-/***/ 1372:
+/***/ 7859:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -89,7 +89,54 @@ var external_firebase_ = __webpack_require__(7005);
 var external_firebase_default = /*#__PURE__*/__webpack_require__.n(external_firebase_);
 // EXTERNAL MODULE: external "react-redux"
 var external_react_redux_ = __webpack_require__(79);
+;// CONCATENATED MODULE: external "next/head"
+var head_namespaceObject = require("next/head");;
+var head_default = /*#__PURE__*/__webpack_require__.n(head_namespaceObject);
+;// CONCATENATED MODULE: ./components/common/Head.js
+
+
+
+
+function HeadMain() {
+  return /*#__PURE__*/(0,jsx_runtime_.jsxs)((head_default()), {
+    children: [/*#__PURE__*/jsx_runtime_.jsx("meta", {
+      charSet: "utf-8"
+    }), /*#__PURE__*/jsx_runtime_.jsx("meta", {
+      httpEquiv: "X-UA-Compatible",
+      content: "IE=edge"
+    }), /*#__PURE__*/jsx_runtime_.jsx("meta", {
+      name: "viewport",
+      content: "width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    }), /*#__PURE__*/jsx_runtime_.jsx("meta", {
+      name: "description",
+      content: "Description"
+    }), /*#__PURE__*/jsx_runtime_.jsx("title", {
+      children: "Personal finance accounting"
+    }), /*#__PURE__*/jsx_runtime_.jsx("link", {
+      rel: "manifest",
+      href: "/manifest.json"
+    }), /*#__PURE__*/jsx_runtime_.jsx("link", {
+      rel: "apple-touch-icon",
+      href: "/icon-small.png"
+    }), /*#__PURE__*/jsx_runtime_.jsx("link", {
+      rel: "apple-touch-icon",
+      href: "/icon-big.png"
+    }), /*#__PURE__*/jsx_runtime_.jsx("meta", {
+      name: "mobile-web-app-capable",
+      content: "yes"
+    }), /*#__PURE__*/jsx_runtime_.jsx("meta", {
+      name: "apple-mobile-web-app-capable",
+      content: "yes"
+    }), /*#__PURE__*/jsx_runtime_.jsx("meta", {
+      name: "theme-color",
+      content: "#536878"
+    })]
+  });
+}
+
+/* harmony default export */ var Head = (HeadMain);
 ;// CONCATENATED MODULE: ./pages/_app.js
+
 
 
 function _app_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -97,6 +144,7 @@ function _app_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); 
 function _app_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { _app_ownKeys(Object(source), true).forEach(function (key) { _app_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { _app_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _app_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -118,9 +166,9 @@ function MyApp({
   Component,
   pageProps
 }) {
-  return /*#__PURE__*/jsx_runtime_.jsx(external_react_redux_.Provider, {
+  return /*#__PURE__*/(0,jsx_runtime_.jsxs)(external_react_redux_.Provider, {
     store: store,
-    children: /*#__PURE__*/jsx_runtime_.jsx(Component, _app_objectSpread({}, pageProps))
+    children: [/*#__PURE__*/jsx_runtime_.jsx(Head, {}), /*#__PURE__*/jsx_runtime_.jsx(Component, _app_objectSpread({}, pageProps))]
   });
 }
 
@@ -157,7 +205,7 @@ module.exports = require("react/jsx-runtime");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-var __webpack_exports__ = (__webpack_exec__(1372));
+var __webpack_exports__ = (__webpack_exec__(7859));
 module.exports = __webpack_exports__;
 
 })();
