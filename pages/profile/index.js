@@ -130,7 +130,7 @@ class Profile extends React.Component {
                     <h1 className="title">Profile</h1>
                     <div className="profile">
                         <div className="profile__image wrapper-img" ref={this.containerImage}>
-                            <Image src={photo} alt="photo" width="300" height="auto"/>
+                            <Image src={photo} alt="photo" width={300} height={"auto"} loading={'lazy'}/>
                         </div>
                         <FormInfoProfile handleChange={this.handleChange} flag={this.state.flag} userName={this.props.userName} userEmail={this.props.userEmail}/>
                     </div>

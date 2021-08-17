@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "project-pfa-e4c83"
-  }
+    "default": "project-pfa-e4c83",
+    "staging": "project-pfa-e4c83"
+  },
+  "targets": {}
 }

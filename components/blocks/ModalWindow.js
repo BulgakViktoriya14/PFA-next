@@ -54,7 +54,7 @@ class ModalWindow extends React.Component {
                     {this.props.page === "page-login" &&
                     <div className="modal-window__content">
                         <button className="close">
-                            <Image className="close" src={close} alt="icon close" width="30" height="30"/>
+                            <Image className="close" src={close} alt="icon close" width={30} height={30} loading={'lazy'}/>
                         </button>
                         <h4 className="modal-window__title">Change password</h4>
                         <FormSetNewPassword functionCloseWindow={this.closeModalWindowAfterChangePassword}/>
@@ -63,7 +63,7 @@ class ModalWindow extends React.Component {
                     {this.props.page === "profile-password" &&
                         <div className="modal-window__content">
                             <button className="close">
-                                <Image src={close} alt="icon close" width="30" height="30"/>
+                                <Image src={close} alt="icon close" width={30} height={30} loading={'lazy'}/>
                             </button>
                             <h4 className="modal-window__title">Change password</h4>
                             <FormChangePassword functionCloseWindow={this.closeModalWindowAfterChangePassword}
@@ -73,7 +73,7 @@ class ModalWindow extends React.Component {
                     {this.props.page === "profile-avatar" &&
                         <div className="modal-window__content">
                             <button className="close">
-                                <Image src={close} alt="icon close" width="30" height="30"/>
+                                <Image src={close} alt="icon close" width={30} height={30} loading={'lazy'}/>
                             </button>
                             <h4 className="modal-window__title">Change avatar</h4>
                             <FormChangeAvatar history={this.props.history} ref={this.inputFile} idUser={this.props.idUser}/>

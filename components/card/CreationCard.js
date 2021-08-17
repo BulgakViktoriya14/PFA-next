@@ -20,7 +20,9 @@ class CreationCard extends React.Component {
 	render() {
 		return (
 			<div className="creation-card" ref={this.blockCreateCard}>
-				<button className="close" onClick={this.closePopupCreationCard}><Image src={close} alt="close" width="30" height="30"/></button>
+				<button className="close" onClick={this.closePopupCreationCard}>
+					<Image src={close} alt="close" width={30} height={30} loading={'lazy'}/>
+				</button>
 				<h2 className="subtitle">Create card</h2>
 				<FormCreateCard type={this.props.type}/>
 			</div>

@@ -365,8 +365,9 @@ class ModalWindow extends (external_react_default()).Component {
               className: "close",
               src: images_close/* default */.Z,
               alt: "icon close",
-              width: "30",
-              height: "30"
+              width: 30,
+              height: 30,
+              loading: 'lazy'
             })
           }), /*#__PURE__*/jsx_runtime_.jsx("h4", {
             className: "modal-window__title",
@@ -381,8 +382,9 @@ class ModalWindow extends (external_react_default()).Component {
             children: /*#__PURE__*/jsx_runtime_.jsx(next_image.default, {
               src: images_close/* default */.Z,
               alt: "icon close",
-              width: "30",
-              height: "30"
+              width: 30,
+              height: 30,
+              loading: 'lazy'
             })
           }), /*#__PURE__*/jsx_runtime_.jsx("h4", {
             className: "modal-window__title",
@@ -399,8 +401,9 @@ class ModalWindow extends (external_react_default()).Component {
             children: /*#__PURE__*/jsx_runtime_.jsx(next_image.default, {
               src: images_close/* default */.Z,
               alt: "icon close",
-              width: "30",
-              height: "30"
+              width: 30,
+              height: 30,
+              loading: 'lazy'
             })
           }), /*#__PURE__*/jsx_runtime_.jsx("h4", {
             className: "modal-window__title",
