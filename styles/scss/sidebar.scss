@@ -115,7 +115,7 @@
 
 .button-open-sidebar {
 	@include buttonMobileOpen();
-	background-image: url("../../images/burger.svg");
+	background-image: url("../../public/image/burger.svg");
 	top: 130px;
 
 	@include breakpoint(tablet) {

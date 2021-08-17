@@ -59,7 +59,7 @@
         height: 20px;
         background-color: $colorRed;
         border: none;
-        background-image: url("../../images/delete.svg");
+        background-image: url("../../public/image/delete.svg");
         background-size: 67%;
         background-position: center;
         background-repeat: no-repeat;
@@ -172,7 +172,7 @@
 
 .button-open-popup-add-card {
    @include buttonMobileOpen();
-    background-image: url("../../images/plus.svg");
+    background-image: url("../../public/image/plus.svg");
     top: 110px;
 
     @include breakpoint(mobile) {
@@ -185,7 +185,7 @@
     right: 0;
     bottom: 0;
     background-color: #000;
-    background-image: url("../../images/delete.svg");
+    background-image: url("../../public/image/delete.svg");
     background-size: 70% 70%;
     height: 60px;
     width: 60px;

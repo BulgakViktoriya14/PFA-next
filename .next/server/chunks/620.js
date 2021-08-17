@@ -488,8 +488,7 @@ class CreationCard extends (external_react_default()).Component {
           src: images_close/* default */.Z,
           alt: "close",
           width: 30,
-          height: 30,
-          loading: 'lazy'
+          height: 30
         })
       }), /*#__PURE__*/jsx_runtime_.jsx("h2", {
         className: "subtitle",

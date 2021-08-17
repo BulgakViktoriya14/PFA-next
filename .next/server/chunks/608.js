@@ -305,6 +305,14 @@ class ModalWindow extends (external_react_default()).Component {
   constructor(props) {
     super(props);
 
+    ModalWindow_defineProperty(this, "myLoader", ({
+      src,
+      width,
+      quality
+    }) => {
+      return `${src}?w=${width}&q=${quality || 75}`;
+    });
+
     ModalWindow_defineProperty(this, "closeModalWindow", e => {
       let modalWindow = this.modalWindow.current;
 
@@ -367,7 +375,7 @@ class ModalWindow extends (external_react_default()).Component {
               alt: "icon close",
               width: 30,
               height: 30,
-              loading: 'lazy'
+              loader: this.myLoader
             })
           }), /*#__PURE__*/jsx_runtime_.jsx("h4", {
             className: "modal-window__title",
@@ -384,7 +392,7 @@ class ModalWindow extends (external_react_default()).Component {
               alt: "icon close",
               width: 30,
               height: 30,
-              loading: 'lazy'
+              loader: this.myLoader
             })
           }), /*#__PURE__*/jsx_runtime_.jsx("h4", {
             className: "modal-window__title",
@@ -403,7 +411,7 @@ class ModalWindow extends (external_react_default()).Component {
               alt: "icon close",
               width: 30,
               height: 30,
-              loading: 'lazy'
+              loader: this.myLoader
             })
           }), /*#__PURE__*/jsx_runtime_.jsx("h4", {
             className: "modal-window__title",

@@ -1,5 +1,5 @@
 import React from 'react';
-import photo from './../../images/profile.png';
+import photo from '../../images/profile.png';
 import {connect} from "react-redux";
 import Link from "next/link";
 import Image from "next/image";
@@ -45,7 +45,7 @@ class ProfileMini extends React.Component {
 				<div className="header__photo wrapper-img">
 					<Link href="/profile">
 						<a onClick={this.closeSidebar} ref={this.containerImage}>
-							<Image src={photo} alt="photo" width={70} height={70} loading={'lazy'}/>
+							<Image src={photo} alt="photo" width={70} height={70}/>
 						</a>
 					</Link>
 				</div>

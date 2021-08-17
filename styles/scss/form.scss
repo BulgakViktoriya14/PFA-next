@@ -58,7 +58,7 @@
             &:before {
                 content: "";
                 position: absolute;
-                background-image: url("../../images/file.svg");
+                background-image: url("../../public/image/file.svg");
                 width: 20px;
                 height: 20px;
                 display: block;
@@ -71,7 +71,7 @@
                 &:after {
                     content: "";
                     position: absolute;
-                    background-image: url("../../images/check-mark.svg");
+                    background-image: url("../../public/image/check-mark.svg");
                     width: 20px;
                     height: 20px;
                     display: block;
@@ -197,12 +197,12 @@
         width: 32px;
         background-color: $colorWhite;
         border: none;
-        background-image: url("../../images/visiblePassword.svg");
+        background-image: url("../../public/image/visiblePassword.svg");
         background-size: 100% 100%;
         transition: 200ms;
 
         &.button-hidden-password {
-            background-image: url("../../images/hiddenPassword.svg");
+            background-image: url("../../public/image/hiddenPassword.svg");
         }
 
         &:focus {

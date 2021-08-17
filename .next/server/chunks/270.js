@@ -35,8 +35,7 @@ class Logo extends (external_react_default()).Component {
         src: logo,
         alt: "logo",
         width: 250,
-        height: 100,
-        loading: 'lazy'
+        height: 100
       })
     });
   }
@@ -114,8 +113,7 @@ class ProfileMini extends (external_react_default()).Component {
               src: profile/* default */.Z,
               alt: "photo",
               width: 70,
-              height: 70,
-              loading: 'lazy'
+              height: 70
             })
           })
         })
@@ -225,8 +223,7 @@ class Sidebar extends (external_react_default()).Component {
               src: images_close/* default */.Z,
               alt: "close",
               width: 30,
-              height: 30,
-              loading: 'lazy'
+              height: 30
             })
           }), /*#__PURE__*/jsx_runtime_.jsx("li", {
             className: "menu-item",

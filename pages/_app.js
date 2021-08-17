@@ -1,4 +1,4 @@
-import '../styles/css/index.css'
+import '../public/style/index.css'
 import {createStore} from 'redux';
 import rootReducer from '../reducers/index.js';
 import firebase from 'firebase';

@@ -130,7 +130,7 @@ class Profile extends React.Component {
                     <h1 className="title">Profile</h1>
                     <div className="profile">
                         <div className="profile__image wrapper-img" ref={this.containerImage}>
-                            <Image src={photo} alt="photo" width={300} height={"auto"} loading={'lazy'}/>
+                            <Image src={photo} alt="photo" width={300} height={"auto"}/>
                         </div>
                         <FormInfoProfile handleChange={this.handleChange} flag={this.state.flag} userName={this.props.userName} userEmail={this.props.userEmail}/>
                     </div>
@@ -143,7 +143,7 @@ class Profile extends React.Component {
                         }
                         <ButtonProfile functionOnCLick={this.openModalWindowChangePassword} nameButton={"Change password"}/>
                         <ButtonProfile functionOnCLick={this.openModalWindowChangeAvatar} nameButton={"Change avatar"}/>
-                        <ButtonProfile functionOnCLick={this.logout} nameButton={"Log out"}/>
+                        <ButtonProfile functionOnCLick={this.logout} nameButton={"Log public"}/>
                         <ButtonProfile functionOnCLick={this.deleteProfile} nameButton={"Delete profile"}/>
                     </div>
                 </div>
