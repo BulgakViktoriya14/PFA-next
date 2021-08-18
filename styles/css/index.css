@@ -534,6 +534,9 @@ a:hover:after, a:focus:after {
 }
 .form__link {
   font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: .25px;
   color: #b90000;
 }
 .form__link.button {
