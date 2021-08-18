@@ -195,6 +195,7 @@ class FormChangeAvatar extends (external_react_default()).Component {
           children: "Select a file"
         }), /*#__PURE__*/jsx_runtime_.jsx("input", {
           type: "file",
+          "aria-label": "file for avatar",
           id: "file",
           name: "file",
           className: "form__input",
@@ -364,7 +365,7 @@ class ModalWindow extends (external_react_default()).Component {
             children: /*#__PURE__*/jsx_runtime_.jsx(next_image.default, {
               className: "close",
               src: images_close/* default */.Z,
-              alt: "icon close",
+              alt: "icon",
               width: 30,
               height: 30,
               loading: 'lazy'
@@ -380,8 +381,9 @@ class ModalWindow extends (external_react_default()).Component {
           children: [/*#__PURE__*/jsx_runtime_.jsx("button", {
             className: "close",
             children: /*#__PURE__*/jsx_runtime_.jsx(next_image.default, {
+              className: "close",
               src: images_close/* default */.Z,
-              alt: "icon close",
+              alt: "icon",
               width: 30,
               height: 30,
               loading: 'lazy'
@@ -399,8 +401,9 @@ class ModalWindow extends (external_react_default()).Component {
           children: [/*#__PURE__*/jsx_runtime_.jsx("button", {
             className: "close",
             children: /*#__PURE__*/jsx_runtime_.jsx(next_image.default, {
+              className: "close",
               src: images_close/* default */.Z,
-              alt: "icon close",
+              alt: "icon",
               width: 30,
               height: 30,
               loading: 'lazy'
@@ -476,6 +479,7 @@ class FieldFormWithValue extends (react__WEBPACK_IMPORTED_MODULE_1___default().C
         "aria-label": this.props.label
       }), this.props.flagPasswordField && /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
         className: "button-visible-password",
+        "aria-label": "Button visible password",
         onClick: this.props.showHidePassword
       })]
     });

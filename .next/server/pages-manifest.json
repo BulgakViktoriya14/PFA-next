@@ -1,11 +1,12 @@
 {
   "/_app": "pages/_app.js",
-  "/expenses": "pages/expenses.html",
-  "/income": "pages/income.html",
-  "/": "pages/index.html",
-  "/profile": "pages/profile.html",
-  "/register": "pages/register.html",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/404": "pages/404.html"
+  "/en/404": "pages/en/404.html",
+  "/en/500": "pages/en/500.html",
+  "/en/expenses": "pages/en/expenses.html",
+  "/en/income": "pages/en/income.html",
+  "/en": "pages/en.html",
+  "/en/register": "pages/en/register.html",
+  "/en/profile": "pages/en/profile.html"
 }

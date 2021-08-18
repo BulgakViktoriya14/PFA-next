@@ -38,7 +38,7 @@ class FormChangeAvatar extends React.Component {
             <form className="form form-change-avatar">
                 <div className="form__wrapper-file">
                     <label htmlFor="money" className="form__label" ref={this.labelInputFile}>Select a file</label>
-                    <input type="file" id="file" name="file" className="form__input" onChange={this.uploadFile} ref={this.props.inputFile}/>
+                    <input type="file" aria-label="file for avatar" id="file" name="file" className="form__input" onChange={this.uploadFile} ref={this.props.inputFile}/>
                 </div>
                 <button className="form__submit" name="submit"
                         onClick={this.saveNewAvatar}>Save photo</button>

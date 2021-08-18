@@ -9,7 +9,7 @@ class FieldFormWithValue extends React.Component {
                        readOnly={this.props.readonly ? "readonly" : ""} name={this.props.id} className="form__input" aria-required={this.props.required ? "required" : ""}
                        required={this.props.required ? "required" : ""} ref={this.props.innerRef} onChange={this.props.functionOnChange} aria-label={this.props.label}/>
                 {this.props.flagPasswordField &&
-                    <button className="button-visible-password" onClick={this.props.showHidePassword}/>
+                    <button className="button-visible-password" aria-label="Button visible password" onClick={this.props.showHidePassword}/>
                 }
             </div>
         )

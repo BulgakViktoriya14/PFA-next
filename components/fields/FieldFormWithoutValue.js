@@ -12,7 +12,7 @@ class FieldFormWithoutValue extends React.Component {
                 <input type={this.props.type} ref={this.props.innerRef} id={this.props.id} name={this.props.id} className="form__input" required={this.props.required ? "required" : ""}
                        aria-required={this.props.required ? "required" : ""} onChange={this.props.functionOnChange} aria-label={this.props.label}/>
                 {this.props.flagPasswordField &&
-                    <button className="button-visible-password" onClick={this.props.showHidePassword}/>
+                    <button className="button-visible-password" aria-label="Button visible password" onClick={this.props.showHidePassword}/>
                 }
             </div>
         )
