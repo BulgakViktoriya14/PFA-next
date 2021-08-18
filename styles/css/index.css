@@ -99,7 +99,8 @@ a:hover:after, a:focus:after {
 
 .wrapper-img img {
   width: 100%;
-  height: 100%;
+  height: 100% !important;
+  min-height: auto !important;
   max-width: 100%;
   max-height: 100%;
 }
@@ -536,7 +537,7 @@ a:hover:after, a:focus:after {
   font-weight: bold;
   font-size: 14px;
   line-height: 17px;
-  letter-spacing: .25px;
+  letter-spacing: 0.25px;
   color: #b90000;
 }
 .form__link.button {
@@ -1074,6 +1075,12 @@ a:hover:after, a:focus:after {
   transform: translateY(-100vh);
   cursor: pointer;
 }
+@media (max-width: 768px) {
+  .modal-window {
+    top: 60px;
+    height: calc(100vh - 60px);
+  }
+}
 .modal-window.open {
   transform: rotateY(0);
 }
@@ -1087,10 +1094,6 @@ a:hover:after, a:focus:after {
   cursor: default;
 }
 @media (max-width: 768px) {
-  .modal-window {
-    top: 60px;
-    height: calc(100vh - 60px);
-  }
   .modal-window__block {
     width: 100%;
     height: 100%;
