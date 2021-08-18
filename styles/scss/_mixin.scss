@@ -1,10 +1,9 @@
 @mixin buttonRed {
   background-color: $colorWhite;
-  color: #b90000;
+  color: $colorRed;
   font-size: 16px;
   line-height: 16px;
   padding: 10px 15px;
-  border-radius: 0;
   border: 2px solid $colorRed;
   transition: 200ms;
   font-weight: bold;
