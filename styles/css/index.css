@@ -1087,9 +1087,13 @@ a:hover:after, a:focus:after {
   cursor: default;
 }
 @media (max-width: 768px) {
+  .modal-window {
+    top: 60px;
+    height: calc(100vh - 60px);
+  }
   .modal-window__block {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     box-shadow: none;
   }
 }
