@@ -24,7 +24,7 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
   line-height: 17px;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.25px;
   background-color: #fff;
 }
 
@@ -32,12 +32,15 @@ button {
   font-family: "Montserrat", sans-serif;
   cursor: pointer;
   outline: none;
+  border-radius: 0;
+  appearance: none;
 }
 
 input,
 textarea {
   outline: none;
   border: none;
+  border-radius: 0;
 }
 
 input[type=button] {
@@ -459,7 +462,6 @@ a:hover:after, a:focus:after {
   font-size: 14px;
   line-height: 14px;
   border-bottom: 1px solid #000;
-  border-right: 0;
 }
 .form__input[readonly], .form__textarea[readonly] {
   cursor: default;
@@ -509,7 +511,6 @@ a:hover:after, a:focus:after {
   font-size: 16px;
   line-height: 16px;
   padding: 10px 15px;
-  border-radius: 0;
   border: 2px solid #b90000;
   transition: 200ms;
   font-weight: bold;
@@ -1006,7 +1007,6 @@ a:hover:after, a:focus:after {
   font-size: 16px;
   line-height: 16px;
   padding: 10px 15px;
-  border-radius: 0;
   border: 2px solid #b90000;
   transition: 200ms;
   font-weight: bold;
