@@ -2,7 +2,7 @@ import React from 'react';
 import photo from "../../images/profile.png";
 import firebase from 'firebase';
 import {connect} from "react-redux";
-import { withRouter } from "next/router";
+import {withRouter} from "next/router";
 import {setUserNameAction} from "../../actions/actionUserName";
 import {setUserEmailAction} from "../../actions/actionUserEmail";
 import {setUserSumAction} from "../../actions/actionSumUser";
@@ -32,7 +32,7 @@ class Profile extends React.Component {
         const db = firebase.database();
         let _this = this;
 
-        firebase.auth().onAuthStateChanged(function(user) {
+        firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
                 let currentEmail = user.email;
                 db.ref('/users').on('value', snap => {
@@ -59,7 +59,7 @@ class Profile extends React.Component {
         let imageWrapper = this.containerImage.current;
         firebase.storage().ref().child(`avatars/${userId}`).getDownloadURL()
             .then(function (url) {
-                if(url) {
+                if (url) {
                     imageWrapper.innerHTML = `<img src=${url} alt="photo"/>`;
                     _this.props.setUserAvatarFunction(url);
                 }
@@ -67,12 +67,12 @@ class Profile extends React.Component {
     }
 
     changeUserInfo = () => {
-        this.setState({ flag: !this.state.flag } );
+        this.setState({flag: !this.state.flag});
     }
 
     saveUserInfo = () => {
         const db = firebase.database();
-        this.setState({ flag: !this.state.flag } );
+        this.setState({flag: !this.state.flag});
 
         db.ref('/users/user' + this.state.idUser).update({
             name: this.props.userName,
@@ -113,9 +113,11 @@ class Profile extends React.Component {
 
     deleteProfile = () => {
         let _this = this;
-        firebase.auth().currentUser.delete().then(function() {
+        firebase.auth().currentUser.delete().then(function () {
                 firebase.database().ref('users/user' + _this.props.userId).remove()
-                    .then(function () {this.props.history.push('/check-in')})
+                    .then(function () {
+                        this.props.history.push('/check-in')
+                    })
                     .catch(error => console.log(error.message));
             }
         )
@@ -124,28 +126,29 @@ class Profile extends React.Component {
     render() {
         return (
             <Wrapper>
-                <div className="wrapper">
-                    <ModalWindow page={"profile-password"} nameClass={"modal-window modal-window__change-password"}/>
-                    <ModalWindow idUser={this.props.userId} page={"profile-avatar"} nameClass={"modal-window modal-window__change-avatar"} history={this.props.history}/>
-                    <h1 className="title">Profile</h1>
-                    <div className="profile">
-                        <div className="profile__image wrapper-img" ref={this.containerImage}>
-                            <Image src={photo} alt="photo"/>
-                        </div>
-                        <FormInfoProfile handleChange={this.handleChange} flag={this.state.flag} userName={this.props.userName} userEmail={this.props.userEmail}/>
+                <ModalWindow page={"profile-password"} nameClass={"modal-window modal-window__change-password"}/>
+                <ModalWindow idUser={this.props.userId} page={"profile-avatar"}
+                             nameClass={"modal-window modal-window__change-avatar"} history={this.props.history}/>
+                <h1 className="title">Profile</h1>
+                <div className="profile">
+                    <div className="profile__image wrapper-img" ref={this.containerImage}>
+                        <Image src={photo} alt="photo"/>
                     </div>
-                    <div className="profile__wrapper-buttons">
-                        {this.state.flag &&
-                            <ButtonProfile functionOnCLick={this.changeUserInfo} nameButton={"Change information about yourself"}/>
-                        }
-                        {!this.state.flag &&
-                            <ButtonProfile functionOnCLick={this.saveUserInfo} nameButton={"Save"}/>
-                        }
-                        <ButtonProfile functionOnCLick={this.openModalWindowChangePassword} nameButton={"Change password"}/>
-                        <ButtonProfile functionOnCLick={this.openModalWindowChangeAvatar} nameButton={"Change avatar"}/>
-                        <ButtonProfile functionOnCLick={this.logout} nameButton={"Log out"}/>
-                        <ButtonProfile functionOnCLick={this.deleteProfile} nameButton={"Delete profile"}/>
-                    </div>
+                    <FormInfoProfile handleChange={this.handleChange} flag={this.state.flag}
+                                     userName={this.props.userName} userEmail={this.props.userEmail}/>
+                </div>
+                <div className="profile__wrapper-buttons">
+                    {this.state.flag &&
+                    <ButtonProfile functionOnCLick={this.changeUserInfo}
+                                   nameButton={"Change information about yourself"}/>
+                    }
+                    {!this.state.flag &&
+                    <ButtonProfile functionOnCLick={this.saveUserInfo} nameButton={"Save"}/>
+                    }
+                    <ButtonProfile functionOnCLick={this.openModalWindowChangePassword} nameButton={"Change password"}/>
+                    <ButtonProfile functionOnCLick={this.openModalWindowChangeAvatar} nameButton={"Change avatar"}/>
+                    <ButtonProfile functionOnCLick={this.logout} nameButton={"Log out"}/>
+                    <ButtonProfile functionOnCLick={this.deleteProfile} nameButton={"Delete profile"}/>
                 </div>
             </Wrapper>
         )
