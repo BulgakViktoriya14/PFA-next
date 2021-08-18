@@ -21,14 +21,12 @@ class Income extends React.Component {
     render() {
         return (
             <Wrapper>
-                <div className="wrapper">
-                    <ButtonOpenPopupAddCard/>
-                    <h1 className="title">Income</h1>
-                    <CreationCard type="income"/>
-                    <h2 className="subtitle">Your income cards:</h2>
-                    <Cards flagDeleteCard={this.state.flagDeleteCard} cards={this.props.cardsIncome} type={"cardsIncome"}/>
-                    <ButtonDeleteCard changeFlagDeleteCard={this.changeFlagDeleteCard}/>
-                </div>
+                <ButtonOpenPopupAddCard/>
+                <h1 className="title">Income</h1>
+                <CreationCard type="income"/>
+                <h2 className="subtitle">Your income cards:</h2>
+                <Cards flagDeleteCard={this.state.flagDeleteCard} cards={this.props.cardsIncome} type={"cardsIncome"}/>
+                <ButtonDeleteCard changeFlagDeleteCard={this.changeFlagDeleteCard}/>
             </Wrapper>
         )
     }
