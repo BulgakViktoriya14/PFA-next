@@ -4,9 +4,16 @@
   flex-basis: 100%;
 
   &__image {
-    flex-basis: 35%;
-    margin: 0 5% 0 0;
+    margin: 0 50px 0 0;
     max-width: 400px;
+    max-height: 400px;
+    height: 400px;
+    width: 400px;
+
+    img {
+      height: 100% !important;
+      object-fit: cover;
+    }
 
     div {
       width: 100%;
@@ -14,7 +21,7 @@
   }
 
   &__info-form {
-    flex-basis: 45%;
+    flex-basis: calc(100% - 450px);
     flex-direction: column;
   }
 

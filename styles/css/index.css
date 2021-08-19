@@ -532,6 +532,12 @@ a:hover:after, a:focus:after {
     font-size: 14px;
     line-height: 14px;
   }
+  .form__submit:hover, .form__submit:focus,
+.form .button-add-card:hover,
+.form .button-add-card:focus {
+    background-color: #fff;
+    color: #b90000;
+  }
 }
 .form__link {
   font-weight: bold;
@@ -917,8 +923,8 @@ a:hover:after, a:focus:after {
   background-color: #000;
   background-image: url("../../images/delete.svg");
   background-size: 70% 70%;
-  height: 60px;
-  width: 60px;
+  height: 65px;
+  width: 65px;
   border: none;
   background-repeat: no-repeat;
   background-position: center;
@@ -928,8 +934,9 @@ a:hover:after, a:focus:after {
 }
 @media (max-width: 768px) {
   .button-delete-card {
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
+    background-size: 50% 50%;
   }
 }
 
@@ -967,15 +974,21 @@ a:hover:after, a:focus:after {
   flex-basis: 100%;
 }
 .profile__image {
-  flex-basis: 35%;
-  margin: 0 5% 0 0;
+  margin: 0 50px 0 0;
   max-width: 400px;
+  max-height: 400px;
+  height: 400px;
+  width: 400px;
+}
+.profile__image img {
+  height: 100% !important;
+  object-fit: cover;
 }
 .profile__image div {
   width: 100%;
 }
 .profile__info-form {
-  flex-basis: 45%;
+  flex-basis: calc(100% - 450px);
   flex-direction: column;
 }
 .profile__wrapper-buttons {
@@ -1047,6 +1060,20 @@ a:hover:after, a:focus:after {
 .button-delete-profile {
     font-size: 14px;
     line-height: 14px;
+  }
+  .button-edit-profile:hover, .button-edit-profile:focus,
+.button-change-password:hover,
+.button-change-password:focus,
+.button-logout:hover,
+.button-logout:focus,
+.button-change-avatar:hover,
+.button-change-avatar:focus,
+.button-category:hover,
+.button-category:focus,
+.button-delete-profile:hover,
+.button-delete-profile:focus {
+    background-color: #fff;
+    color: #b90000;
   }
 }
 @media (max-width: 768px) {
