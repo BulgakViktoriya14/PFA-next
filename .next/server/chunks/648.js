@@ -153,6 +153,8 @@ class Header extends (external_react_default()).Component {
 /* harmony default export */ var common_Header = (Header);
 // EXTERNAL MODULE: ./images/close.svg
 var images_close = __webpack_require__(518);
+// EXTERNAL MODULE: external "next/router"
+var router_ = __webpack_require__(6731);
 ;// CONCATENATED MODULE: ./components/common/MoneyAccount.js
 
 
@@ -201,6 +203,7 @@ function Sidebar_defineProperty(obj, key, value) { if (key in obj) { Object.defi
 
 
 
+
 class Sidebar extends (external_react_default()).Component {
   constructor(...args) {
     super(...args);
@@ -229,22 +232,21 @@ class Sidebar extends (external_react_default()).Component {
               loading: 'lazy'
             })
           }), /*#__PURE__*/jsx_runtime_.jsx("li", {
-            className: "menu-item",
+            className: this.props.router.pathname === "/income" ? "menu-item menu-item_active" : "menu-item",
+            onClick: this.closeSidebar,
             children: /*#__PURE__*/jsx_runtime_.jsx(next_link.default, {
               href: "/income",
               children: /*#__PURE__*/jsx_runtime_.jsx("a", {
                 className: "menu-link",
-                onClick: this.closeSidebar,
                 children: "Income"
               })
             })
           }), /*#__PURE__*/jsx_runtime_.jsx("li", {
-            className: "menu-item",
+            className: this.props.router.pathname === "/expenses" ? "menu-item menu-item_active" : "menu-item",
             children: /*#__PURE__*/jsx_runtime_.jsx(next_link.default, {
               href: "/expenses",
               children: /*#__PURE__*/jsx_runtime_.jsx("a", {
                 className: "menu-link",
-                onClick: this.closeSidebar,
                 children: "Expenses"
               })
             })
@@ -264,6 +266,7 @@ class Sidebar extends (external_react_default()).Component {
 
 
 function Wrapper_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -290,7 +293,8 @@ class Wrapper extends (external_react_default()).Component {
           className: "button-open-sidebar",
           onClick: this.openSidebar
         }), this.props.userName && /*#__PURE__*/jsx_runtime_.jsx(common_Sidebar, {
-          ref: this.blockSidebar
+          ref: this.blockSidebar,
+          router: this.props.router
         }), /*#__PURE__*/jsx_runtime_.jsx("div", {
           className: "wrapper",
           children: this.props.children
@@ -307,7 +311,7 @@ function Wrapper_mapStateToProps(state) {
   };
 }
 
-/* harmony default export */ var common_Wrapper = ((0,external_react_redux_.connect)(Wrapper_mapStateToProps, null)(Wrapper));
+/* harmony default export */ var common_Wrapper = ((0,external_react_redux_.connect)(Wrapper_mapStateToProps, null)((0,router_.withRouter)(Wrapper)));
 
 /***/ }),
 

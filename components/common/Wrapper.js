@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import {connect} from "react-redux";
+import {withRouter} from "next/router";
 
 class Wrapper extends React.Component {
     constructor(props) {
@@ -23,7 +24,7 @@ class Wrapper extends React.Component {
                         <button className="button-open-sidebar" onClick={this.openSidebar}/>
                     }
                     {this.props.userName &&
-                        <Sidebar ref={this.blockSidebar}/>
+                        <Sidebar ref={this.blockSidebar} router={this.props.router}/>
                     }
                     <div className="wrapper">
                         { this.props.children}
@@ -40,4 +41,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, null)(Wrapper);
+export default connect(mapStateToProps, null)(withRouter(Wrapper));

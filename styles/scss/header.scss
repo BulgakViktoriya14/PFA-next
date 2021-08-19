@@ -56,8 +56,13 @@
 	}
 
 	@include breakpoint(mobile) {
+		position: fixed;
+		width: 100%;
+		top: 0;
+		left: 0;
 		padding: 10px;
 		height: 60px;
+		z-index: 10;
 
 		.logo {
 			flex-basis: 140px;

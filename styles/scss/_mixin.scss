@@ -19,12 +19,6 @@
   @include breakpoint(mobile) {
     font-size: 14px;
     line-height: 14px;
-
-    &:hover,
-    &:focus {
-      background-color: $colorWhite;
-      color: $colorRed;
-    }
   }
 }
 

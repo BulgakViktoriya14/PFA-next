@@ -2,6 +2,7 @@ import React from 'react';
 import close from '../../images/close.svg';
 import Image from 'next/image';
 import Link from 'next/link';
+import {withRouter} from "next/router";
 import MoneyAccount from "./MoneyAccount";
 
 class Sidebar extends React.Component {
@@ -34,7 +35,7 @@ class Sidebar extends React.Component {
 						<li className={this.props.router.pathname  === "/reports" ? "menu-item menu-item_active" : "menu-item"}>
 							<Link href="/reports">
 								<a className="menu-link">
-									Expenses
+									Reports
 								</a>
 							</Link>
 						</li>
