@@ -2,6 +2,7 @@ import React from 'react';
 import close from '../../images/close.svg';
 import Image from 'next/image';
 import Link from 'next/link';
+import {withRouter} from "next/router";
 import MoneyAccount from "./MoneyAccount";
 
 class Sidebar extends React.Component {
@@ -17,16 +18,16 @@ class Sidebar extends React.Component {
 						<button className="close" onClick={this.closeSidebar}>
 							<Image src={close} alt="close" width={30} height={30} loading={'lazy'}/>
 						</button>
-						<li className="menu-item">
+						<li className={this.props.router.pathname === "/income" ? "menu-item menu-item_active" : "menu-item"} onClick={this.closeSidebar}>
 							<Link href="/income">
-								<a className="menu-link" onClick={this.closeSidebar}>
+								<a className="menu-link">
 									Income
 								</a>
 							</Link>
 						</li>
-						<li className="menu-item">
+						<li className={this.props.router.pathname  === "/expenses" ? "menu-item menu-item_active" : "menu-item"}>
 							<Link href="/expenses">
-								<a className="menu-link" onClick={this.closeSidebar}>
+								<a className="menu-link">
 									Expenses
 								</a>
 							</Link>

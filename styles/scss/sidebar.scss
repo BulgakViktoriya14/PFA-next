@@ -50,6 +50,16 @@
     &-item {
 		margin: 30px 0;
 
+		&_active {
+			.menu-link {
+				color: $colorRed;
+
+				&:after {
+					background-color: $colorRed;
+				}
+			}
+		}
+
 		@include breakpoint(tablet) {
 			margin: 20px 0;
 		}
@@ -60,14 +70,6 @@
 		line-height: 38px;
 		position: relative;
 		padding: 0 0 3px 0;
-
-		&_active {
-			color: $colorRed;
-
-			&:after {
-				background-color: $colorRed;
-			}
-		}
 
 		@include breakpoint(mobile) {
 			font-size: 24px;

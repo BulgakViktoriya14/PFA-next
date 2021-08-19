@@ -310,6 +310,12 @@ a:hover:after, a:focus:after {
 .menu-item {
   margin: 30px 0;
 }
+.menu-item_active .menu-link {
+  color: #b90000;
+}
+.menu-item_active .menu-link:after {
+  background-color: #b90000;
+}
 @media (max-width: 1100px) {
   .menu-item {
     margin: 20px 0;
@@ -320,12 +326,6 @@ a:hover:after, a:focus:after {
   line-height: 38px;
   position: relative;
   padding: 0 0 3px 0;
-}
-.menu-link_active {
-  color: #b90000;
-}
-.menu-link_active:after {
-  background-color: #b90000;
 }
 @media (max-width: 768px) {
   .menu-link {
