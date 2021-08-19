@@ -244,6 +244,7 @@ a:hover:after, a:focus:after {
     left: 0;
     padding: 10px;
     height: 60px;
+    z-index: 10;
   }
   .header .logo {
     flex-basis: 140px;
