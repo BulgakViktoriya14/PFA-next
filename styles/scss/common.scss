@@ -118,6 +118,7 @@ a {
 
 	@include breakpoint(mobile) {
 		height: calc(100vh - 60px);
+		margin-top: 60px;
 	}
 }
 

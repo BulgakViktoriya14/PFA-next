@@ -113,6 +113,7 @@ a:hover:after, a:focus:after {
 @media (max-width: 768px) {
   .content {
     height: calc(100vh - 60px);
+    margin-top: 60px;
   }
 }
 
@@ -237,6 +238,10 @@ a:hover:after, a:focus:after {
 }
 @media (max-width: 768px) {
   .header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
     padding: 10px;
     height: 60px;
   }
@@ -532,9 +537,8 @@ a:hover:after, a:focus:after {
     font-size: 14px;
     line-height: 14px;
   }
-  .form__submit:hover, .form__submit:focus,
-.form .button-add-card:hover,
-.form .button-add-card:focus {
+  .form__submit:hover,
+.form .button-add-card:hover {
     background-color: #fff;
     color: #b90000;
   }
@@ -1061,17 +1065,12 @@ a:hover:after, a:focus:after {
     font-size: 14px;
     line-height: 14px;
   }
-  .button-edit-profile:hover, .button-edit-profile:focus,
+  .button-edit-profile:hover,
 .button-change-password:hover,
-.button-change-password:focus,
 .button-logout:hover,
-.button-logout:focus,
 .button-change-avatar:hover,
-.button-change-avatar:focus,
 .button-category:hover,
-.button-category:focus,
-.button-delete-profile:hover,
-.button-delete-profile:focus {
+.button-delete-profile:hover {
     background-color: #fff;
     color: #b90000;
   }
