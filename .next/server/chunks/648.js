@@ -250,6 +250,15 @@ class Sidebar extends (external_react_default()).Component {
                 children: "Expenses"
               })
             })
+          }), /*#__PURE__*/jsx_runtime_.jsx("li", {
+            className: this.props.router.pathname === "/reports" ? "menu-item menu-item_active" : "menu-item",
+            children: /*#__PURE__*/jsx_runtime_.jsx(next_link.default, {
+              href: "/reports",
+              children: /*#__PURE__*/jsx_runtime_.jsx("a", {
+                className: "menu-link",
+                children: "Reports"
+              })
+            })
           })]
         })
       }), /*#__PURE__*/jsx_runtime_.jsx(common_MoneyAccount, {})]

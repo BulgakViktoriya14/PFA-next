@@ -15,6 +15,7 @@
   "dependencies": {
     "@google-cloud/translate": "^6.2.6",
     "chartist": "^0.11.4",
+    "chartist-plugin-tooltips-updated": "^0.1.4",
     "child_process": "^1.0.2",
     "firebase": "^8.7.1",
     "fs": "0.0.1-security",

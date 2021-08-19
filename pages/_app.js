@@ -1,4 +1,6 @@
-import '../styles/css/index.css'
+import '../styles/css/index.css';
+import '../node_modules/chartist/dist/chartist.css';
+import '../node_modules/chartist/dist/chartist.js';
 import {createStore} from 'redux';
 import rootReducer from '../reducers/index.js';
 import firebase from 'firebase';

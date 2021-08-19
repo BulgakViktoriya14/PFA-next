@@ -18,6 +18,8 @@ __webpack_require__.d(__webpack_exports__, {
 
 // EXTERNAL MODULE: external "react/jsx-runtime"
 var jsx_runtime_ = __webpack_require__(5282);
+// EXTERNAL MODULE: ./node_modules/chartist/dist/chartist.js
+var chartist = __webpack_require__(9259);
 ;// CONCATENATED MODULE: external "redux"
 var external_redux_namespaceObject = require("redux");;
 ;// CONCATENATED MODULE: ./reducers/info.js
@@ -151,6 +153,8 @@ function _app_defineProperty(obj, key, value) { if (key in obj) { Object.defineP
 
 
 
+
+
 const store = (0,external_redux_namespaceObject.createStore)(reducers);
 const firebaseConfig = {
   apiKey: "AIzaSyD4ZOaQgincn4u2ohZbafA0KebyN68JE9E",
@@ -205,7 +209,7 @@ module.exports = require("react/jsx-runtime");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-var __webpack_exports__ = (__webpack_exec__(7859));
+var __webpack_exports__ = __webpack_require__.X(0, [259], function() { return __webpack_exec__(7859); });
 module.exports = __webpack_exports__;
 
 })();
