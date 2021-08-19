@@ -11,7 +11,8 @@
 
   &:hover,
   &:active,
-  &:focus {
+  &:focus,
+  &:target {
     background-color: $colorRed;
     color: $colorWhite;
   }

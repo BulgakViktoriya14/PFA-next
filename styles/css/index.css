@@ -525,10 +525,11 @@ a:hover:after, a:focus:after {
   font-weight: bold;
   box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.002);
 }
-.form__submit:hover, .form__submit:active, .form__submit:focus,
+.form__submit:hover, .form__submit:active, .form__submit:focus, .form__submit:target,
 .form .button-add-card:hover,
 .form .button-add-card:active,
-.form .button-add-card:focus {
+.form .button-add-card:focus,
+.form .button-add-card:target {
   background-color: #b90000;
   color: #fff;
 }
@@ -1037,22 +1038,27 @@ a:hover:after, a:focus:after {
   box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.002);
   margin: 0 20px 0 0;
 }
-.button-edit-profile:hover, .button-edit-profile:active, .button-edit-profile:focus,
+.button-edit-profile:hover, .button-edit-profile:active, .button-edit-profile:focus, .button-edit-profile:target,
 .button-change-password:hover,
 .button-change-password:active,
 .button-change-password:focus,
+.button-change-password:target,
 .button-logout:hover,
 .button-logout:active,
 .button-logout:focus,
+.button-logout:target,
 .button-change-avatar:hover,
 .button-change-avatar:active,
 .button-change-avatar:focus,
+.button-change-avatar:target,
 .button-category:hover,
 .button-category:active,
 .button-category:focus,
+.button-category:target,
 .button-delete-profile:hover,
 .button-delete-profile:active,
-.button-delete-profile:focus {
+.button-delete-profile:focus,
+.button-delete-profile:target {
   background-color: #b90000;
   color: #fff;
 }
