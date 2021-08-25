@@ -10,7 +10,7 @@ export function validateLengthField(typeField, valueField) {
 }
 
 function flagLengthTextField(value) {
-    if(value.length < 3) {
+    if (value.length < 3) {
         return false;
     }
     return true;

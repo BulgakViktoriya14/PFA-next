@@ -132,6 +132,9 @@ class FormLoginAndCheckIn extends (external_react_default()).Component {
           return;
         }
 
+        this.setState({
+          errorText: ""
+        });
         external_firebase_default().auth().createUserWithEmailAndPassword(email, password).then(() => {
           let id = (0,external_uuid_.v4)();
           external_firebase_default().database().ref('/users/user' + id).set({

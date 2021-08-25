@@ -37,11 +37,24 @@ button {
 }
 
 input,
-textarea {
+textarea,
+select {
   outline: none;
   border: none;
   border-radius: 0;
   appearance: none;
+}
+
+select {
+  appearance: auto;
+  cursor: pointer;
+}
+
+input[type=date] {
+  cursor: text;
+}
+input[type=date]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
 }
 
 input[type=button] {
@@ -135,7 +148,7 @@ a:hover:after, a:focus:after {
 @media (max-width: 1100px) {
   .wrapper {
     flex-basis: 100%;
-    padding: 30px 30px 0 30px;
+    padding: 30px;
   }
 }
 
@@ -190,6 +203,32 @@ a:hover:after, a:focus:after {
 }
 .close img {
   width: 100%;
+}
+
+.table {
+  width: 100%;
+  border-spacing: 0;
+  font-size: 16px;
+  line-height: 19px;
+  border-right: 1px solid #b90000;
+  border-left: 1px solid #b90000;
+}
+.table .th {
+  padding: 10px 5px;
+  background-color: #b90000;
+  color: #fff;
+  font-weight: bold;
+}
+.table .td {
+  padding: 10px 5px;
+  text-align: center;
+  border-bottom: 1px solid #b90000;
+}
+@media (max-width: 1100px) {
+  .table {
+    font-size: 14px;
+    line-height: 17px;
+  }
 }
 
 .header {
@@ -401,7 +440,7 @@ a:hover:after, a:focus:after {
   flex-direction: column;
   padding: 0;
   width: 100%;
-  margin: 0;
+  margin: 0 0 40px 0;
   position: relative;
 }
 .form__label {
@@ -502,6 +541,14 @@ a:hover:after, a:focus:after {
 .form__input:-webkit-autofill, .form__input:-webkit-autofill:hover, .form__input:-webkit-autofill:focus, .form__input:-webkit-autofill:active, .form__textarea:-webkit-autofill, .form__textarea:-webkit-autofill:hover, .form__textarea:-webkit-autofill:focus, .form__textarea:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 15px #fff inset !important;
 }
+.form__select > div {
+  border: none;
+  padding: 5px;
+  font-size: 14px;
+  line-height: 14px;
+  border-bottom: 1px solid #000;
+  border-radius: 0;
+}
 .form__wrapper-buttons {
   display: flex;
   flex-basis: 100%;
@@ -514,7 +561,8 @@ a:hover:after, a:focus:after {
   flex-direction: column;
 }
 .form__submit,
-.form .button-add-card {
+.form .button-add-card,
+.form .button-create-report {
   background-color: #fff;
   color: #b90000;
   font-size: 16px;
@@ -528,16 +576,23 @@ a:hover:after, a:focus:after {
 .form__submit:hover, .form__submit:active, .form__submit:focus,
 .form .button-add-card:hover,
 .form .button-add-card:active,
-.form .button-add-card:focus {
+.form .button-add-card:focus,
+.form .button-create-report:hover,
+.form .button-create-report:active,
+.form .button-create-report:focus {
   background-color: #b90000;
   color: #fff;
 }
 @media (max-width: 768px) {
   .form__submit,
-.form .button-add-card {
+.form .button-add-card,
+.form .button-create-report {
     font-size: 14px;
     line-height: 14px;
   }
+}
+.form .button-create-report:first-child {
+  margin: 0 30px 0 0;
 }
 .form__link {
   font-weight: bold;
@@ -594,6 +649,24 @@ a:hover:after, a:focus:after {
 }
 .form .button-visible-password:focus {
   background-color: #d1d1d1;
+}
+.form-chart {
+  flex-direction: column;
+  align-items: baseline;
+  flex-basis: 50%;
+  max-width: calc(90% - 400px);
+  margin: 0 10% 0 0;
+}
+@media (max-width: 1100px) {
+  .form-chart {
+    margin: 0 0 50px 0;
+    max-width: 100%;
+    flex-basis: 100%;
+    width: 100%;
+  }
+}
+.form-chart .form__wrapper-buttons {
+  margin: 0;
 }
 .form-add-card {
   justify-content: space-between;
@@ -677,7 +750,6 @@ a:hover:after, a:focus:after {
 }
 .form.profile__info-form .form__item {
   width: 100%;
-  margin: 0 0 40px 0;
   flex-basis: 0;
 }
 @media (max-width: 768px) {
@@ -1119,4 +1191,30 @@ a:hover:after, a:focus:after {
   line-height: 18px;
   text-align: center;
   margin: 0 0 30px 0;
+}
+
+.report-container {
+  display: flex;
+  flex-basis: 100%;
+  margin: 80px 0 0 0;
+}
+@media (max-width: 1100px) {
+  .report-container {
+    flex-direction: column;
+    align-items: center;
+    margin: 50px 0 0 0;
+  }
+}
+.report-container .ct-label {
+  fill: #fff;
+  color: #fff;
+  font-weight: bold;
+}
+.report-container .report {
+  width: 400px;
+}
+@media (max-width: 1100px) {
+  .report-container .report {
+    width: 100%;
+  }
 }

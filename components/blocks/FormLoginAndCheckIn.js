@@ -58,6 +58,8 @@ class FormLoginAndCheckIn extends React.Component {
 				return;
 			}
 
+			this.setState({errorText: ""});
+
 			firebase.auth().createUserWithEmailAndPassword(email, password)
 			.then(() => {
 				let id = uuidv4();
