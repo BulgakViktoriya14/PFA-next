@@ -541,7 +541,7 @@ a:hover:after, a:focus:after {
 .form__input:-webkit-autofill, .form__input:-webkit-autofill:hover, .form__input:-webkit-autofill:focus, .form__input:-webkit-autofill:active, .form__textarea:-webkit-autofill, .form__textarea:-webkit-autofill:hover, .form__textarea:-webkit-autofill:focus, .form__textarea:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 15px #fff inset !important;
 }
-.form__select > div {
+.form__select > div:first-child {
   border: none;
   padding: 5px;
   font-size: 14px;

@@ -129,7 +129,7 @@
   }
 
   &__select {
-    > div {
+    > div:first-child {
       border: none;
       padding: 5px;
       font-size: 14px;
