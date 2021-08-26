@@ -231,6 +231,10 @@ a:hover:after, a:focus:after {
   }
 }
 
+.disabled {
+  display: none;
+}
+
 .header {
   display: flex;
   flex-basis: 100%;
@@ -541,13 +545,15 @@ a:hover:after, a:focus:after {
 .form__input:-webkit-autofill, .form__input:-webkit-autofill:hover, .form__input:-webkit-autofill:focus, .form__input:-webkit-autofill:active, .form__textarea:-webkit-autofill, .form__textarea:-webkit-autofill:hover, .form__textarea:-webkit-autofill:focus, .form__textarea:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 15px #fff inset !important;
 }
-.form__select > div:first-child {
+.form__select > div:nth-child(2) {
   border: none;
-  padding: 5px;
+  padding: 0;
   font-size: 14px;
   line-height: 14px;
   border-bottom: 1px solid #000;
   border-radius: 0;
+  min-height: 30px;
+  cursor: pointer;
 }
 .form__wrapper-buttons {
   display: flex;
@@ -670,6 +676,7 @@ a:hover:after, a:focus:after {
 }
 .form-add-card {
   justify-content: space-between;
+  align-items: end;
   flex-basis: 100%;
   flex-wrap: wrap;
 }

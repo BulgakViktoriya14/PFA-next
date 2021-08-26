@@ -22,21 +22,17 @@ export function createMonthlyReport(startDateItem, endDateItem, cards) {
                 if(arrayData[i][0] === arrayData[j][0] && arrayData[i][1] === arrayData[j][1] && arrayData[j].length < 5) {
                     arrayData[i][2] = Number(arrayData[i][2]) + Number(arrayData[j][2]);
                     arrayData[j].push("true");
-                    console.log(arrayData[i][0], arrayData[i][1])
                 }
             }
             arrayObjects.push({dateY: arrayData[i][0], dateM: arrayData[i][1], money: arrayData[i][2], date: arrayData[i][3]});
-            console.log(arrayObjects)
         }
     }
 
     arrayObjects.forEach(function(item) {
-        console.log(item)
         if (item.date >= startDate && item.date <= endDate) {
             arrayDataValues.push(item.money);
             arrayDataLabels.push(`${item.dateM}.${item.dateY}`);
         }
-        console.log(arrayDataValues, arrayDataLabels);
     })
 
     return [arrayDataLabels, arrayDataValues];

@@ -1,6 +1,5 @@
 import React from 'react';
 import Wrapper from "../../components/common/Wrapper";
-import ChartistGraph from "react-chartist";
 import {connect} from "react-redux";
 import FormCreateChart from "../../components/blocks/FormCreateChart";
 import {validateEmptyField} from "../../functions/validateEmptyField";
@@ -10,6 +9,8 @@ import {createYearlyReport} from "../../functions/createYearlyReport";
 import {validateDates} from "../../functions/validateDates";
 import {createMonthlyReport} from "../../functions/createMonthlyReport";
 import {createTable} from "../../functions/createTable";
+import {validateDateEnd} from "../../functions/validateDateEnd";
+import BlockReport from "../../components/blocks/BlockReport";
 
 class Reports extends React.Component {
     constructor(props) {
@@ -36,12 +37,13 @@ class Reports extends React.Component {
     createReport = (e) => {
         let typeReport = document.querySelector("#type-report > div > div > div").innerText;
         let categoryReport = document.querySelector("#category-report > div > div > div").innerText;
-        console.log(typeReport, categoryReport)
         let startDateItem = this.startDate.current.value;
         let endDateItem = this.endDate.current.value;
         let flagEmptyField = validateEmptyField([startDateItem, endDateItem, typeReport, categoryReport]);
         let flagDates = validateDates(startDateItem, endDateItem);
         let flagEndDate = validateDateEnd(endDateItem);
+        let type = e.target.getAttribute("id");
+        this.setState({type: type});
 
         if (!flagEmptyField) {
             this.setState({errorText: "You have not completed the fields"});
@@ -62,7 +64,7 @@ class Reports extends React.Component {
         }
 
         this.setState({errorText: ""});
-        this.setState({type: e.target.getAttribute("id")});
+        this.setState({flag: true});
 
         let cards = typeReport === "Expenses" ? this.props.cardsExpenses : this.props.cardsIncome;
 
@@ -70,40 +72,36 @@ class Reports extends React.Component {
             case "Daily chart":
                 let resultArrayDaily = createDailyReport(startDateItem, endDateItem, cards);
                 this.checkData(resultArrayDaily);
-                this.setState({flag: true});
-                if (this.state.type === "graph") {
+                if (type === "graph") {
                     this.setState({data: {labels: resultArrayDaily[0], series: resultArrayDaily[1]}});
-                } else if (this.state.type === "table") {
+                } else if (type === "table") {
                     createTable(resultArrayDaily[0], resultArrayDaily[1]);
                 }
                 break;
             case "Category chart":
                 let resultArrayCategory = createCategoryReport(startDateItem, endDateItem, cards);
                 this.checkData(resultArrayCategory);
-                this.setState({flag: true});
-                if (this.state.type === "graph") {
+                if (type === "graph") {
                     this.setState({data: {labels: resultArrayCategory[0], series: resultArrayCategory[1]}});
-                } else if (this.state.type === "table") {
+                } else if (type === "table") {
                     createTable(resultArrayCategory[0], resultArrayCategory[1]);
                 }
                 break;
             case "Yearly chart":
                 let resultArrayYearly = createYearlyReport(startDateItem, endDateItem, cards);
                 this.checkData(resultArrayYearly);
-                this.setState({flag: true});
-                if (this.state.type === "graph") {
+                if (type === "graph") {
                     this.setState({data: {labels: resultArrayYearly[0], series: resultArrayYearly[1]}});
-                } else if (this.state.type === "table") {
+                } else if (type === "table") {
                     createTable(resultArrayYearly[0], resultArrayYearly[1]);
                 }
                 break;
             case "Monthly chart":
                 let resultArrayMonthly = createMonthlyReport(startDateItem, endDateItem, cards);
                 this.checkData(resultArrayMonthly);
-                this.setState({flag: true});
-                if (this.state.type === "graph") {
+                if (type === "graph") {
                     this.setState({data: {labels: resultArrayMonthly[0], series: resultArrayMonthly[1]}});
-                } else if (this.state.type === "table") {
+                } else if (type === "table") {
                     createTable(resultArrayMonthly[0], resultArrayMonthly[1]);
                 }
                 break;
@@ -135,24 +133,7 @@ class Reports extends React.Component {
                     <FormCreateChart startDate={this.startDate} endDate={this.endDate} createReport={this.createReport}
                                      errorText={this.state.errorText} typeReport={this.typeReport}
                                      categoryReport={this.categoryReport} buttonCreateType={this.buttonCreateType}/>
-                    <div className="report">
-                        {this.state.type === "graph" &&
-                        <ChartistGraph data={this.state.data} options={options} type={type}
-                                       responsiveOptions={responsiveOptions}/>
-                        }
-                        {this.state.type === "table" && this.state.flag &&
-                        <table className="table report__table">
-                            <thead className="thead">
-                            <tr className="tr">
-                                <th className="th">Category</th>
-                                <th className="th">Amount</th>
-                            </tr>
-                            </thead>
-                            <tbody className="tbody">
-                            </tbody>
-                        </table>
-                        }
-                    </div>
+                    <BlockReport data={this.state.data} flag={this.state.flag} type={this.state.type} typeChart={type} responsiveOptions={responsiveOptions} options={options}/>
                 </div>
             </Wrapper>
         )

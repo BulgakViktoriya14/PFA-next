@@ -129,13 +129,15 @@
   }
 
   &__select {
-    > div:first-child {
+    > div:nth-child(2) {
       border: none;
-      padding: 5px;
+      padding: 0;
       font-size: 14px;
       line-height: 14px;
       border-bottom: 1px solid $colorBlack;
       border-radius: 0;
+      min-height: 30px;
+      cursor: pointer;
     }
   }
 
@@ -252,6 +254,7 @@
 
   &-add-card {
     justify-content: space-between;
+    align-items: end;
     flex-basis: 100%;
     flex-wrap: wrap;
 

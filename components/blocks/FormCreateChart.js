@@ -2,7 +2,6 @@ import React from 'react';
 import FieldSelect from "../fields/FieldSelect";
 import FieldFormWithoutValue from "../fields/FieldFormWithoutValue";
 import ButtonCreateReport from "../buttons/ButtonCreateReport";
-import SelectItem from "../select/SelectItem";
 
 class FormCreateChart extends React.Component {
     render() {
@@ -10,8 +9,8 @@ class FormCreateChart extends React.Component {
             <form className="form form-chart">
                 <FieldSelect label={"Select what to build the report for"} required={true}
                              optionsArray={["Expenses", "Income"]} id={"type-report"}/>
-                <FieldSelect label={"Select categories for the report"} required={true} id={"category-report"}
-                             optionsArray={["Daily chart", "Monthly chart", "Yearly chart", "Category chart"]}/>
+                <FieldSelect label={"Select the category for the report"} required={true} id={"category-report"}
+                             optionsArray={["Daily graph", "Monthly graph", "Yearly graph", "Category graph"]}/>
                 <FieldFormWithoutValue innerRef={this.props.startDate} required={true}
                                        label={"Select the start date of the interval"} type={"date"}
                                        id={"start-date-interval"} flagPasswordField={false}/>

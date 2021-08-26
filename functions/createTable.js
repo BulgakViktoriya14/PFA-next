@@ -1,3 +1,5 @@
+import React from "react";
+
 export function createTable(columnOne, columnTwo) {
     let tbodyElement = document.querySelector(".report__table .tbody");
 

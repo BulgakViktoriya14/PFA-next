@@ -5,16 +5,17 @@ const customStyles = {
     control: styles => ({ ...styles, backgroundColor: 'white' }),
     option: (styles, { data, isDisabled, isFocused, isSelected }) => {
         return {
-            backgroundColor: isSelected ? '#faabab' : '#fff',
-            padding: '5px',
+            backgroundColor: isSelected ? '#ffb8b8' : '#fff',
+            padding: 10,
             fontSize: '16px'
         };
     },
     menu: (provided, state) => ({
         ...provided,
-        padding: '0',
+        padding: 0,
         cursor: 'pointer',
-        border: '1px solid #000'
+        border: '1px solid #000',
+        borderRadius: 0
     })
 }
 
