@@ -69,7 +69,8 @@ class Reports extends React.Component {
         let cards = typeReport === "Expenses" ? this.props.cardsExpenses : this.props.cardsIncome;
 
         switch (categoryReport) {
-            case "Daily chart":
+            case "Daily graph":
+                console.log("switch", categoryReport)
                 let resultArrayDaily = createDailyReport(startDateItem, endDateItem, cards);
                 this.checkData(resultArrayDaily);
                 if (type === "graph") {
@@ -78,7 +79,7 @@ class Reports extends React.Component {
                     createTable(resultArrayDaily[0], resultArrayDaily[1]);
                 }
                 break;
-            case "Category chart":
+            case "Category graph":
                 let resultArrayCategory = createCategoryReport(startDateItem, endDateItem, cards);
                 this.checkData(resultArrayCategory);
                 if (type === "graph") {
@@ -87,7 +88,7 @@ class Reports extends React.Component {
                     createTable(resultArrayCategory[0], resultArrayCategory[1]);
                 }
                 break;
-            case "Yearly chart":
+            case "Yearly graph":
                 let resultArrayYearly = createYearlyReport(startDateItem, endDateItem, cards);
                 this.checkData(resultArrayYearly);
                 if (type === "graph") {
@@ -96,7 +97,7 @@ class Reports extends React.Component {
                     createTable(resultArrayYearly[0], resultArrayYearly[1]);
                 }
                 break;
-            case "Monthly chart":
+            case "Monthly graph":
                 let resultArrayMonthly = createMonthlyReport(startDateItem, endDateItem, cards);
                 this.checkData(resultArrayMonthly);
                 if (type === "graph") {
