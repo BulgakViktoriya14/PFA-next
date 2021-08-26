@@ -131,13 +131,22 @@
   &__select {
     > div:nth-child(2) {
       border: none;
-      padding: 0;
+      padding: 0 0 0 5px;
       font-size: 14px;
       line-height: 14px;
       border-bottom: 1px solid $colorBlack;
       border-radius: 0;
       min-height: 30px;
       cursor: pointer;
+
+      > div {
+        padding: 0;
+
+        > div {
+          margin-left: 0;
+          margin-right: 0;
+        }
+      }
     }
   }
 
