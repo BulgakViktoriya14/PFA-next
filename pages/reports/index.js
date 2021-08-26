@@ -70,7 +70,6 @@ class Reports extends React.Component {
 
         switch (categoryReport) {
             case "Daily graph":
-                console.log("switch", categoryReport)
                 let resultArrayDaily = createDailyReport(startDateItem, endDateItem, cards);
                 this.checkData(resultArrayDaily);
                 if (type === "graph") {
