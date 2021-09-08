@@ -1,5 +1,6 @@
 import React from 'react';
 import firebase from 'firebase';
+import Router from 'next/router'
 
 class FormChangeAvatar extends React.Component {
     constructor(props) {
@@ -20,7 +21,7 @@ class FormChangeAvatar extends React.Component {
             firebase.storage().ref().child(`avatars/${_this.props.idUser}`).put(file)
                 .then(function(result) {
                     _this.setState({errorText: ""});
-                    _this.props.history.go(0);
+                    Router.reload(window.location.pathname);
                 });
         } else {
             this.setState({errorText: "You haven't selected a file"});

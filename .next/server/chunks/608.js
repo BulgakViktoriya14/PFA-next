@@ -133,6 +133,9 @@ class FormChangePassword extends (external_react_default()).Component {
 /* harmony default export */ var blocks_FormChangePassword = (FormChangePassword);
 // EXTERNAL MODULE: ./images/close.svg
 var images_close = __webpack_require__(518);
+// EXTERNAL MODULE: external "next/router"
+var router_ = __webpack_require__(6731);
+var router_default = /*#__PURE__*/__webpack_require__.n(router_);
 ;// CONCATENATED MODULE: ./components/blocks/FormChangeAvatar.js
 
 
@@ -142,6 +145,7 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { FormChangeAvatar_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function FormChangeAvatar_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -162,7 +166,7 @@ class FormChangeAvatar extends (external_react_default()).Component {
             errorText: ""
           });
 
-          _this.props.history.go(0);
+          router_default().reload(window.location.pathname);
         });
       } else {
         this.setState({
@@ -286,8 +290,6 @@ class FormSetNewPassword extends (external_react_default()).Component {
 /* harmony default export */ var blocks_FormSetNewPassword = (FormSetNewPassword);
 // EXTERNAL MODULE: ./node_modules/next/image.js
 var next_image = __webpack_require__(5675);
-// EXTERNAL MODULE: external "next/router"
-var router_ = __webpack_require__(6731);
 ;// CONCATENATED MODULE: ./components/blocks/ModalWindow.js
 
 

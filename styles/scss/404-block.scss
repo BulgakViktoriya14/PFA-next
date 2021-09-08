@@ -1,0 +1,10 @@
+.button-open-login-page {
+  @include buttonRed;
+  margin: 0 auto;
+  display: block;
+  width: max-content;
+
+  &:after {
+    display: none;
+  }
+}

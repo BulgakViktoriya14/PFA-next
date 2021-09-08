@@ -8,6 +8,7 @@ import FieldFormWithValue from "../fields/FieldFormWithValue";
 import {doVisibleOrHiddenPassword} from "../../functions/doVisibleOrHiddenPassword";
 import Link from "next/link";
 import { withRouter } from "next/router";
+import {validatePassword} from "../../functions/validatePassword";
 
 class FormLoginAndCheckIn extends React.Component {
 	constructor(props) {
@@ -49,25 +50,31 @@ class FormLoginAndCheckIn extends React.Component {
 			}
 
 			if(!validateLengthField("text", name)) {
-				this.setState({errorText: "Incorrectly entered Name (at least 3 characters)"});
+				this.setState({errorText: "Wrong entered Name (at least 3 characters)"});
 				return;
 			}
 
 			if(!validateLengthField("email", email)) {
-				this.setState({errorText: "Invalid email address"});
+				this.setState({errorText: "Wrong email address"});
 				return;
 			}
 
+			validatePassword(password)
+
+			// if(!validatePassword) {
+			// 	this.setState({errorText: "Wrong password. Password must contain at least 6 characters, numbers, uppercase and lowercase letters in English."})
+			// }
+
 			this.setState({errorText: ""});
 
-			firebase.auth().createUserWithEmailAndPassword(email, password)
-			.then(() => {
-				let id = uuidv4();
-				firebase.database().ref('/users/user' + id).set({
-					name: name, email: email, money: money, id: id
-				})
-				document.querySelector(".modal-window").classList.add("open")
-			}).catch(error => _this.setState({errorText: error.message}));
+			// firebase.auth().createUserWithEmailAndPassword(email, password)
+			// .then(() => {
+			// 	let id = uuidv4();
+			// 	firebase.database().ref('/users/user' + id).set({
+			// 		name: name, email: email, money: money, id: id
+			// 	})
+			// 	document.querySelector(".modal-window").classList.add("open")
+			// }).catch(error => _this.setState({errorText: error.message}));
 		}
 	}
 

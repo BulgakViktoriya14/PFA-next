@@ -257,6 +257,7 @@ a:hover:after, a:focus:after {
 .header__photo img {
   border-radius: 50%;
   object-fit: cover;
+  height: 100% !important;
 }
 .header__profile {
   display: flex;
@@ -1231,4 +1232,32 @@ a:hover:after, a:focus:after {
   .report-container .report {
     width: 100%;
   }
+}
+
+.button-open-login-page {
+  background-color: #fff;
+  color: #b90000;
+  font-size: 16px;
+  line-height: 16px;
+  padding: 10px 15px;
+  border: 2px solid #b90000;
+  transition: 200ms;
+  font-weight: bold;
+  box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.002);
+  margin: 0 auto;
+  display: block;
+  width: max-content;
+}
+.button-open-login-page:hover, .button-open-login-page:active, .button-open-login-page:focus {
+  background-color: #b90000;
+  color: #fff;
+}
+@media (max-width: 768px) {
+  .button-open-login-page {
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+.button-open-login-page:after {
+  display: none;
 }

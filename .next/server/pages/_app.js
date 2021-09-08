@@ -4,7 +4,7 @@ exports.id = 888;
 exports.ids = [888];
 exports.modules = {
 
-/***/ 7859:
+/***/ 7538:
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -137,6 +137,16 @@ function HeadMain() {
 }
 
 /* harmony default export */ var Head = (HeadMain);
+;// CONCATENATED MODULE: ./firebaseConfig.js
+const firebaseConfig = {
+  apiKey: "AIzaSyD4ZOaQgincn4u2ohZbafA0KebyN68JE9E",
+  authDomain: "project-pfa-e4c83.firebaseapp.com",
+  databaseURL: "https://project-pfa-e4c83-default-rtdb.firebaseio.com",
+  projectId: "project-pfa-e4c83",
+  storageBucket: "project-pfa-e4c83.appspot.com",
+  messagingSenderId: "964044908564",
+  appId: "1:964044908564:web:56963fd7a04f0d8bafdf01"
+};
 ;// CONCATENATED MODULE: ./pages/_app.js
 
 
@@ -155,16 +165,8 @@ function _app_defineProperty(obj, key, value) { if (key in obj) { Object.defineP
 
 
 
+
 const store = (0,external_redux_namespaceObject.createStore)(reducers);
-const firebaseConfig = {
-  apiKey: "AIzaSyD4ZOaQgincn4u2ohZbafA0KebyN68JE9E",
-  authDomain: "project-pfa-e4c83.firebaseapp.com",
-  databaseURL: "https://project-pfa-e4c83-default-rtdb.firebaseio.com",
-  projectId: "project-pfa-e4c83",
-  storageBucket: "project-pfa-e4c83.appspot.com",
-  messagingSenderId: "964044908564",
-  appId: "1:964044908564:web:56963fd7a04f0d8bafdf01"
-};
 external_firebase_default().initializeApp(firebaseConfig);
 function MyApp({
   Component,
@@ -209,7 +211,7 @@ module.exports = require("react/jsx-runtime");;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-var __webpack_exports__ = __webpack_require__.X(0, [259], function() { return __webpack_exec__(7859); });
+var __webpack_exports__ = __webpack_require__.X(0, [259], function() { return __webpack_exec__(7538); });
 module.exports = __webpack_exports__;
 
 })();

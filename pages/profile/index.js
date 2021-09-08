@@ -11,10 +11,11 @@ import {setUserAvatarAction} from "../../actions/actionUserAvatar";
 import {setUserIncomeCardsAction} from "../../actions/actionUserIncomeCards";
 import {setUserExpensesCardsAction} from "../../actions/actionUserExpensesCards";
 import ModalWindow from "../../components/blocks/ModalWindow";
-import FormInfoProfile from "../../components/blocks/FormInfoProfile";
 import ButtonProfile from "../../components/buttons/ButtonProfile";
-import Image from "next/image";
 import Wrapper from "../../components/common/Wrapper";
+import Link from 'next/link';
+import Image from 'next/image';
+import FormInfoProfile from "../../components/blocks/FormInfoProfile";
 
 class Profile extends React.Component {
     constructor(props) {
@@ -126,30 +127,44 @@ class Profile extends React.Component {
     render() {
         return (
             <Wrapper>
-                <ModalWindow page={"profile-password"} nameClass={"modal-window modal-window__change-password"}/>
-                <ModalWindow idUser={this.props.userId} page={"profile-avatar"}
-                             nameClass={"modal-window modal-window__change-avatar"} history={this.props.history}/>
-                <h1 className="title">Profile</h1>
-                <div className="profile">
-                    <div className="profile__image wrapper-img" ref={this.containerImage}>
-                        <Image src={photo} alt="photo"/>
+                {this.props.userId &&
+                    <div className="content__logged-in">
+                        <ModalWindow page={"profile-password"} nameClass={"modal-window modal-window__change-password"}/>
+                        <ModalWindow idUser={this.props.userId} page={"profile-avatar"}
+                                     nameClass={"modal-window modal-window__change-avatar"} history={this.props.history}/>
+                        <h1 className="title">Profile</h1>
+                        <div className="profile">
+                            <div className="profile__image wrapper-img" ref={this.containerImage}>
+                                <Image src={photo} alt="photo"/>
+                            </div>
+                            <FormInfoProfile handleChange={this.handleChange} flag={this.state.flag}
+                                             userName={this.props.userName} userEmail={this.props.userEmail}/>
+                        </div>
+                        <div className="profile__wrapper-buttons">
+                            {this.state.flag &&
+                            <ButtonProfile functionOnCLick={this.changeUserInfo}
+                                           nameButton={"Change information about yourself"}/>
+                            }
+                            {!this.state.flag &&
+                            <ButtonProfile functionOnCLick={this.saveUserInfo} nameButton={"Save"}/>
+                            }
+                            <ButtonProfile functionOnCLick={this.openModalWindowChangePassword}
+                                           nameButton={"Change password"}/>
+                            <ButtonProfile functionOnCLick={this.openModalWindowChangeAvatar} nameButton={"Change avatar"}/>
+                            <ButtonProfile functionOnCLick={this.logout} nameButton={"Log out"}/>
+                            <ButtonProfile functionOnCLick={this.deleteProfile} nameButton={"Delete profile"}/>
+                        </div>
                     </div>
-                    <FormInfoProfile handleChange={this.handleChange} flag={this.state.flag}
-                                     userName={this.props.userName} userEmail={this.props.userEmail}/>
-                </div>
-                <div className="profile__wrapper-buttons">
-                    {this.state.flag &&
-                    <ButtonProfile functionOnCLick={this.changeUserInfo}
-                                   nameButton={"Change information about yourself"}/>
-                    }
-                    {!this.state.flag &&
-                    <ButtonProfile functionOnCLick={this.saveUserInfo} nameButton={"Save"}/>
-                    }
-                    <ButtonProfile functionOnCLick={this.openModalWindowChangePassword} nameButton={"Change password"}/>
-                    <ButtonProfile functionOnCLick={this.openModalWindowChangeAvatar} nameButton={"Change avatar"}/>
-                    <ButtonProfile functionOnCLick={this.logout} nameButton={"Log out"}/>
-                    <ButtonProfile functionOnCLick={this.deleteProfile} nameButton={"Delete profile"}/>
-                </div>
+                }
+
+                {!this.props.userId &&
+                    <div className="content__unlogged">
+                        <h1 className="title">You are not logged in!</h1>
+                        <Link href="/login">
+                            <a className="button-open-login-page">Sign in</a>
+                        </Link>
+                    </div>
+                }
             </Wrapper>
         )
     }

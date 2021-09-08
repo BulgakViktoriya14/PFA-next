@@ -153,8 +153,6 @@ class Header extends (external_react_default()).Component {
 /* harmony default export */ var common_Header = (Header);
 // EXTERNAL MODULE: ./images/close.svg
 var images_close = __webpack_require__(518);
-// EXTERNAL MODULE: external "next/router"
-var router_ = __webpack_require__(6731);
 ;// CONCATENATED MODULE: ./components/common/MoneyAccount.js
 
 
@@ -196,7 +194,6 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Sidebar_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function Sidebar_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -270,6 +267,8 @@ class Sidebar extends (external_react_default()).Component {
 /* harmony default export */ var common_Sidebar = (/*#__PURE__*/external_react_default().forwardRef((props, ref) => /*#__PURE__*/jsx_runtime_.jsx(Sidebar, _objectSpread({
   blockSidebar: ref
 }, props))));
+// EXTERNAL MODULE: external "next/router"
+var router_ = __webpack_require__(6731);
 ;// CONCATENATED MODULE: ./components/common/Wrapper.js
 
 
