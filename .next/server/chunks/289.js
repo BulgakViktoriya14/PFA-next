@@ -63,12 +63,16 @@ var router_ = __webpack_require__(6731);
 ;// CONCATENATED MODULE: ./functions/validatePassword.js
 function validatePassword(pass) {
   let regNumber = pass.match(/\d/g);
+  let regUppercase = pass.match(/[A-Z]/g);
+  let regLovercase = pass.match(/[a-z]/g);
+  console.log(pass, pass.length, regNumber, regUppercase, regLovercase);
 
-  if (pass.length < 6 || regNumber == null) {
-    console.log("false"); // return false;
-  } //
-  // return true;
+  if (pass.length < 6 || regNumber == null || regUppercase == null || regLovercase == null) {
+    console.log(false);
+    return false;
+  }
 
+  return true;
 }
 ;// CONCATENATED MODULE: ./components/blocks/FormLoginAndCheckIn.js
 
@@ -143,20 +147,28 @@ class FormLoginAndCheckIn extends (external_react_default()).Component {
           return;
         }
 
-        validatePassword(password); // if(!validatePassword) {
-        // 	this.setState({errorText: "Wrong password. Password must contain at least 6 characters, numbers, uppercase and lowercase letters in English."})
-        // }
+        if (!validatePassword(password)) {
+          this.setState({
+            errorText: "Wrong password. Password must contain at least 6 characters, numbers, uppercase and lowercase letters in English."
+          });
+          return;
+        }
 
         this.setState({
           errorText: ""
-        }); // firebase.auth().createUserWithEmailAndPassword(email, password)
-        // .then(() => {
-        // 	let id = uuidv4();
-        // 	firebase.database().ref('/users/user' + id).set({
-        // 		name: name, email: email, money: money, id: id
-        // 	})
-        // 	document.querySelector(".modal-window").classList.add("open")
-        // }).catch(error => _this.setState({errorText: error.message}));
+        });
+        external_firebase_default().auth().createUserWithEmailAndPassword(email, password).then(() => {
+          let id = (0,external_uuid_.v4)();
+          external_firebase_default().database().ref('/users/user' + id).set({
+            name: name,
+            email: email,
+            money: money,
+            id: id
+          });
+          document.querySelector(".modal-window").classList.add("open");
+        }).catch(error => _this.setState({
+          errorText: error.message
+        }));
       }
     });
 

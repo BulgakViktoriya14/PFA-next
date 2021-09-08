@@ -59,22 +59,21 @@ class FormLoginAndCheckIn extends React.Component {
 				return;
 			}
 
-			validatePassword(password)
-
-			// if(!validatePassword) {
-			// 	this.setState({errorText: "Wrong password. Password must contain at least 6 characters, numbers, uppercase and lowercase letters in English."})
-			// }
+			if(!validatePassword(password)) {
+				this.setState({errorText: "Wrong password. Password must contain at least 6 characters, numbers, uppercase and lowercase letters in English."})
+				return;
+			}
 
 			this.setState({errorText: ""});
 
-			// firebase.auth().createUserWithEmailAndPassword(email, password)
-			// .then(() => {
-			// 	let id = uuidv4();
-			// 	firebase.database().ref('/users/user' + id).set({
-			// 		name: name, email: email, money: money, id: id
-			// 	})
-			// 	document.querySelector(".modal-window").classList.add("open")
-			// }).catch(error => _this.setState({errorText: error.message}));
+			firebase.auth().createUserWithEmailAndPassword(email, password)
+			.then(() => {
+				let id = uuidv4();
+				firebase.database().ref('/users/user' + id).set({
+					name: name, email: email, money: money, id: id
+				})
+				document.querySelector(".modal-window").classList.add("open")
+			}).catch(error => _this.setState({errorText: error.message}));
 		}
 	}
 
