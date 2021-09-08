@@ -65,10 +65,8 @@ function validatePassword(pass) {
   let regNumber = pass.match(/\d/g);
   let regUppercase = pass.match(/[A-Z]/g);
   let regLovercase = pass.match(/[a-z]/g);
-  console.log(pass, pass.length, regNumber, regUppercase, regLovercase);
 
   if (pass.length < 6 || regNumber == null || regUppercase == null || regLovercase == null) {
-    console.log(false);
     return false;
   }
 

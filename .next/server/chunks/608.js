@@ -156,6 +156,7 @@ class FormChangeAvatar extends (external_react_default()).Component {
 
     FormChangeAvatar_defineProperty(this, "saveNewAvatar", e => {
       e.preventDefault();
+      if (this.state.errorText !== "") return;
       let file = this.props.inputFile.current.files[0];
 
       let _this = this;
@@ -175,8 +176,16 @@ class FormChangeAvatar extends (external_react_default()).Component {
       }
     });
 
-    FormChangeAvatar_defineProperty(this, "uploadFile", e => {
-      if (e.target.value) {
+    FormChangeAvatar_defineProperty(this, "uploadFile", () => {
+      let file = this.props.inputFile.current.files[0];
+      console.log(file, file.type, file.size);
+
+      if (file.type !== 'image/png') {
+        this.setState({
+          errorText: "Wrong file type"
+        });
+        return;
+      } else {
         this.labelInputFile.current.classList.add("upload-file");
       }
     });
@@ -205,6 +214,9 @@ class FormChangeAvatar extends (external_react_default()).Component {
           className: "form__input",
           onChange: this.uploadFile,
           ref: this.props.inputFile
+        }), /*#__PURE__*/jsx_runtime_.jsx("span", {
+          className: "form__notice",
+          children: "Files allowed: jpg and png"
         })]
       }), /*#__PURE__*/jsx_runtime_.jsx("button", {
         className: "form__submit",
