@@ -6,8 +6,8 @@
   "/en/500": "pages/en/500.html",
   "/en/reports": "pages/en/reports.html",
   "/en/profile": "pages/en/profile.html",
-  "/en/income": "pages/en/income.html",
-  "/en/expenses": "pages/en/expenses.html",
   "/en/register": "pages/en/register.html",
+  "/en/expenses": "pages/en/expenses.html",
+  "/en/income": "pages/en/income.html",
   "/en": "pages/en.html"
 }

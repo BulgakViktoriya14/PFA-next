@@ -11,6 +11,7 @@ class FormChangeAvatar extends React.Component {
         }
 
         this.labelInputFile = React.createRef();
+        this.buttonSave = React.createRef();
     }
 
     saveNewAvatar = (e) => {
@@ -31,12 +32,15 @@ class FormChangeAvatar extends React.Component {
 
     uploadFile = () => {
         let file = this.props.inputFile.current.files[0];
-        console.log(file, file.type, file.size)
-        if (file.type !== 'image/png' || file.type !== 'image/jpeg') {
-            this.setState({errorText: "Wrong file type"});
-            return;
-        } else {
+        console.log(file.type)
+        if (file.type === 'image/png' || file.type === 'image/jpeg' || file.type === 'image/HEIF') {
             this.labelInputFile.current.classList.add("upload-file");
+            this.buttonSave.current.classList.remove("disabled")
+            this.setState({errorText: ""});
+        } else {
+            this.labelInputFile.current.classList.remove("upload-file");
+            this.buttonSave.current.classList.add("disabled")
+            this.setState({errorText: "Wrong file type"});
         }
     }
 
@@ -47,9 +51,9 @@ class FormChangeAvatar extends React.Component {
                     <label htmlFor="money" className="form__label" ref={this.labelInputFile}>Select a file</label>
                     <input type="file" aria-label="file for avatar" id="file" name="file" className="form__input"
                            onChange={this.uploadFile} ref={this.props.inputFile}/>
-                           <span className="form__notice">Files allowed: jpg and png</span>
+                           <span className="form__notice">Files allowed: jpg, png and heif</span>
                 </div>
-                <button className="form__submit" name="submit"
+                <button ref={this.buttonSave} className="form__submit" name="submit"
                         onClick={this.saveNewAvatar}>Save photo
                 </button>
                 {this.state.errorText &&

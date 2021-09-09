@@ -20,6 +20,20 @@
     font-size: 14px;
     line-height: 14px;
   }
+
+  &.disabled {
+    display: block;
+    color: $colorGrey;
+    border: 2px solid $colorGrey;
+    cursor: not-allowed;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $colorWhite;
+      color: $colorGrey;
+    }
+  }
 }
 
 @mixin buttonMobileOpen {

@@ -476,12 +476,17 @@ a:hover:after, a:focus:after {
   padding: 10px;
   border: 2px solid black;
   height: 50px;
-  margin: 0 0 30px 0;
+  margin: 0 0 50px 0;
   position: relative;
   width: 100%;
   cursor: pointer;
   display: flex;
   align-items: center;
+}
+.form__wrapper-file .form__notice {
+  display: block;
+  position: absolute;
+  bottom: -24px;
 }
 .form__wrapper-file .form__label {
   margin: 0;
@@ -604,6 +609,24 @@ a:hover:after, a:focus:after {
     font-size: 14px;
     line-height: 14px;
   }
+}
+.form__submit.disabled,
+.form .button-add-card.disabled,
+.form .button-create-report.disabled {
+  display: block;
+  color: #828282;
+  border: 2px solid #828282;
+  cursor: not-allowed;
+}
+.form__submit.disabled:hover, .form__submit.disabled:active, .form__submit.disabled:focus,
+.form .button-add-card.disabled:hover,
+.form .button-add-card.disabled:active,
+.form .button-add-card.disabled:focus,
+.form .button-create-report.disabled:hover,
+.form .button-create-report.disabled:active,
+.form .button-create-report.disabled:focus {
+  background-color: #fff;
+  color: #828282;
 }
 .form .button-create-report:first-child {
   margin: 0 30px 0 0;
@@ -1149,6 +1172,36 @@ a:hover:after, a:focus:after {
     line-height: 14px;
   }
 }
+.button-edit-profile.disabled,
+.button-change-password.disabled,
+.button-logout.disabled,
+.button-change-avatar.disabled,
+.button-category.disabled,
+.button-delete-profile.disabled {
+  display: block;
+  color: #828282;
+  border: 2px solid #828282;
+  cursor: not-allowed;
+}
+.button-edit-profile.disabled:hover, .button-edit-profile.disabled:active, .button-edit-profile.disabled:focus,
+.button-change-password.disabled:hover,
+.button-change-password.disabled:active,
+.button-change-password.disabled:focus,
+.button-logout.disabled:hover,
+.button-logout.disabled:active,
+.button-logout.disabled:focus,
+.button-change-avatar.disabled:hover,
+.button-change-avatar.disabled:active,
+.button-change-avatar.disabled:focus,
+.button-category.disabled:hover,
+.button-category.disabled:active,
+.button-category.disabled:focus,
+.button-delete-profile.disabled:hover,
+.button-delete-profile.disabled:active,
+.button-delete-profile.disabled:focus {
+  background-color: #fff;
+  color: #828282;
+}
 @media (max-width: 768px) {
   .button-edit-profile,
 .button-change-password,
@@ -1257,6 +1310,16 @@ a:hover:after, a:focus:after {
     font-size: 14px;
     line-height: 14px;
   }
+}
+.button-open-login-page.disabled {
+  display: block;
+  color: #828282;
+  border: 2px solid #828282;
+  cursor: not-allowed;
+}
+.button-open-login-page.disabled:hover, .button-open-login-page.disabled:active, .button-open-login-page.disabled:focus {
+  background-color: #fff;
+  color: #828282;
 }
 .button-open-login-page:after {
   display: none;
