@@ -143,10 +143,10 @@ class Cards extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component) {
           sum += Number(account);
         }
 
-        _this.props.setUserSumFunction(sum);
+        _this.props.setUserSumFunction(+sum.toFixed(2));
       }).then(function () {
         firebase__WEBPACK_IMPORTED_MODULE_2___default().database().ref('users/user' + _this.props.userId).update({
-          money: sum
+          money: +sum.toFixed(2)
         });
       }).catch(error => console.log(error.message));
     });
@@ -371,10 +371,10 @@ class FormCreateCard extends (external_react_default()).Component {
 
       if (this.props.type === "income") {
         let newSum = Number(this.props.userSum) + Number(card.money);
-        this.crateOneCard('cardsIncome', newSum, card, _this);
+        this.crateOneCard('cardsIncome', +newSum.toFixed(2), card, _this);
       } else {
         let newSum = Number(this.props.userSum) - Number(card.money);
-        this.crateOneCard('cardsExpenses', newSum, card, _this);
+        this.crateOneCard('cardsExpenses', +newSum.toFixed(2), card, _this);
       }
     });
 

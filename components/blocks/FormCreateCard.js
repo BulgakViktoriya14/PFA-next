@@ -99,10 +99,10 @@ class FormCreateCard extends React.Component {
 
         if(this.props.type === "income") {
             let newSum = Number(this.props.userSum) + Number(card.money);
-            this.crateOneCard('cardsIncome', newSum, card, _this);
+            this.crateOneCard('cardsIncome', +newSum.toFixed(2), card, _this);
         } else {
             let newSum = Number(this.props.userSum) - Number(card.money);
-            this.crateOneCard('cardsExpenses', newSum, card, _this);
+            this.crateOneCard('cardsExpenses', +newSum.toFixed(2), card, _this);
         }
     }
 

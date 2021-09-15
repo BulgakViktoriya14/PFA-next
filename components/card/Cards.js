@@ -56,10 +56,10 @@ class Cards extends React.Component {
                 if(_this.props.type === "cardsExpenses") {
                     sum += Number(account);
                 }
-                _this.props.setUserSumFunction(sum);
+                _this.props.setUserSumFunction(+sum.toFixed(2));
             }).then(function () {
                 firebase.database().ref('users/user' + _this.props.userId).update({
-                    money: sum
+                    money: +sum.toFixed(2)
                 })
             })
             .catch(error => console.log(error.message));
