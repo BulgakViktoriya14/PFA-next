@@ -20,7 +20,7 @@ export function createCategoryReport(startDateItem, endDateItem, cards) {
         if (arrayData[i].length < 4) {
             for (let j = i + 1; j < arrayData.length; j++) {
                 if (arrayData[i][2].toLowerCase().trim() === arrayData[j][2].toLowerCase().trim() && arrayData[j].length < 4) {
-                    arrayData[i][1] = Number(arrayData[i][1]) + Number(arrayData[j][1]);
+                    arrayData[i][1] = (Number(arrayData[i][1]) + Number(arrayData[j][1])).toFixed(2);
                     arrayData[j].push("true");
                 }
             }
