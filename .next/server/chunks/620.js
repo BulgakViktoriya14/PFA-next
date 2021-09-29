@@ -376,6 +376,10 @@ class FormCreateCard extends (external_react_default()).Component {
         let newSum = Number(this.props.userSum) - Number(card.money);
         this.crateOneCard('cardsExpenses', +newSum.toFixed(2), card, _this);
       }
+
+      if (document.querySelector(".creation-card.creation-card_open")) {
+        document.querySelector(".creation-card.creation-card_open").classList.remove("creation-card_open");
+      }
     });
 
     this.state = {
