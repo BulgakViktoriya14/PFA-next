@@ -1,10 +1,8 @@
 export function createCategoryReport(startDateItem, endDateItem, cards) {
     let startDateComponents = startDateItem.split("-");
     let endDateComponents = endDateItem.split("-");
-    // let startDate = new Date(`${startDateComponents[1]} ${startDateComponents[2]} ${startDateComponents[0]}`).getTime();
-    // let endDate = new Date(`${endDateComponents[1]} ${endDateComponents[2]} ${endDateComponents[0]}`).getTime();
-    let startDate = new Date(startDateItem).toISOString().split('T')[0];
-    let endDate = new Date(endDateComponents).toISOString().split('T')[0];
+    let startDate = new Date(`${startDateComponents[1]} ${startDateComponents[2]} ${startDateComponents[0]}`).getTime();
+    let endDate = new Date(`${endDateComponents[1]} ${endDateComponents[2]} ${endDateComponents[0]}`).getTime();
     console.log(startDate, endDate)
     let arrayData = [];
     let arrayObjects = [];
