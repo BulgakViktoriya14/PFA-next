@@ -25,7 +25,7 @@
     flex-direction: column;
 	flex-basis: 23%;
     box-shadow: 2px 2px 6px #b7b7b7;
-	padding: 20px;    
+	padding: 20px;
 	margin: 15px 1%;
     position: relative;
 
@@ -192,6 +192,7 @@
     border: none;
     background-repeat: no-repeat;
     background-position: center;
+    z-index: 1;
 
     &:focus,
     &:hover {
@@ -229,7 +230,7 @@
         }
 
         &.creation-card_open {
-            z-index: 4;
+            z-index: 10;
             opacity: 1;
         }
 

@@ -4,10 +4,10 @@
   "/_document": "pages/_document.js",
   "/en/404": "pages/en/404.html",
   "/en/500": "pages/en/500.html",
-  "/en/profile": "pages/en/profile.html",
-  "/en/register": "pages/en/register.html",
-  "/en": "pages/en.html",
+  "/en/reports": "pages/en/reports.html",
   "/en/income": "pages/en/income.html",
+  "/en/profile": "pages/en/profile.html",
   "/en/expenses": "pages/en/expenses.html",
-  "/en/reports": "pages/en/reports.html"
+  "/en": "pages/en.html",
+  "/en/register": "pages/en/register.html"
 }

@@ -1038,6 +1038,7 @@ a:hover:after, a:focus:after {
   border: none;
   background-repeat: no-repeat;
   background-position: center;
+  z-index: 1;
 }
 .button-delete-card:focus, .button-delete-card:hover {
   background-color: #b90000;
@@ -1071,7 +1072,7 @@ a:hover:after, a:focus:after {
     margin: 0;
   }
   .creation-card.creation-card_open {
-    z-index: 4;
+    z-index: 10;
     opacity: 1;
   }
   .creation-card .close {
