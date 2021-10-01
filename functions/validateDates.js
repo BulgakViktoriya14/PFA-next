@@ -20,7 +20,7 @@ export function validateDates(dateStart, dateEnd) {
 
 function convertDateForIos(date) {
     let arr = date.split(/[- :]/);
-    date = new Date(arr[0], arr[1]-1, arr[2], arr[3], arr[4], arr[5]).getTime();
+    date = new Date(arr[0], arr[1]-1, arr[2], arr[3], arr[4], arr[5]);
     alert('date: '+date)
     return date;
 }
