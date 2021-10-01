@@ -79,15 +79,15 @@ class Reports extends React.Component {
                 }
                 break;
             case "Category graph":
-                // let resultArrayCategory = createCategoryReport(startDateItem, endDateItem, cards);
+                let resultArrayCategory = createCategoryReport(startDateItem, endDateItem, cards);
                 alert("start: " + startDateItem);
                 alert("start: " + endDateItem);
-                // this.checkData(resultArrayCategory);
-                // if (type === "graph") {
-                //     this.setState({data: {labels: resultArrayCategory[0], series: resultArrayCategory[1]}});
-                // } else if (type === "table") {
-                //     createTable(resultArrayCategory[0], resultArrayCategory[1]);
-                // }
+                this.checkData(resultArrayCategory);
+                if (type === "graph") {
+                    this.setState({data: {labels: resultArrayCategory[0], series: resultArrayCategory[1]}});
+                } else if (type === "table") {
+                    createTable(resultArrayCategory[0], resultArrayCategory[1]);
+                }
                 break;
             case "Yearly graph":
                 let resultArrayYearly = createYearlyReport(startDateItem, endDateItem, cards);
