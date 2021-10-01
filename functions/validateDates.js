@@ -8,8 +8,8 @@ export function validateDates(dateStart, dateEnd) {
     alert(endDateItem)
 
     if(isNaN(startDateItem)) {
-        alert(convertDateForIos(startDateItem) < convertDateForIos(endDateItem));
-        return convertDateForIos(startDateItem) < convertDateForIos(endDateItem);
+        alert(convertDateForIos(dateStart) < convertDateForIos(dateEnd));
+        return convertDateForIos(dateStart) < convertDateForIos(dateEnd);
     } else {
         alert(startDateItem < endDateItem);
         return startDateItem < endDateItem;
@@ -20,6 +20,6 @@ export function validateDates(dateStart, dateEnd) {
 
 function convertDateForIos(date) {
     let arr = date.split(/[- :]/);
-    date = new Date(arr[0], arr[1]-1, arr[2], arr[3], arr[4], arr[5]);
+    date = new Date(arr[0], arr[1]-1, arr[2], arr[3], arr[4], arr[5]).getTime();
     return date;
 }
