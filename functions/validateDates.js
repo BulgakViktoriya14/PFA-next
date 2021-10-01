@@ -8,8 +8,8 @@ export function validateDates(dateStart, dateEnd) {
     alert(endDateItem)
 
     if(isNaN(startDateItem)) {
-        alert(convertDateForIos(dateStart) < convertDateForIos(dateEnd));
-        return convertDateForIos(dateStart) < convertDateForIos(dateEnd);
+        alert(convertDateForIos(`${dateStart} 00:00:00`) < convertDateForIos(`${dateEnd} 00:00:00`));
+        return convertDateForIos(`${dateStart} 00:00:00`) < convertDateForIos(`${dateEnd} 00:00:00`);
     } else {
         alert(startDateItem < endDateItem);
         return startDateItem < endDateItem;
