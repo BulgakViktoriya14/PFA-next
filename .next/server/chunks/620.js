@@ -63,6 +63,7 @@ class ButtonOpenPopupAddCard extends (react__WEBPACK_IMPORTED_MODULE_1___default
 
     _defineProperty(this, "openPopupAddCard", () => {
       document.querySelector(".creation-card").classList.add("creation-card_open");
+      document.querySelector(".button-open-sidebar").classList.add("hidden");
     });
   }
 
@@ -473,6 +474,7 @@ class CreationCard extends (external_react_default()).Component {
 
     CreationCard_defineProperty(this, "closePopupCreationCard", () => {
       this.blockCreateCard.current.classList.remove("creation-card_open");
+      document.querySelector(".button-open-sidebar").classList.remove("hidden");
     });
 
     this.state = {

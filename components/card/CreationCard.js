@@ -15,8 +15,9 @@ class CreationCard extends React.Component {
 
 	closePopupCreationCard = () => {
 		this.blockCreateCard.current.classList.remove("creation-card_open");
+		document.querySelector(".button-open-sidebar").classList.remove("hidden");
 	}
-	  
+
 	render() {
 		return (
 			<div className="creation-card" ref={this.blockCreateCard}>

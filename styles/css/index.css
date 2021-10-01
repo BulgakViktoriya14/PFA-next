@@ -435,6 +435,9 @@ a:hover:after, a:focus:after {
     top: 70px;
   }
 }
+.button-open-sidebar.hidden {
+  display: none;
+}
 
 .form {
   display: flex;

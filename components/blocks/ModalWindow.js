@@ -24,7 +24,7 @@ class ModalWindow extends React.Component {
             if(modalWindow.classList.contains("modal-window__change-password")) {
                 this.setState({flagChangePassword: false});
             }
-            modalWindow.classList.remove("open");
+
             if(modalWindow.classList.contains("modal-window__success-check-in")) {
                 this.props.history.push("/login")
                 return;
@@ -34,6 +34,7 @@ class ModalWindow extends React.Component {
                 this.inputFile.current.classList.remove("upload-file");
             }
 
+            modalWindow.classList.remove("open");
             modalWindow.querySelector(".form").reset();
         }
     }

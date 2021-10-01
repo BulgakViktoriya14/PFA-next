@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/KyJDNYgZoV14irf4ZYq_q/_buildManifest.js",
-    "static/KyJDNYgZoV14irf4ZYq_q/_ssgManifest.js"
+    "static/9AZ5newvSCszuUcVIxZ8E/_buildManifest.js",
+    "static/9AZ5newvSCszuUcVIxZ8E/_ssgManifest.js"
   ],
   "pages": {
     "/": [
@@ -15,14 +15,14 @@
       "static/chunks/main-d623b8295cd3dd3077ce.js",
       "static/chunks/882-f00805a4ce2201dabcc2.js",
       "static/chunks/676-ab02e9d343bf5a2bf0cf.js",
-      "static/chunks/608-beab71064ee875e054f3.js",
+      "static/chunks/608-a336b893d8c331f59bea.js",
       "static/chunks/pages/index-667c5e1c2da8d5d084fe.js"
     ],
     "/_app": [
       "static/chunks/webpack-e6c1964abab17dafbea0.js",
       "static/chunks/framework-0441fae7fd130f37dee1.js",
       "static/chunks/main-d623b8295cd3dd3077ce.js",
-      "static/css/953680d73e5453e0e67a.css",
+      "static/css/9d716973876bb6c58718.css",
       "static/chunks/pages/_app-12656568ee25652ff743.js"
     ],
     "/_error": [
@@ -37,7 +37,7 @@
       "static/chunks/main-d623b8295cd3dd3077ce.js",
       "static/chunks/882-f00805a4ce2201dabcc2.js",
       "static/chunks/676-ab02e9d343bf5a2bf0cf.js",
-      "static/chunks/620-848113e6ce3a444b0958.js",
+      "static/chunks/620-4bd625fe12a55adc8cc2.js",
       "static/chunks/pages/expenses-954c4bd4c6294bedd924.js"
     ],
     "/income": [
@@ -46,7 +46,7 @@
       "static/chunks/main-d623b8295cd3dd3077ce.js",
       "static/chunks/882-f00805a4ce2201dabcc2.js",
       "static/chunks/676-ab02e9d343bf5a2bf0cf.js",
-      "static/chunks/620-848113e6ce3a444b0958.js",
+      "static/chunks/620-4bd625fe12a55adc8cc2.js",
       "static/chunks/pages/income-e3556718993e9998a22d.js"
     ],
     "/profile": [
@@ -55,7 +55,7 @@
       "static/chunks/main-d623b8295cd3dd3077ce.js",
       "static/chunks/882-f00805a4ce2201dabcc2.js",
       "static/chunks/676-ab02e9d343bf5a2bf0cf.js",
-      "static/chunks/608-beab71064ee875e054f3.js",
+      "static/chunks/608-a336b893d8c331f59bea.js",
       "static/chunks/pages/profile-e1fc6c00624359d4a6d8.js"
     ],
     "/register": [
@@ -64,7 +64,7 @@
       "static/chunks/main-d623b8295cd3dd3077ce.js",
       "static/chunks/882-f00805a4ce2201dabcc2.js",
       "static/chunks/676-ab02e9d343bf5a2bf0cf.js",
-      "static/chunks/608-beab71064ee875e054f3.js",
+      "static/chunks/608-a336b893d8c331f59bea.js",
       "static/chunks/pages/register-29fe6e5b140dc98bdb6f.js"
     ],
     "/reports": [

@@ -127,4 +127,8 @@
 	@include breakpoint(mobile) {
 		top: 70px;
 	}
+
+	&.hidden {
+		display: none;
+	}
 }

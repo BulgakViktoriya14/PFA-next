@@ -337,8 +337,6 @@ class ModalWindow extends (external_react_default()).Component {
           });
         }
 
-        modalWindow.classList.remove("open");
-
         if (modalWindow.classList.contains("modal-window__success-check-in")) {
           this.props.history.push("/login");
           return;
@@ -348,6 +346,7 @@ class ModalWindow extends (external_react_default()).Component {
           this.inputFile.current.classList.remove("upload-file");
         }
 
+        modalWindow.classList.remove("open");
         modalWindow.querySelector(".form").reset();
       }
     });
