@@ -16,7 +16,13 @@ export function validateDates(dateStart, dateEnd) {
 
 function convertDate(date) {
     let arr = date.split(/[- :]/);
-    date = new Date(arr[0], arr[1]-1, arr[2], arr[3], arr[4], arr[5]).getTime();
+    if(!/iPhone|iPad|iPod/i.test(navigator.userAgent)){
+        alert('no ios')
+        date = new Date(arr[1], arr[2], arr[0], arr[3], arr[4], arr[5]).getTime();
+    } else {
+        alert('ios')
+        date = new Date(arr[1], arr[2]-1, arr[0], arr[3], arr[4], arr[5]).getTime();
+    }
     alert(`date: ${arr}` + date)
     return date;
 }
