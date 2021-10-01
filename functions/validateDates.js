@@ -7,7 +7,7 @@ export function validateDates(dateStart, dateEnd) {
     alert(startDateItem)
     alert(endDateItem)
 
-    if(startDateItem == NaN) {
+    if(isNaN(startDateItem)) {
         alert(convertDateForIos(startDateItem) < convertDateForIos(endDateItem));
         return convertDateForIos(startDateItem) < convertDateForIos(endDateItem);
     } else {
