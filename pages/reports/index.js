@@ -40,7 +40,7 @@ class Reports extends React.Component {
         let startDateItem = this.startDate.current.value;
         let endDateItem = this.endDate.current.value;
         let flagEmptyField = validateEmptyField([startDateItem, endDateItem, typeReport, categoryReport]);
-        let flagDates = validateDates(startDateItem, endDateItem);
+        // let flagDates = validateDates(startDateItem, endDateItem);
         let flagEndDate = validateDateEnd(endDateItem);
         let type = e.target.getAttribute("id");
         this.setState({type: type});
