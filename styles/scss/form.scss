@@ -93,7 +93,7 @@
   &__textarea {
     padding: 5px;
     font-size: 14px;
-    line-height: 14px;
+    line-height: 22px;
     border-bottom: 1px solid $colorBlack;
 
     &[readonly] {
@@ -139,7 +139,7 @@
       border: none;
       padding: 0 0 0 5px;
       font-size: 14px;
-      line-height: 14px;
+      line-height: 22px;
       border-bottom: 1px solid $colorBlack;
       border-radius: 0;
       min-height: 30px;

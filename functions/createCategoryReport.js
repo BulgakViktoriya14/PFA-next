@@ -1,6 +1,4 @@
 export function createCategoryReport(startDateItem, endDateItem, cards) {
-    alert(startDateItem, endDateItem)
-
     let startDateComponents = startDateItem.split("-");
     let endDateComponents = endDateItem.split("-");
     let startDate = new Date(`${startDateComponents[1]} ${startDateComponents[2]} ${startDateComponents[0]}`).getTime();
