@@ -1,8 +1,8 @@
+import {convertDate} from "./convertDate";
+
 export function createYearlyReport(startDateItem, endDateItem, cards) {
-    let startDateComponents = startDateItem.split("-");
-    let endDateComponents = endDateItem.split("-");
-    let startDate = Number(startDateComponents[0]);
-    let endDate = Number(endDateComponents[0]);
+    let startDate = convertDate(`${startDateItem} 00:00:00`);
+    let endDate = convertDate(`${endDateItem} 00:00:00`);
     let arrayData = [];
     let arrayObjects = [];
     let arrayDataValues = [];
