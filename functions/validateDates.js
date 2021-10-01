@@ -4,7 +4,7 @@ export function validateDates(dateStart, dateEnd) {
     // let startDateItem = new Date(`${startDateComponents[1]} ${startDateComponents[2]} ${startDateComponents[0]}`).getTime();
     // let endDateItem = new Date(`${endDateComponents[1]} ${endDateComponents[2]} ${endDateComponents[0]}`).getTime();
 
-    return convertDate(`${dateStart} 00:00:00`) < convertDateForIos(`${dateEnd} 00:00:00`);
+    return convertDate(`${dateStart} 00:00:00`) < convertDate(`${dateEnd} 00:00:00`);
 
     // if(isNaN(startDateItem)) {
     //     return convertDateForIos(`${dateStart} 00:00:00`) < convertDateForIos(`${dateEnd} 00:00:00`);
@@ -25,6 +25,7 @@ function convertDate(date) {
     //     date = new Date(arr[0], Number(arr[1])-1, arr[2], arr[3], arr[4], arr[5]).getTime();
     // }
     alert(Number(arr[1])-1)
+    alert(new Date(arr[0], Number(arr[1])-1, arr[2], arr[3], arr[4], arr[5]))
     date = new Date(arr[0], Number(arr[1])-1, arr[2], arr[3], arr[4], arr[5]).getTime();
     alert(`date: ${arr}` + date)
     return date;
