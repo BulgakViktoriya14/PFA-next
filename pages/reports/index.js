@@ -81,6 +81,7 @@ class Reports extends React.Component {
             case "Category graph":
                 // let resultArrayCategory = createCategoryReport(startDateItem, endDateItem, cards);
                 alert("start: " + startDateItem);
+                alert("start: " + endDateItem);
                 // this.checkData(resultArrayCategory);
                 // if (type === "graph") {
                 //     this.setState({data: {labels: resultArrayCategory[0], series: resultArrayCategory[1]}});
