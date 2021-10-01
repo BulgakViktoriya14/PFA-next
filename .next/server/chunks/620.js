@@ -510,25 +510,6 @@ class CreationCard extends (external_react_default()).Component {
 
 /* harmony default export */ var card_CreationCard = (CreationCard);
 
-/***/ }),
-
-/***/ 1704:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "m": function() { return /* binding */ validateEmptyField; }
-/* harmony export */ });
-function validateEmptyField(fieldsArray) {
-  let countFalse = 0;
-  fieldsArray.forEach(function (item) {
-    if (item === "") {
-      countFalse++;
-    }
-  });
-  return countFalse <= 0;
-}
-
 /***/ })
 
 };

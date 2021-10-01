@@ -39,23 +39,23 @@ class Reports extends React.Component {
         let categoryReport = document.querySelector("#category-report > div > div > div").innerText;
         let startDateItem = this.startDate.current.value;
         let endDateItem = this.endDate.current.value;
-        // let flagEmptyField = validateEmptyField([startDateItem, endDateItem, typeReport, categoryReport]);
-        // let flagDates = validateDates(startDateItem, endDateItem);
+        let flagEmptyField = validateEmptyField([startDateItem, endDateItem, typeReport, categoryReport]);
+        let flagDates = validateDates(startDateItem, endDateItem);
         // let flagEndDate = validateDateEnd(endDateItem);
         let type = e.target.getAttribute("id");
         this.setState({type: type});
 
-        // if (!flagEmptyField) {
-        //     this.setState({errorText: "You have not completed the fields"});
-        //     this.setState({flag: false});
-        //     return;
-        // }
+        if (!flagEmptyField) {
+            this.setState({errorText: "You have not completed the fields"});
+            this.setState({flag: false});
+            return;
+        }
 
-        // if (!flagDates) {
-        //     this.setState({errorText: "The date interval is incorrect"});
-        //     this.setState({flag: false});
-        //     return;
-        // }
+        if (!flagDates) {
+            this.setState({errorText: "The date interval is incorrect"});
+            this.setState({flag: false});
+            return;
+        }
 
         // if (!flagEndDate) {
         //     this.setState({errorText: "You cannot choose a day beyond the current one"});
