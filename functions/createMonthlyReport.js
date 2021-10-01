@@ -20,7 +20,7 @@ export function createMonthlyReport(startDateItem, endDateItem, cards) {
         if(arrayData[i].length < 5) {
             for (let j = i + 1; j < arrayData.length; j++) {
                 if(arrayData[i][0] === arrayData[j][0] && arrayData[i][1] === arrayData[j][1] && arrayData[j].length < 5) {
-                    arrayData[i][2] = Number(arrayData[i][2]) + Number(arrayData[j][2]);
+                    arrayData[i][2] = (Number(arrayData[i][2]) + Number(arrayData[j][2])).toFixed(2);
                     arrayData[j].push("true");
                 }
             }

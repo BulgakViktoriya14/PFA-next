@@ -18,7 +18,7 @@ export function createYearlyReport(startDateItem, endDateItem, cards) {
         if(arrayData[i].length < 3) {
             for (let j = i + 1; j < arrayData.length; j++) {
                 if(arrayData[i][0] === arrayData[j][0] && arrayData[j].length < 3) {
-                    arrayData[i][1] = Number(arrayData[i][1]) + Number(arrayData[j][1]);
+                    arrayData[i][1] = (Number(arrayData[i][1]) + Number(arrayData[j][1])).toFixed(2);
                     arrayData[j].push("true");
                 }
             }
