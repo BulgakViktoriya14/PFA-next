@@ -1,20 +1,9 @@
+import {convertDate} from "./validateDates";
+
 export function validateDateEnd(dateEnd) {
-    let endDateComponents = dateEnd.split("-");
-    let endDateItem = new Date(`${endDateComponents[1]} ${endDateComponents[2]} ${endDateComponents[0]}`).getTime();
     let currentDate = new Date().getTime();
-
-    console.log(currentDate)
-
-    if(isNaN(endDateItem)) {
-        return currentDate > convertDateForIos(`${dateEnd} 00:00:00`);
-    } else {
-        return currentDate > endDateItem;
-    }
-}
-
-function convertDateForIos(date) {
-    let arr = date.split(/[- :]/);
-    date = new Date(arr[0], arr[1]-1, arr[2], arr[3], arr[4], arr[5]).getTime();
-    alert('date: '+date)
-    return date;
+    alert(currentDate)
+    alert(currentDate)
+    alert(currentDate > convertDate(`${dateEnd} 00:00:00`))
+    return currentDate > convertDate(`${dateEnd} 00:00:00`);
 }

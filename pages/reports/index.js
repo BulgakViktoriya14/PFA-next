@@ -41,7 +41,7 @@ class Reports extends React.Component {
         let endDateItem = this.endDate.current.value;
         let flagEmptyField = validateEmptyField([startDateItem, endDateItem, typeReport, categoryReport]);
         let flagDates = validateDates(startDateItem, endDateItem);
-        // let flagEndDate = validateDateEnd(endDateItem);
+        let flagEndDate = validateDateEnd(endDateItem);
         let type = e.target.getAttribute("id");
         this.setState({type: type});
 
@@ -57,11 +57,11 @@ class Reports extends React.Component {
             return;
         }
 
-        // if (!flagEndDate) {
-        //     this.setState({errorText: "You cannot choose a day beyond the current one"});
-        //     this.setState({flag: false});
-        //     return;
-        // }
+        if (!flagEndDate) {
+            this.setState({errorText: "You cannot choose a day beyond the current one"});
+            this.setState({flag: false});
+            return;
+        }
 
         this.setState({errorText: ""});
         this.setState({flag: true});
