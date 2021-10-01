@@ -51,11 +51,11 @@ class Reports extends React.Component {
             return;
         }
 
-        if (!flagDates) {
-            this.setState({errorText: "The date interval is incorrect"});
-            this.setState({flag: false});
-            return;
-        }
+        // if (!flagDates) {
+        //     this.setState({errorText: "The date interval is incorrect"});
+        //     this.setState({flag: false});
+        //     return;
+        // }
 
         if (!flagEndDate) {
             this.setState({errorText: "You cannot choose a day beyond the current one"});
@@ -80,7 +80,8 @@ class Reports extends React.Component {
                 break;
             case "Category graph":
                 // let resultArrayCategory = createCategoryReport(startDateItem, endDateItem, cards);
-                alert("start: " + startDateItem)
+                alert("start: " + startDateItem);
+                document.querySelector(".report-container").insertAdjacentHTML('beforeend',`<p>Data</p>`);
                 // this.checkData(resultArrayCategory);
                 // if (type === "graph") {
                 //     this.setState({data: {labels: resultArrayCategory[0], series: resultArrayCategory[1]}});
