@@ -6,6 +6,9 @@ export function validateDates(dateStart, dateEnd) {
     let startDateItem = new Date(`${startDateComponents[1]} ${startDateComponents[2]} ${startDateComponents[0]}`).getTime();
     let endDateItem = new Date(`${endDateComponents[1]} ${endDateComponents[2]} ${endDateComponents[0]}`).getTime();
 
+    alert(startDateItem)
+    alert(endDateItem)
+
     alert(startDateItem < endDateItem)
     return startDateItem < endDateItem;
 }
