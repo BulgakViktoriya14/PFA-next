@@ -1,8 +1,8 @@
-import {convertDate} from "./convertDate";
-
 export function createYearlyReport(startDateItem, endDateItem, cards) {
-    let startDate = convertDate(`${startDateItem} 00:00:00`);
-    let endDate = convertDate(`${endDateItem} 00:00:00`);
+    let startDateComponents = startDateItem.split("-");
+    let endDateComponents = endDateItem.split("-");
+    let startDate = Number(startDateComponents[0]);
+    let endDate = Number(endDateComponents[0]);
     let arrayData = [];
     let arrayObjects = [];
     let arrayDataValues = [];
@@ -17,9 +17,8 @@ export function createYearlyReport(startDateItem, endDateItem, cards) {
     for (let i = 0; i < arrayData.length; i++) {
         if(arrayData[i].length < 3) {
             for (let j = i + 1; j < arrayData.length; j++) {
-                console.log(arrayData[i][0])
                 if(arrayData[i][0] === arrayData[j][0] && arrayData[j].length < 3) {
-                    arrayData[i][1] = (Number(arrayData[i][1]) + Number(arrayData[j][1])).toFixed(2);
+                    arrayData[i][1] = Number(arrayData[i][1]) + Number(arrayData[j][1]);
                     arrayData[j].push("true");
                 }
             }
