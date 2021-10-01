@@ -6,7 +6,7 @@ export function validateDateEnd(dateEnd) {
     console.log(currentDate)
 
     if(isNaN(endDateItem)) {
-        return currentDate > convertDateForIos(endDateItem);
+        return currentDate > convertDateForIos(`${dateEnd} 00:00:00`);
     } else {
         return currentDate > endDateItem;
     }
