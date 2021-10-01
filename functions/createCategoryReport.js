@@ -1,4 +1,6 @@
 export function createCategoryReport(startDateItem, endDateItem, cards) {
+    alert(startDateItem, endDateItem)
+
     let startDateComponents = startDateItem.split("-");
     let endDateComponents = endDateItem.split("-");
     let startDate = new Date(`${startDateComponents[1]} ${startDateComponents[2]} ${startDateComponents[0]}`).getTime();
@@ -7,10 +9,6 @@ export function createCategoryReport(startDateItem, endDateItem, cards) {
     let arrayObjects = [];
     let arrayDataValues = [];
     let arrayDataLabels = [];
-
-    // document.querySelector(".report-container").insertAdjacentHTML('beforeend',`<p>Data</p>`);
-    // document.querySelector(".report-container").insertAdjacentHTML('beforeend',`<p>${startDate}</p>`)
-    // document.querySelector(".report-container").insertAdjacentHTML('beforeend', `<p>${endDate}</p>`)
 
     for (let key in cards) {
         if (cards[key].category) {
