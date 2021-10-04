@@ -523,6 +523,8 @@ a:hover:after, a:focus:after {
   font-size: 14px;
   line-height: 22px;
   border-bottom: 1px solid #000;
+  background-color: #fff;
+  width: 100%;
 }
 .form__input[readonly], .form__textarea[readonly] {
   cursor: default;

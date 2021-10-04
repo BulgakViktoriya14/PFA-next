@@ -27,7 +27,6 @@ class Reports extends React.Component {
     }
 
     checkData = (array) => {
-        console.log(array)
         if (array[0].length === 0) {
             this.setState({errorText: "You do not have data for this interval of time"});
             this.setState({type: ""});

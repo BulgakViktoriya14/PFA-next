@@ -95,6 +95,8 @@
     font-size: 14px;
     line-height: 22px;
     border-bottom: 1px solid $colorBlack;
+    background-color: $colorWhite;
+    width: 100%;
 
     &[readonly] {
       cursor: default;
