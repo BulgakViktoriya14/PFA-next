@@ -10,7 +10,7 @@ export function createMonthlyReport(startDateItem, endDateItem, cards) {
 
     for (let key in cards) {
         let dateComponents = cards[key].date.split(".");
-        let itemDate = new Date(`${dateComponents[1]} ${dateComponents[0]} ${dateComponents[2]}`).getTime();
+        let itemDate = new Date(dateComponents[1], dateComponents[0], dateComponents[2], '00', '00', '00').getTime();
         let itemDateYear = dateComponents[2];
         let itemDateMount = dateComponents[1];
         arrayData.push([itemDateYear, itemDateMount, cards[key].money, itemDate]);

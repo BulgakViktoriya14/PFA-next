@@ -381,6 +381,10 @@ class FormCreateCard extends (external_react_default()).Component {
       if (document.querySelector(".creation-card.creation-card_open")) {
         document.querySelector(".creation-card.creation-card_open").classList.remove("creation-card_open");
       }
+
+      if (document.querySelector(".button-open-sidebar.hidden")) {
+        document.querySelector(".button-open-sidebar").classList.remove("hidden");
+      }
     });
 
     this.state = {

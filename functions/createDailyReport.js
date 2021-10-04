@@ -9,8 +9,8 @@ export function createDailyReport(startDateItem, endDateItem, cards) {
     let arrayDataLabels = [];
 
     for (let key in cards) {
-        let dateComponents = cards[key].date.split(".");
-        let itemDate = new Date(`${dateComponents[1]} ${dateComponents[0]} ${dateComponents[2]}`).getTime();
+        let dateComponents = cards[key].date.split('.');
+        let itemDate = convertDate(`${dateComponents[2]}-${dateComponents[1]}-${dateComponents[0]} 00:00:00`);
         arrayData.push([itemDate, cards[key].money, cards[key].date]);
     }
 
