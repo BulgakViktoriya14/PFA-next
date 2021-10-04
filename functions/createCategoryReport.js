@@ -11,7 +11,7 @@ export function createCategoryReport(startDateItem, endDateItem, cards) {
     for (let key in cards) {
         if (cards[key].category) {
             let dateComponents = cards[key].date.split(".");
-            let itemDate = new Date(dateComponents[1], dateComponents[0], dateComponents[2], '00', '00', '00').getTime();
+            let itemDate = convertDate(`${dateComponents[2]}-${dateComponents[1]}-${dateComponents[0]} 00:00:00`);
             arrayData.push([itemDate, cards[key].money, cards[key].category]);
         }
     }
