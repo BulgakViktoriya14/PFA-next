@@ -328,7 +328,7 @@ exports.DocumentContext = _utils.DocumentContext;
 exports.DocumentInitialProps = _utils.DocumentInitialProps;
 exports.DocumentProps = _utils.DocumentProps;
 
-var _getPageFiles = __webpack_require__(8365);
+var _getPageFiles = __webpack_require__(6171);
 
 var _utils2 = __webpack_require__(5105);
 
@@ -1065,7 +1065,7 @@ module.exports = require("next/dist/next-server/lib/utils.js");;
 
 /***/ }),
 
-/***/ 8365:
+/***/ 6171:
 /***/ (function(module) {
 
 "use strict";

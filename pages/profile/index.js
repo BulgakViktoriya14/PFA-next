@@ -16,6 +16,7 @@ import Wrapper from "../../components/common/Wrapper";
 import Link from 'next/link';
 import Image from 'next/image';
 import FormInfoProfile from "../../components/blocks/FormInfoProfile";
+import Loader from "../../components/common/Loader";
 
 class Profile extends React.Component {
     constructor(props) {
@@ -24,6 +25,7 @@ class Profile extends React.Component {
             flag: true,
             idUser: '',
             loc: props.router.query.loc,
+            isLoading: true
         }
 
         this.containerImage = React.createRef();
@@ -64,7 +66,7 @@ class Profile extends React.Component {
                     imageWrapper.innerHTML = `<img src=${url} alt="photo"/>`;
                     _this.props.setUserAvatarFunction(url);
                 }
-            })
+            }).then(() => { _this.setState({isLoading: false}); })
     }
 
     changeUserInfo = () => {
@@ -127,8 +129,12 @@ class Profile extends React.Component {
     render() {
         return (
             <Wrapper>
+                {this.state.isLoading &&
+                    <Loader/>
+                }
+
                 {this.props.userId &&
-                    <div className="content__logged-in">
+                    <div className={`content__logged-in${this.state.isLoading ? ' disabled' : ''}`}>
                         <ModalWindow page={"profile-password"} nameClass={"modal-window modal-window__change-password"}/>
                         <ModalWindow idUser={this.props.userId} page={"profile-avatar"}
                                      nameClass={"modal-window modal-window__change-avatar"} history={this.props.history}/>
@@ -158,7 +164,7 @@ class Profile extends React.Component {
                 }
 
                 {!this.props.userId &&
-                    <div className="content__unlogged">
+                <div className={`content__unlogged ${this.state.isLoading ? ' disabled' : ''}`}>
                         <h1 className="title">You are not logged in!</h1>
                         <Link href="/login">
                             <a className="button-open-login-page">Sign in</a>
