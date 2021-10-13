@@ -1,19 +1,17 @@
+"use strict";
 exports.id = 289;
 exports.ids = [289];
 exports.modules = {
 
 /***/ 3289:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "Z": function() { return /* binding */ blocks_FormLoginAndCheckIn; }
+  "Z": () => (/* binding */ blocks_FormLoginAndCheckIn)
 });
 
-// EXTERNAL MODULE: external "react/jsx-runtime"
-var jsx_runtime_ = __webpack_require__(5282);
 // EXTERNAL MODULE: external "react"
 var external_react_ = __webpack_require__(9297);
 var external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_);
@@ -72,11 +70,12 @@ function validatePassword(pass) {
 
   return true;
 }
+// EXTERNAL MODULE: external "react/jsx-runtime"
+var jsx_runtime_ = __webpack_require__(5282);
 ;// CONCATENATED MODULE: ./components/blocks/FormLoginAndCheckIn.js
-
-
-
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -245,7 +244,7 @@ class FormLoginAndCheckIn extends (external_react_default()).Component {
 
 }
 
-/* harmony default export */ var blocks_FormLoginAndCheckIn = ((0,router_.withRouter)(FormLoginAndCheckIn));
+/* harmony default export */ const blocks_FormLoginAndCheckIn = ((0,router_.withRouter)(FormLoginAndCheckIn));
 
 /***/ })
 

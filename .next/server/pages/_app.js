@@ -1,29 +1,27 @@
-(function() {
+"use strict";
+(() => {
 var exports = {};
 exports.id = 888;
 exports.ids = [888];
 exports.modules = {
 
 /***/ 7538:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": function() { return /* binding */ MyApp; }
+  "default": () => (/* binding */ MyApp)
 });
 
-// EXTERNAL MODULE: external "react/jsx-runtime"
-var jsx_runtime_ = __webpack_require__(5282);
 // EXTERNAL MODULE: ./node_modules/chartist/dist/chartist.js
 var chartist = __webpack_require__(9259);
 ;// CONCATENATED MODULE: external "redux"
-var external_redux_namespaceObject = require("redux");;
+const external_redux_namespaceObject = require("redux");
 ;// CONCATENATED MODULE: ./reducers/info.js
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
@@ -85,15 +83,17 @@ function userInfo(state = initialState, action) {
 const rootReducer = (0,external_redux_namespaceObject.combineReducers)({
   userInfo: userInfo
 });
-/* harmony default export */ var reducers = (rootReducer);
+/* harmony default export */ const reducers = (rootReducer);
 // EXTERNAL MODULE: external "firebase"
 var external_firebase_ = __webpack_require__(7005);
 var external_firebase_default = /*#__PURE__*/__webpack_require__.n(external_firebase_);
 // EXTERNAL MODULE: external "react-redux"
 var external_react_redux_ = __webpack_require__(79);
 ;// CONCATENATED MODULE: external "next/head"
-var head_namespaceObject = require("next/head");;
+const head_namespaceObject = require("next/head");
 var head_default = /*#__PURE__*/__webpack_require__.n(head_namespaceObject);
+// EXTERNAL MODULE: external "react/jsx-runtime"
+var jsx_runtime_ = __webpack_require__(5282);
 ;// CONCATENATED MODULE: ./components/common/Head.js
 
 
@@ -136,7 +136,7 @@ function HeadMain() {
   });
 }
 
-/* harmony default export */ var Head = (HeadMain);
+/* harmony default export */ const Head = (HeadMain);
 ;// CONCATENATED MODULE: ./firebaseConfig.js
 const firebaseConfig = {
   apiKey: "AIzaSyD4ZOaQgincn4u2ohZbafA0KebyN68JE9E",
@@ -148,14 +148,13 @@ const firebaseConfig = {
   appId: "1:964044908564:web:56963fd7a04f0d8bafdf01"
 };
 ;// CONCATENATED MODULE: ./pages/_app.js
-
-
-
-function _app_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function _app_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _app_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { _app_ownKeys(Object(source), true).forEach(function (key) { _app_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { _app_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _app_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -181,26 +180,23 @@ function MyApp({
 /***/ }),
 
 /***/ 7005:
-/***/ (function(module) {
+/***/ ((module) => {
 
-"use strict";
-module.exports = require("firebase");;
+module.exports = require("firebase");
 
 /***/ }),
 
 /***/ 79:
-/***/ (function(module) {
+/***/ ((module) => {
 
-"use strict";
-module.exports = require("react-redux");;
+module.exports = require("react-redux");
 
 /***/ }),
 
 /***/ 5282:
-/***/ (function(module) {
+/***/ ((module) => {
 
-"use strict";
-module.exports = require("react/jsx-runtime");;
+module.exports = require("react/jsx-runtime");
 
 /***/ })
 
@@ -210,8 +206,8 @@ module.exports = require("react/jsx-runtime");;
 // load runtime
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
-var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-var __webpack_exports__ = __webpack_require__.X(0, [259], function() { return __webpack_exec__(7538); });
+var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+var __webpack_exports__ = __webpack_require__.X(0, [259], () => (__webpack_exec__(7538)));
 module.exports = __webpack_exports__;
 
 })();

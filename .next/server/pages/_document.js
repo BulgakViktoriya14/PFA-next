@@ -1,16 +1,18 @@
-(function() {
+"use strict";
+(() => {
 var exports = {};
 exports.id = 660;
 exports.ids = [660];
 exports.modules = {
 
 /***/ 6792:
-/***/ (function(__unused_webpack_module, exports) {
-
-"use strict";
+/***/ ((__unused_webpack_module, exports) => {
 
 
-exports.__esModule = true;
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
 exports.default = initHeadManager;
 exports.DOMAttributeNames = void 0;
 const DOMAttributeNames = {
@@ -36,7 +38,6 @@ function reactElementToDOM({
     const attr = DOMAttributeNames[p] || p.toLowerCase();
 
     if (type === 'script' && (attr === 'async' || attr === 'defer' || attr === 'noModule')) {
-      ;
       el[attr] = !!props[p];
     } else {
       el.setAttribute(attr, props[p]);
@@ -131,29 +132,126 @@ function initHeadManager() {
 
 /***/ }),
 
+/***/ 3447:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.requestIdleCallback = exports.cancelIdleCallback = void 0;
+
+const requestIdleCallback = typeof self !== 'undefined' && self.requestIdleCallback && self.requestIdleCallback.bind(window) || function (cb) {
+  let start = Date.now();
+  return setTimeout(function () {
+    cb({
+      didTimeout: false,
+      timeRemaining: function () {
+        return Math.max(0, 50 - (Date.now() - start));
+      }
+    });
+  }, 1);
+};
+
+exports.requestIdleCallback = requestIdleCallback;
+
+const cancelIdleCallback = typeof self !== 'undefined' && self.cancelIdleCallback && self.cancelIdleCallback.bind(window) || function (id) {
+  return clearTimeout(id);
+};
+
+exports.cancelIdleCallback = cancelIdleCallback;
+
+/***/ }),
+
 /***/ 7926:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
-var _interopRequireDefault = __webpack_require__(5318);
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
 exports.initScriptLoader = initScriptLoader;
 exports.default = void 0;
 
-var _extends2 = _interopRequireDefault(__webpack_require__(7154));
-
-var _objectWithoutPropertiesLoose2 = _interopRequireDefault(__webpack_require__(7316));
-
 var _react = __webpack_require__(9297);
 
-var _headManagerContext = __webpack_require__(816);
+var _headManagerContext = __webpack_require__(6098);
 
 var _headManager = __webpack_require__(6792);
 
 var _requestIdleCallback = __webpack_require__(3447);
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function _objectSpread(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+    var ownKeys = Object.keys(source);
+
+    if (typeof Object.getOwnPropertySymbols === "function") {
+      ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+      }));
+    }
+
+    ownKeys.forEach(function (key) {
+      _defineProperty(target, key, source[key]);
+    });
+  }
+
+  return target;
+}
+
+function _objectWithoutProperties(source, excluded) {
+  if (source == null) return {};
+
+  var target = _objectWithoutPropertiesLoose(source, excluded);
+
+  var key, i;
+
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+
+  return target;
+}
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
 
 const ScriptCache = new Map();
 const LoadCache = new Set();
@@ -166,42 +264,46 @@ const loadScript = props => {
     onLoad = () => {},
     dangerouslySetInnerHTML,
     children = '',
+    strategy = 'afterInteractive',
     onError
   } = props;
-  const cacheKey = id || src;
+  const cacheKey = id || src; // Script has already loaded
+
+  if (cacheKey && LoadCache.has(cacheKey)) {
+    return;
+  } // Contents of this script are already loading/loaded
+
 
   if (ScriptCache.has(src)) {
-    if (!LoadCache.has(cacheKey)) {
-      LoadCache.add(cacheKey); // Execute onLoad since the script loading has begun
+    LoadCache.add(cacheKey); // Execute onLoad since the script loading has begun
 
-      ScriptCache.get(src).then(onLoad, onError);
-    }
-
+    ScriptCache.get(src).then(onLoad, onError);
     return;
   }
 
   const el = document.createElement('script');
   const loadPromise = new Promise((resolve, reject) => {
-    el.addEventListener('load', function () {
+    el.addEventListener('load', function (e) {
       resolve();
 
       if (onLoad) {
-        onLoad.call(this);
+        onLoad.call(this, e);
       }
     });
-    el.addEventListener('error', function () {
-      reject();
-
-      if (onError) {
-        onError();
-      }
+    el.addEventListener('error', function (e) {
+      reject(e);
     });
+  }).catch(function (e) {
+    if (onError) {
+      onError(e);
+    }
   });
 
   if (src) {
     ScriptCache.set(src, loadPromise);
-    LoadCache.add(cacheKey);
   }
+
+  LoadCache.add(cacheKey);
 
   if (dangerouslySetInnerHTML) {
     el.innerHTML = dangerouslySetInnerHTML.__html || '';
@@ -220,6 +322,7 @@ const loadScript = props => {
     el.setAttribute(attr, value);
   }
 
+  el.setAttribute('data-nscript', strategy);
   document.body.appendChild(el);
 };
 
@@ -232,17 +335,17 @@ function handleClientScriptLoad(props) {
     loadScript(props);
   } else if (strategy === 'lazyOnload') {
     window.addEventListener('load', () => {
-      (0, _requestIdleCallback.requestIdleCallback)(() => loadScript(props));
+      (0, _requestIdleCallback).requestIdleCallback(() => loadScript(props));
     });
   }
 }
 
 function loadLazyScript(props) {
   if (document.readyState === 'complete') {
-    (0, _requestIdleCallback.requestIdleCallback)(() => loadScript(props));
+    (0, _requestIdleCallback).requestIdleCallback(() => loadScript(props));
   } else {
     window.addEventListener('load', () => {
-      (0, _requestIdleCallback.requestIdleCallback)(() => loadScript(props));
+      (0, _requestIdleCallback).requestIdleCallback(() => loadScript(props));
     });
   }
 }
@@ -255,16 +358,19 @@ function Script(props) {
   const {
     src = '',
     onLoad = () => {},
+    dangerouslySetInnerHTML,
     strategy = 'afterInteractive',
     onError
   } = props,
-        restProps = (0, _objectWithoutPropertiesLoose2.default)(props, ["src", "onLoad", "dangerouslySetInnerHTML", "strategy", "onError"]); // Context is available only during SSR
+        restProps = _objectWithoutProperties(props, ["src", "onLoad", "dangerouslySetInnerHTML", "strategy", "onError"]); // Context is available only during SSR
+
 
   const {
     updateScripts,
-    scripts
-  } = (0, _react.useContext)(_headManagerContext.HeadManagerContext);
-  (0, _react.useEffect)(() => {
+    scripts,
+    getIsSsr
+  } = (0, _react).useContext(_headManagerContext.HeadManagerContext);
+  (0, _react).useEffect(() => {
     if (strategy === 'afterInteractive') {
       loadScript(props);
     } else if (strategy === 'lazyOnload') {
@@ -274,12 +380,17 @@ function Script(props) {
 
   if (strategy === 'beforeInteractive') {
     if (updateScripts) {
-      scripts.beforeInteractive = (scripts.beforeInteractive || []).concat([(0, _extends2.default)({
+      scripts.beforeInteractive = (scripts.beforeInteractive || []).concat([_objectSpread({
         src,
         onLoad,
         onError
       }, restProps)]);
       updateScripts(scripts);
+    } else if (getIsSsr && getIsSsr()) {
+      // Script has already loaded during SSR
+      LoadCache.add(restProps.id || src);
+    } else if (getIsSsr && !getIsSsr()) {
+      loadScript(props);
     }
   }
 
@@ -292,12 +403,13 @@ exports.default = _default;
 /***/ }),
 
 /***/ 8881:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+const _excluded = ["strategy"];
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
@@ -307,86 +419,46 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+Object.defineProperty(exports, "DocumentContext", ({
+  enumerable: true,
+  get: function () {
+    return _utils.DocumentContext;
+  }
+}));
+Object.defineProperty(exports, "DocumentInitialProps", ({
+  enumerable: true,
+  get: function () {
+    return _utils.DocumentInitialProps;
+  }
+}));
+Object.defineProperty(exports, "DocumentProps", ({
+  enumerable: true,
+  get: function () {
+    return _utils.DocumentProps;
+  }
+}));
 exports.Html = Html;
 exports.Main = Main;
-exports.NextScript = exports.Head = exports.default = void 0;
-
-var _propTypes = _interopRequireDefault(__webpack_require__(4229));
+exports.default = void 0;
 
 var _react = _interopRequireWildcard(__webpack_require__(9297));
 
 var _server = _interopRequireDefault(__webpack_require__(1168));
 
-var _constants = __webpack_require__(227);
+var _constants = __webpack_require__(6044);
 
-var _documentContext = __webpack_require__(3932);
+var _utils = __webpack_require__(7620);
 
-var _utils = __webpack_require__(7579);
+var _getPageFiles = __webpack_require__(372);
 
-exports.DocumentContext = _utils.DocumentContext;
-exports.DocumentInitialProps = _utils.DocumentInitialProps;
-exports.DocumentProps = _utils.DocumentProps;
+var _utils1 = __webpack_require__(2208);
 
-var _getPageFiles = __webpack_require__(6171);
-
-var _utils2 = __webpack_require__(5105);
-
-var _htmlescape = __webpack_require__(9630);
+var _htmlescape = __webpack_require__(2538);
 
 var _script = _interopRequireDefault(__webpack_require__(7926));
-
-function _getRequireWildcardCache() {
-  if (typeof WeakMap !== "function") return null;
-  var cache = new WeakMap();
-
-  _getRequireWildcardCache = function () {
-    return cache;
-  };
-
-  return cache;
-}
-
-function _interopRequireWildcard(obj) {
-  if (obj && obj.__esModule) {
-    return obj;
-  }
-
-  if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
-    return {
-      default: obj
-    };
-  }
-
-  var cache = _getRequireWildcardCache();
-
-  if (cache && cache.has(obj)) {
-    return cache.get(obj);
-  }
-
-  var newObj = {};
-  var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
-
-  for (var key in obj) {
-    if (Object.prototype.hasOwnProperty.call(obj, key)) {
-      var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
-
-      if (desc && (desc.get || desc.set)) {
-        Object.defineProperty(newObj, key, desc);
-      } else {
-        newObj[key] = obj[key];
-      }
-    }
-  }
-
-  newObj.default = obj;
-
-  if (cache) {
-    cache.set(obj, newObj);
-  }
-
-  return newObj;
-}
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {
@@ -394,9 +466,34 @@ function _interopRequireDefault(obj) {
   };
 }
 
+function _interopRequireWildcard(obj) {
+  if (obj && obj.__esModule) {
+    return obj;
+  } else {
+    var newObj = {};
+
+    if (obj != null) {
+      for (var key in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, key)) {
+          var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {};
+
+          if (desc.get || desc.set) {
+            Object.defineProperty(newObj, key, desc);
+          } else {
+            newObj[key] = obj[key];
+          }
+        }
+      }
+    }
+
+    newObj.default = obj;
+    return newObj;
+  }
+}
+
 function getDocumentFiles(buildManifest, pathname, inAmpMode) {
-  const sharedFiles = (0, _getPageFiles.getPageFiles)(buildManifest, '/_app');
-  const pageFiles = inAmpMode ? [] : (0, _getPageFiles.getPageFiles)(buildManifest, pathname);
+  const sharedFiles = (0, _getPageFiles).getPageFiles(buildManifest, '/_app');
+  const pageFiles = inAmpMode ? [] : (0, _getPageFiles).getPageFiles(buildManifest, pathname);
   return {
     sharedFiles,
     pageFiles,
@@ -428,15 +525,17 @@ function getPreNextScripts(context, props) {
     scriptLoader,
     disableOptimizedLoading
   } = context;
-  return (scriptLoader.beforeInteractive || []).map(file => {
+  return (scriptLoader.beforeInteractive || []).map((file, index) => {
     const {
       strategy
     } = file,
-          scriptProps = _objectWithoutProperties(file, ["strategy"]);
+          scriptProps = _objectWithoutProperties(file, _excluded);
 
     return /*#__PURE__*/_react.default.createElement("script", Object.assign({}, scriptProps, {
+      key: scriptProps.src || index,
       defer: !disableOptimizedLoading,
       nonce: props.nonce,
+      "data-nscript": "beforeInteractive",
       crossOrigin: props.crossOrigin || undefined
     }));
   });
@@ -464,8 +563,7 @@ function getDynamicChunks(context, props, files) {
 }
 
 function getScripts(context, props, files) {
-  var _buildManifest$lowPri;
-
+  var ref;
   const {
     assetPrefix,
     buildManifest,
@@ -474,7 +572,7 @@ function getScripts(context, props, files) {
     disableOptimizedLoading
   } = context;
   const normalScripts = files.allFiles.filter(file => file.endsWith('.js'));
-  const lowPriorityScripts = (_buildManifest$lowPri = buildManifest.lowPriorityFiles) == null ? void 0 : _buildManifest$lowPri.filter(file => file.endsWith('.js'));
+  const lowPriorityScripts = (ref = buildManifest.lowPriorityFiles) === null || ref === void 0 ? void 0 : ref.filter(file => file.endsWith('.js'));
   return [...normalScripts, ...lowPriorityScripts].map(file => {
     return /*#__PURE__*/_react.default.createElement("script", {
       key: file,
@@ -486,20 +584,15 @@ function getScripts(context, props, files) {
     });
   });
 }
-/**
-* `Document` component handles the initial `document` markup and renders only on the server side.
-* Commonly used for implementing server side rendering for `css-in-js` libraries.
-*/
 
-
-class Document extends _react.Component {
+class Document1 extends _react.Component {
   /**
   * `getInitialProps` hook returns the context object with the addition of `renderPage`.
   * `renderPage` callback executes `React` rendering logic synchronously to support server-rendering wrappers
   */
   static async getInitialProps(ctx) {
     const enhanceApp = App => {
-      return props => /*#__PURE__*/_react.default.createElement(App, props);
+      return props => /*#__PURE__*/_react.default.createElement(App, Object.assign({}, props));
     };
 
     const {
@@ -508,18 +601,12 @@ class Document extends _react.Component {
     } = await ctx.renderPage({
       enhanceApp
     });
-    const styles = [...(0, _server.default)()];
+    const styles = [...(0, _server).default()];
     return {
       html,
       head,
       styles
     };
-  }
-
-  static renderDocument(DocumentComponent, props) {
-    return /*#__PURE__*/_react.default.createElement(_documentContext.DocumentContext.Provider, {
-      value: props
-    }, /*#__PURE__*/_react.default.createElement(DocumentComponent, props));
   }
 
   render() {
@@ -528,14 +615,14 @@ class Document extends _react.Component {
 
 }
 
-exports.default = Document;
+exports.default = Document1;
 
 function Html(props) {
   const {
     inAmpMode,
     docComponentsRendered,
     locale
-  } = (0, _react.useContext)(_documentContext.DocumentContext);
+  } = (0, _react).useContext(_utils.HtmlContext);
   docComponentsRendered.Html = true;
   return /*#__PURE__*/_react.default.createElement("html", Object.assign({}, props, {
     lang: props.lang || locale || undefined,
@@ -545,11 +632,6 @@ function Html(props) {
 }
 
 class Head extends _react.Component {
-  constructor(...args) {
-    super(...args);
-    this.context = void 0;
-  }
-
   getCssLinks(files) {
     const {
       assetPrefix,
@@ -713,8 +795,6 @@ class Head extends _react.Component {
   }
 
   render() {
-    var _this$props$nonce, _this$props$nonce2;
-
     const {
       styles,
       ampPath,
@@ -809,9 +889,8 @@ class Head extends _react.Component {
     styles.props && // @ts-ignore Property 'props' does not exist on type ReactElement
     Array.isArray(styles.props.children)) {
       const hasStyles = el => {
-        var _el$props, _el$props$dangerously;
-
-        return el == null ? void 0 : (_el$props = el.props) == null ? void 0 : (_el$props$dangerously = _el$props.dangerouslySetInnerHTML) == null ? void 0 : _el$props$dangerously.__html;
+        var ref2, ref3;
+        return el === null || el === void 0 ? void 0 : (ref2 = el.props) === null || ref2 === void 0 ? void 0 : (ref3 = ref2.dangerouslySetInnerHTML) === null || ref3 === void 0 ? void 0 : ref3.__html;
       }; // @ts-ignore Property 'props' does not exist on type ReactElement
 
 
@@ -825,7 +904,10 @@ class Head extends _react.Component {
     }
 
     const files = getDocumentFiles(this.context.buildManifest, this.context.__NEXT_DATA__.page, inAmpMode);
-    return /*#__PURE__*/_react.default.createElement("head", this.props, this.context.isDevelopment && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("style", {
+
+    var _nonce, _nonce1;
+
+    return /*#__PURE__*/_react.default.createElement("head", Object.assign({}, this.props), this.context.isDevelopment && /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("style", {
       "data-next-hide-fouc": true,
       "data-ampdevmode": inAmpMode ? 'true' : undefined,
       dangerouslySetInnerHTML: {
@@ -848,7 +930,7 @@ class Head extends _react.Component {
       content: "width=device-width,minimum-scale=1,initial-scale=1"
     }), !hasCanonicalRel && /*#__PURE__*/_react.default.createElement("link", {
       rel: "canonical",
-      href: canonicalBase + (0, _utils2.cleanAmpPath)(dangerousAsPath)
+      href: canonicalBase + (0, _utils1).cleanAmpPath(dangerousAsPath)
     }), /*#__PURE__*/_react.default.createElement("link", {
       rel: "preload",
       as: "script",
@@ -875,12 +957,12 @@ class Head extends _react.Component {
       rel: "amphtml",
       href: canonicalBase + getAmpPath(ampPath, dangerousAsPath)
     }),  true && this.getCssLinks(files),  true && /*#__PURE__*/_react.default.createElement("noscript", {
-      "data-n-css": (_this$props$nonce = this.props.nonce) != null ? _this$props$nonce : ''
-    }),  false && /*#__PURE__*/0, !disableRuntimeJS && !disableJsPreload && this.getPreloadDynamicChunks(), !disableRuntimeJS && !disableJsPreload && this.getPreloadMainLinks(files), !disableOptimizedLoading && !disableRuntimeJS && this.getPolyfillScripts(), !disableOptimizedLoading && !disableRuntimeJS && this.getPreNextScripts(), !disableOptimizedLoading && !disableRuntimeJS && this.getDynamicChunks(files), !disableOptimizedLoading && !disableRuntimeJS && this.getScripts(files),  false && 0,  false && /*#__PURE__*/0, this.context.isDevelopment &&
-    /*#__PURE__*/
-    // this element is used to mount development styles so the
+      "data-n-css": (_nonce = this.props.nonce) !== null && _nonce !== void 0 ? _nonce : ''
+    }),  false && /*#__PURE__*/0, !disableRuntimeJS && !disableJsPreload && this.getPreloadDynamicChunks(), !disableRuntimeJS && !disableJsPreload && this.getPreloadMainLinks(files), !disableOptimizedLoading && !disableRuntimeJS && this.getPolyfillScripts(), !disableOptimizedLoading && !disableRuntimeJS && this.getPreNextScripts(), !disableOptimizedLoading && !disableRuntimeJS && this.getDynamicChunks(files), !disableOptimizedLoading && !disableRuntimeJS && this.getScripts(files),  false && 0,  false && /*#__PURE__*/0, this.context.isDevelopment && // this element is used to mount development styles so the
     // ordering matches production
     // (by default, style-loader injects at the bottom of <head />)
+
+    /*#__PURE__*/
     _react.default.createElement("noscript", {
       id: "__next_css__DO_NOT_USE__"
     }), styles || null), /*#__PURE__*/_react.default.createElement(_react.default.Fragment, {}, ...(headTags || [])));
@@ -889,34 +971,21 @@ class Head extends _react.Component {
 }
 
 exports.Head = Head;
-Head.contextType = _documentContext.DocumentContext;
-Head.propTypes = {
-  nonce: _propTypes.default.string,
-  crossOrigin: _propTypes.default.string
-};
+Head.contextType = _utils.HtmlContext;
 
 function Main() {
   const {
     inAmpMode,
-    html,
     docComponentsRendered
-  } = (0, _react.useContext)(_documentContext.DocumentContext);
+  } = (0, _react).useContext(_utils.HtmlContext);
   docComponentsRendered.Main = true;
-  if (inAmpMode) return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, _constants.AMP_RENDER_TARGET);
+  if (inAmpMode) return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, _constants.BODY_RENDER_TARGET);
   return /*#__PURE__*/_react.default.createElement("div", {
-    id: "__next",
-    dangerouslySetInnerHTML: {
-      __html: html
-    }
-  });
+    id: "__next"
+  }, _constants.BODY_RENDER_TARGET);
 }
 
 class NextScript extends _react.Component {
-  constructor(...args) {
-    super(...args);
-    this.context = void 0;
-  }
-
   getDynamicChunks(files) {
     return getDynamicChunks(this.context, this.props, files);
   }
@@ -933,14 +1002,14 @@ class NextScript extends _react.Component {
     return getPolyfillScripts(this.context, this.props);
   }
 
-  static getInlineScriptSource(documentProps) {
+  static getInlineScriptSource(context) {
     const {
       __NEXT_DATA__
-    } = documentProps;
+    } = context;
 
     try {
       const data = JSON.stringify(__NEXT_DATA__);
-      return (0, _htmlescape.htmlEscapeJsonString)(data);
+      return (0, _htmlescape).htmlEscapeJsonString(data);
     } catch (err) {
       if (err.message.indexOf('circular structure')) {
         throw new Error(`Circular structure in "getInitialProps" result of page "${__NEXT_DATA__.page}". https://nextjs.org/docs/messages/circular-structure`);
@@ -1009,11 +1078,7 @@ class NextScript extends _react.Component {
 }
 
 exports.NextScript = NextScript;
-NextScript.contextType = _documentContext.DocumentContext;
-NextScript.propTypes = {
-  nonce: _propTypes.default.string,
-  crossOrigin: _propTypes.default.string
-};
+NextScript.contextType = _utils.HtmlContext;
 NextScript.safariNomoduleFix = '!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()},!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();';
 
 function getAmpPath(ampPath, asPath) {
@@ -1022,86 +1087,59 @@ function getAmpPath(ampPath, asPath) {
 
 /***/ }),
 
-/***/ 9630:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ 372:
+/***/ ((module) => {
 
-"use strict";
-exports.__esModule=true;exports.htmlEscapeJsonString=htmlEscapeJsonString;// This utility is based on https://github.com/zertosh/htmlescape
-// License: https://github.com/zertosh/htmlescape/blob/0527ca7156a524d256101bb310a9f970f63078ad/LICENSE
-const ESCAPE_LOOKUP={'&':'\\u0026','>':'\\u003e','<':'\\u003c','\u2028':'\\u2028','\u2029':'\\u2029'};const ESCAPE_REGEX=/[&><\u2028\u2029]/g;function htmlEscapeJsonString(str){return str.replace(ESCAPE_REGEX,match=>ESCAPE_LOOKUP[match]);}
-//# sourceMappingURL=htmlescape.js.map
+module.exports = require("next/dist/server/get-page-files.js");
 
 /***/ }),
 
-/***/ 227:
-/***/ (function(module) {
+/***/ 2538:
+/***/ ((module) => {
 
-"use strict";
-module.exports = require("next/dist/next-server/lib/constants.js");;
-
-/***/ }),
-
-/***/ 3932:
-/***/ (function(module) {
-
-"use strict";
-module.exports = require("next/dist/next-server/lib/document-context.js");;
+module.exports = require("next/dist/server/htmlescape.js");
 
 /***/ }),
 
-/***/ 816:
-/***/ (function(module) {
+/***/ 2208:
+/***/ ((module) => {
 
-"use strict";
-module.exports = require("next/dist/next-server/lib/head-manager-context.js");;
-
-/***/ }),
-
-/***/ 7579:
-/***/ (function(module) {
-
-"use strict";
-module.exports = require("next/dist/next-server/lib/utils.js");;
+module.exports = require("next/dist/server/utils.js");
 
 /***/ }),
 
-/***/ 6171:
-/***/ (function(module) {
+/***/ 6044:
+/***/ ((module) => {
 
-"use strict";
-module.exports = require("next/dist/next-server/server/get-page-files.js");;
-
-/***/ }),
-
-/***/ 5105:
-/***/ (function(module) {
-
-"use strict";
-module.exports = require("next/dist/next-server/server/utils.js");;
+module.exports = require("next/dist/shared/lib/constants.js");
 
 /***/ }),
 
-/***/ 4229:
-/***/ (function(module) {
+/***/ 6098:
+/***/ ((module) => {
 
-"use strict";
-module.exports = require("prop-types");;
+module.exports = require("next/dist/shared/lib/head-manager-context.js");
+
+/***/ }),
+
+/***/ 7620:
+/***/ ((module) => {
+
+module.exports = require("next/dist/shared/lib/utils.js");
 
 /***/ }),
 
 /***/ 9297:
-/***/ (function(module) {
+/***/ ((module) => {
 
-"use strict";
-module.exports = require("react");;
+module.exports = require("react");
 
 /***/ }),
 
 /***/ 1168:
-/***/ (function(module) {
+/***/ ((module) => {
 
-"use strict";
-module.exports = require("styled-jsx/server");;
+module.exports = require("styled-jsx/server");
 
 /***/ })
 
@@ -1111,8 +1149,8 @@ module.exports = require("styled-jsx/server");;
 // load runtime
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
-var __webpack_exec__ = function(moduleId) { return __webpack_require__(__webpack_require__.s = moduleId); }
-var __webpack_exports__ = __webpack_require__.X(0, [821], function() { return __webpack_exec__(8881); });
+var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+var __webpack_exports__ = (__webpack_exec__(8881));
 module.exports = __webpack_exports__;
 
 })();

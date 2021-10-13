@@ -1,13 +1,13 @@
+"use strict";
 exports.id = 620;
 exports.ids = [620];
 exports.modules = {
 
 /***/ 1887:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "A": function() { return /* binding */ setUserSumAction; }
+/* harmony export */   "A": () => (/* binding */ setUserSumAction)
 /* harmony export */ });
 function setUserSumAction(sum) {
   return {
@@ -19,19 +19,21 @@ function setUserSumAction(sum) {
 /***/ }),
 
 /***/ 7483:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5282);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9297);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9297);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5282);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
 
 
 
-class ButtonDeleteCard extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component) {
+class ButtonDeleteCard extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
   render() {
-    return /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
+    return /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx("button", {
       className: "button-delete-card",
       onClick: this.props.changeFlagDeleteCard
     });
@@ -39,25 +41,26 @@ class ButtonDeleteCard extends (react__WEBPACK_IMPORTED_MODULE_1___default().Com
 
 }
 
-/* harmony default export */ __webpack_exports__["Z"] = (ButtonDeleteCard);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ButtonDeleteCard);
 
 /***/ }),
 
 /***/ 3923:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5282);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9297);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-
-
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9297);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5282);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
-class ButtonOpenPopupAddCard extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component) {
+
+class ButtonOpenPopupAddCard extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
   constructor(...args) {
     super(...args);
 
@@ -68,7 +71,7 @@ class ButtonOpenPopupAddCard extends (react__WEBPACK_IMPORTED_MODULE_1___default
   }
 
   render() {
-    return /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
+    return /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx("button", {
       className: "button-open-popup-add-card",
       onClick: this.openPopupAddCard
     });
@@ -76,26 +79,25 @@ class ButtonOpenPopupAddCard extends (react__WEBPACK_IMPORTED_MODULE_1___default
 
 }
 
-/* harmony default export */ __webpack_exports__["Z"] = (ButtonOpenPopupAddCard);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ButtonOpenPopupAddCard);
 
 /***/ }),
 
 /***/ 4800:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5282);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9297);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7005);
-/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(79);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9297);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7005);
+/* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(79);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _actions_actionSumUser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(1887);
-
-
-
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5282);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
@@ -103,7 +105,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-class Cards extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component) {
+
+
+class Cards extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
   constructor(props) {
     super(props);
 
@@ -135,7 +139,7 @@ class Cards extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component) {
       let id = e.target.parentElement.getAttribute("id");
       let account = e.target.parentElement.querySelector(".card__sum").textContent;
       let sum = Number(this.props.userSum);
-      firebase__WEBPACK_IMPORTED_MODULE_2___default().database().ref('users/user' + _this.props.userId + '/' + _this.props.type + '/card' + id).remove().then(function () {
+      firebase__WEBPACK_IMPORTED_MODULE_1___default().database().ref('users/user' + _this.props.userId + '/' + _this.props.type + '/card' + id).remove().then(function () {
         if (_this.props.type === "cardsIncome") {
           sum -= Number(account);
         }
@@ -146,7 +150,7 @@ class Cards extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component) {
 
         _this.props.setUserSumFunction(+sum.toFixed(2));
       }).then(function () {
-        firebase__WEBPACK_IMPORTED_MODULE_2___default().database().ref('users/user' + _this.props.userId).update({
+        firebase__WEBPACK_IMPORTED_MODULE_1___default().database().ref('users/user' + _this.props.userId).update({
           money: +sum.toFixed(2)
         });
       }).catch(error => console.log(error.message));
@@ -172,41 +176,41 @@ class Cards extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component) {
   }
 
   render() {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "container cards",
-      children: [!this.state.arrayCards.length && /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
+      children: [!this.state.arrayCards.length && /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx("p", {
         className: "cards-container-empty",
         children: "You haven't created any cards yet."
-      }), this.state.arrayCards.map(item => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("article", {
+      }), this.state.arrayCards.map(item => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("article", {
         className: "card",
         id: item.id,
-        children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
+        children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx("button", {
           className: `card__button-delete${this.props.flagDeleteCard ? " visible" : ""}`,
           onClick: this.deleteCard
-        }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h3", {
+        }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx("h3", {
           className: "card__title",
           children: item.title
-        }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h4", {
+        }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx("h4", {
           className: "card__category",
           children: item.category
-        }), item.description && /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
+        }), item.description && /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx("button", {
           className: "card__more-details",
           onClick: this.openMoreDetails,
           children: "More details"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
           className: "card__bottom",
-          children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
+          children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx("span", {
             className: "card__sum",
             children: item.money
-          }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
+          }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx("span", {
             className: "card__date",
             children: item.date
           })]
-        }), item.description && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+        }), item.description && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "card__description",
-          children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
+          children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx("p", {
             children: item.description
-          }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
+          }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx("button", {
             className: "card__more-details",
             onClick: this.closeMoreDetails,
             children: "Hide"
@@ -235,27 +239,24 @@ function matchDispatchToProps(dispatch) {
   };
 }
 
-/* harmony default export */ __webpack_exports__["Z"] = ((0,react_redux__WEBPACK_IMPORTED_MODULE_3__.connect)(mapStateToProps, matchDispatchToProps)(Cards));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_2__.connect)(mapStateToProps, matchDispatchToProps)(Cards));
 
 /***/ }),
 
 /***/ 5011:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "Z": function() { return /* binding */ card_CreationCard; }
+  "Z": () => (/* binding */ card_CreationCard)
 });
 
-// EXTERNAL MODULE: external "react/jsx-runtime"
-var jsx_runtime_ = __webpack_require__(5282);
 // EXTERNAL MODULE: external "react"
 var external_react_ = __webpack_require__(9297);
 var external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_);
 // EXTERNAL MODULE: ./images/close.svg
-var images_close = __webpack_require__(518);
+var images_close = __webpack_require__(3561);
 // EXTERNAL MODULE: ./functions/validateEmptyField.js
 var validateEmptyField = __webpack_require__(1704);
 // EXTERNAL MODULE: external "uuid"
@@ -269,11 +270,12 @@ var actionSumUser = __webpack_require__(1887);
 var external_react_redux_ = __webpack_require__(79);
 // EXTERNAL MODULE: ./components/fields/FieldFormWithoutValue.js
 var FieldFormWithoutValue = __webpack_require__(7449);
+// EXTERNAL MODULE: external "react/jsx-runtime"
+var jsx_runtime_ = __webpack_require__(5282);
 ;// CONCATENATED MODULE: ./components/blocks/FormCreateCard.js
-
-
-
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -458,14 +460,13 @@ function matchDispatchToProps(dispatch) {
   };
 }
 
-/* harmony default export */ var blocks_FormCreateCard = ((0,external_react_redux_.connect)(mapStateToProps, matchDispatchToProps)(FormCreateCard));
+/* harmony default export */ const blocks_FormCreateCard = ((0,external_react_redux_.connect)(mapStateToProps, matchDispatchToProps)(FormCreateCard));
 // EXTERNAL MODULE: ./node_modules/next/image.js
 var next_image = __webpack_require__(5675);
 ;// CONCATENATED MODULE: ./components/card/CreationCard.js
-
-
-
 function CreationCard_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -512,7 +513,7 @@ class CreationCard extends (external_react_default()).Component {
 
 }
 
-/* harmony default export */ var card_CreationCard = (CreationCard);
+/* harmony default export */ const card_CreationCard = (CreationCard);
 
 /***/ })
 

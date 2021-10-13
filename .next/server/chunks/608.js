@@ -1,19 +1,17 @@
+"use strict";
 exports.id = 608;
 exports.ids = [608];
 exports.modules = {
 
 /***/ 887:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "Z": function() { return /* binding */ blocks_ModalWindow; }
+  "Z": () => (/* binding */ blocks_ModalWindow)
 });
 
-// EXTERNAL MODULE: external "react/jsx-runtime"
-var jsx_runtime_ = __webpack_require__(5282);
 // EXTERNAL MODULE: external "react"
 var external_react_ = __webpack_require__(9297);
 var external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_);
@@ -26,11 +24,12 @@ var validateEmptyField = __webpack_require__(1704);
 var FieldFormWithoutValue = __webpack_require__(7449);
 // EXTERNAL MODULE: ./functions/doVisibleOrHiddenPassword.js
 var doVisibleOrHiddenPassword = __webpack_require__(6755);
+// EXTERNAL MODULE: external "react/jsx-runtime"
+var jsx_runtime_ = __webpack_require__(5282);
 ;// CONCATENATED MODULE: ./components/blocks/FormChangePassword.js
-
-
-
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -130,21 +129,20 @@ class FormChangePassword extends (external_react_default()).Component {
 
 }
 
-/* harmony default export */ var blocks_FormChangePassword = (FormChangePassword);
+/* harmony default export */ const blocks_FormChangePassword = (FormChangePassword);
 // EXTERNAL MODULE: ./images/close.svg
-var images_close = __webpack_require__(518);
+var images_close = __webpack_require__(3561);
 // EXTERNAL MODULE: external "next/router"
 var router_ = __webpack_require__(6731);
 var router_default = /*#__PURE__*/__webpack_require__.n(router_);
 ;// CONCATENATED MODULE: ./components/blocks/FormChangeAvatar.js
-
-
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { FormChangeAvatar_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function FormChangeAvatar_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -239,14 +237,13 @@ class FormChangeAvatar extends (external_react_default()).Component {
 
 }
 
-/* harmony default export */ var blocks_FormChangeAvatar = (/*#__PURE__*/external_react_default().forwardRef((props, ref) => /*#__PURE__*/jsx_runtime_.jsx(FormChangeAvatar, _objectSpread({
+/* harmony default export */ const blocks_FormChangeAvatar = (/*#__PURE__*/external_react_default().forwardRef((props, ref) => /*#__PURE__*/jsx_runtime_.jsx(FormChangeAvatar, _objectSpread({
   inputFile: ref
 }, props))));
 ;// CONCATENATED MODULE: ./components/blocks/FormSetNewPassword.js
-
-
-
 function FormSetNewPassword_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -306,14 +303,13 @@ class FormSetNewPassword extends (external_react_default()).Component {
 
 }
 
-/* harmony default export */ var blocks_FormSetNewPassword = (FormSetNewPassword);
+/* harmony default export */ const blocks_FormSetNewPassword = (FormSetNewPassword);
 // EXTERNAL MODULE: ./node_modules/next/image.js
 var next_image = __webpack_require__(5675);
 ;// CONCATENATED MODULE: ./components/blocks/ModalWindow.js
-
-
-
 function ModalWindow_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -454,22 +450,21 @@ class ModalWindow extends (external_react_default()).Component {
 
 }
 
-/* harmony default export */ var blocks_ModalWindow = ((0,router_.withRouter)(ModalWindow));
+/* harmony default export */ const blocks_ModalWindow = ((0,router_.withRouter)(ModalWindow));
 
 /***/ }),
 
 /***/ 614:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5282);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9297);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-
-
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9297);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5282);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
@@ -477,15 +472,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-class FieldFormWithValue extends (react__WEBPACK_IMPORTED_MODULE_1___default().Component) {
+
+
+class FieldFormWithValue extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
   render() {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "form__item",
-      children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("label", {
+      children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx("label", {
         htmlFor: this.props.id,
         className: `form__label${this.props.required ? ' required' : ''}`,
         children: this.props.label
-      }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("input", {
+      }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx("input", {
         type: this.props.type,
         id: this.props.id,
         value: this.props.value ? this.props.value : "",
@@ -497,7 +494,7 @@ class FieldFormWithValue extends (react__WEBPACK_IMPORTED_MODULE_1___default().C
         ref: this.props.innerRef,
         onChange: this.props.functionOnChange,
         "aria-label": this.props.label
-      }), this.props.flagPasswordField && /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
+      }), this.props.flagPasswordField && /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx("button", {
         className: "button-visible-password",
         "aria-label": "Button visible password",
         onClick: this.props.showHidePassword
@@ -507,18 +504,17 @@ class FieldFormWithValue extends (react__WEBPACK_IMPORTED_MODULE_1___default().C
 
 }
 
-/* harmony default export */ __webpack_exports__["Z"] = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().forwardRef((props, ref) => /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(FieldFormWithValue, _objectSpread({
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().forwardRef((props, ref) => /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx(FieldFormWithValue, _objectSpread({
   innerRef: ref
 }, props))));
 
 /***/ }),
 
 /***/ 6755:
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "o": function() { return /* binding */ doVisibleOrHiddenPassword; }
+/* harmony export */   "o": () => (/* binding */ doVisibleOrHiddenPassword)
 /* harmony export */ });
 function doVisibleOrHiddenPassword(element) {
   if (element.classList.contains("button-hidden-password")) {

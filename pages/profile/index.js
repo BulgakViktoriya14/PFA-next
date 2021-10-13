@@ -65,8 +65,12 @@ class Profile extends React.Component {
                 if (url) {
                     imageWrapper.innerHTML = `<img src=${url} alt="photo"/>`;
                     _this.props.setUserAvatarFunction(url);
+                    _this.setState({isLoading: false});
                 }
-            }).then(() => { _this.setState({isLoading: false}); })
+            }). catch(function (error) {
+                _this.setState({isLoading: false});
+                console.log(error);
+            })
     }
 
     changeUserInfo = () => {
