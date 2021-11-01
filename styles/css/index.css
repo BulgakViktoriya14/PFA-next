@@ -1338,7 +1338,9 @@ a:hover:after, a:focus:after {
   background-color: #e7e7e7;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 12;
+  -webkit-transform: translate3d(0, 0, 1px);
+  transform: translate3d(0, 0, 1px);
 }
 .loader__text {
   width: 250px;
