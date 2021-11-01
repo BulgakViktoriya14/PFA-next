@@ -29,4 +29,4 @@ class FormCreateChart extends React.Component {
     }
 }
 
-export default FormCreateChart
+export default FormCreateChart;

@@ -1072,6 +1072,7 @@ a:hover:after, a:focus:after {
     transition: 200ms;
     padding: 30px;
     width: 100%;
+    display: none;
   }
   .creation-card .subtitle {
     margin: 0;
@@ -1079,6 +1080,7 @@ a:hover:after, a:focus:after {
   .creation-card.creation-card_open {
     z-index: 10;
     opacity: 1;
+    display: block;
   }
   .creation-card .close {
     display: block;

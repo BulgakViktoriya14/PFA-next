@@ -138,7 +138,7 @@ class Profile extends React.Component {
                 }
 
                 {this.props.userId &&
-                    <div className={`content__logged-in${this.state.isLoading ? ' disabled' : ''}`}>
+                    <div className={`content__logged-in`}>
                         <ModalWindow page={"profile-password"} nameClass={"modal-window modal-window__change-password"}/>
                         <ModalWindow idUser={this.props.userId} page={"profile-avatar"}
                                      nameClass={"modal-window modal-window__change-avatar"} history={this.props.history}/>

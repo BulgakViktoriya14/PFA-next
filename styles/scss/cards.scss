@@ -224,6 +224,7 @@
         transition: 200ms;
         padding: 30px;
         width: 100%;
+        display: none;
 
         .subtitle {
             margin: 0;
@@ -232,6 +233,7 @@
         &.creation-card_open {
             z-index: 10;
             opacity: 1;
+            display: block;
         }
 
         .close {
