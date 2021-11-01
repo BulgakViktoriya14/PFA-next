@@ -95,7 +95,8 @@ class FormChangePassword extends (external_react_default()).Component {
         type: "password",
         id: "new-password",
         flagPasswordField: true,
-        showHidePassword: this.doVisibleOrHiddenPassword
+        showHidePassword: this.doVisibleOrHiddenPassword,
+        inputMode: "text"
       }), !this.props.flagChangePassword && /*#__PURE__*/jsx_runtime_.jsx(FieldFormWithoutValue/* default */.Z, {
         ref: this.repeatPassword,
         required: true,
@@ -103,7 +104,8 @@ class FormChangePassword extends (external_react_default()).Component {
         type: "password",
         id: "repeat-password",
         flagPasswordField: true,
-        showHidePassword: this.doVisibleOrHiddenPassword
+        showHidePassword: this.doVisibleOrHiddenPassword,
+        inputMode: "text"
       }), !this.props.flagChangePassword && /*#__PURE__*/jsx_runtime_.jsx("button", {
         className: "form__submit",
         name: "submit",
@@ -176,7 +178,6 @@ class FormChangeAvatar extends (external_react_default()).Component {
 
     FormChangeAvatar_defineProperty(this, "uploadFile", () => {
       let file = this.props.inputFile.current.files[0];
-      console.log(file.type);
 
       if (file.type === 'image/png' || file.type === 'image/jpeg' || file.type === 'image/HEIF') {
         this.labelInputFile.current.classList.add("upload-file");
@@ -280,7 +281,8 @@ class FormSetNewPassword extends (external_react_default()).Component {
         label: "Your email",
         id: "email-for-password",
         type: "email",
-        required: true
+        required: true,
+        inputMode: "email"
       }), !this.state.flagSendEmail && /*#__PURE__*/jsx_runtime_.jsx("button", {
         className: "form__submit",
         name: "submit",
@@ -493,7 +495,8 @@ class FieldFormWithValue extends (react__WEBPACK_IMPORTED_MODULE_0___default().C
         required: this.props.required ? "required" : "",
         ref: this.props.innerRef,
         onChange: this.props.functionOnChange,
-        "aria-label": this.props.label
+        "aria-label": this.props.label,
+        inputMode: this.props.inputMode
       }), this.props.flagPasswordField && /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx("button", {
         className: "button-visible-password",
         "aria-label": "Button visible password",

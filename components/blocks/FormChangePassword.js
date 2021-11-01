@@ -45,10 +45,10 @@ class FormChangePassword extends React.Component {
         return (
             <form className="form form-change-password">
                 {!this.props.flagChangePassword &&
-                    <FieldFormWithoutValue ref={this.newPassword} required={true} label={"New password"} type={"password"} id={"new-password"} flagPasswordField={true} showHidePassword={this.doVisibleOrHiddenPassword}/>
+                    <FieldFormWithoutValue ref={this.newPassword} required={true} label={"New password"} type={"password"} id={"new-password"} flagPasswordField={true} showHidePassword={this.doVisibleOrHiddenPassword} inputMode={"text"}/>
                 }
                 {!this.props.flagChangePassword &&
-                    <FieldFormWithoutValue ref={this.repeatPassword} required={true} label={"Re-enter the new password"} type={"password"} id={"repeat-password"} flagPasswordField={true} showHidePassword={this.doVisibleOrHiddenPassword}/>
+                    <FieldFormWithoutValue ref={this.repeatPassword} required={true} label={"Re-enter the new password"} type={"password"} id={"repeat-password"} flagPasswordField={true} showHidePassword={this.doVisibleOrHiddenPassword} inputMode={"text"}/>
                 }
                 {!this.props.flagChangePassword &&
                     <button className="form__submit" name="submit"

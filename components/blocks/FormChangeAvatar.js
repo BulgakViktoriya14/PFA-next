@@ -32,7 +32,6 @@ class FormChangeAvatar extends React.Component {
 
     uploadFile = () => {
         let file = this.props.inputFile.current.files[0];
-        console.log(file.type)
         if (file.type === 'image/png' || file.type === 'image/jpeg' || file.type === 'image/HEIF') {
             this.labelInputFile.current.classList.add("upload-file");
             this.buttonSave.current.classList.remove("disabled")

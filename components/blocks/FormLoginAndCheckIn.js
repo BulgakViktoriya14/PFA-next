@@ -86,12 +86,12 @@ class FormLoginAndCheckIn extends React.Component {
 		return (
 			<form className="form form-login-checkin">
 				{!this.props.account &&
-					<FieldFormWithoutValue label={"Your name"} id={"name"} type={"text"} required={true} functionOnChange={this.handleChange}/>
+					<FieldFormWithoutValue label={"Your name"} id={"name"} type={"text"} required={true} functionOnChange={this.handleChange} inputMode={"text"}/>
 				}
-				<FieldFormWithoutValue label={"E-mail"} id={"email"} type={"email"} required={true} functionOnChange={this.handleChange}/>
-				<FieldFormWithoutValue label={"Password"} id={"password"} type={"password"} required={true} functionOnChange={this.handleChange} flagPasswordField={true} showHidePassword={this.doVisibleOrHiddenPassword}/>
+				<FieldFormWithoutValue label={"E-mail"} id={"email"} type={"email"} required={true} functionOnChange={this.handleChange} inputMode={"email"}/>
+				<FieldFormWithoutValue label={"Password"} id={"password"} type={"password"} required={true} functionOnChange={this.handleChange} flagPasswordField={true} showHidePassword={this.doVisibleOrHiddenPassword} inputMode={"text"}/>
 				{!this.props.account &&
-					<FieldFormWithValue type={"number"} label={"Starting amount"} id={"money"} value={this.state.money} functionOnChange={this.handleChange}/>
+					<FieldFormWithValue type={"number"} label={"Starting amount"} id={"money"} value={this.state.money} functionOnChange={this.handleChange} inputMode={"decimal"}/>
 				}
 				<div className="form__wrapper-buttons">
 				    <input className="form__submit" type="button" name="submit" value={this.props.textButton} onClick={this.logIntoAccount}/>

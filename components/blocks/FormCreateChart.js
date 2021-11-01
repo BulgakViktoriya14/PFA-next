@@ -13,10 +13,10 @@ class FormCreateChart extends React.Component {
                              optionsArray={["Daily graph", "Monthly graph", "Yearly graph", "Category graph"]}/>
                 <FieldFormWithoutValue innerRef={this.props.startDate} required={true}
                                        label={"Select the start date of the interval"} type={"date"}
-                                       id={"start-date-interval"} flagPasswordField={false}/>
+                                       id={"start-date-interval"} flagPasswordField={false} inputMode={"none"}/>
                 <FieldFormWithoutValue innerRef={this.props.endDate} required={true}
                                        label={"Select the end date of the interval"} type={"date"}
-                                       id={"end-date-interval"} flagPasswordField={false}/>
+                                       id={"end-date-interval"} flagPasswordField={false} inputMode={"none"}/>
                 <div className="form__wrapper-buttons">
                     <ButtonCreateReport functionOnClick={this.props.createReport} textButton={"Create graph"} id={"graph"}/>
                     <ButtonCreateReport functionOnClick={this.props.createReport} textButton={"Create table"} id={"table"}/>

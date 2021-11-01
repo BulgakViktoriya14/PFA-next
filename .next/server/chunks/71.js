@@ -362,7 +362,8 @@ class FieldFormWithoutValue extends (react__WEBPACK_IMPORTED_MODULE_0___default(
         required: this.props.required ? "required" : "",
         "aria-required": this.props.required ? "required" : "",
         onChange: this.props.functionOnChange,
-        "aria-label": this.props.label
+        "aria-label": this.props.label,
+        inputMode: this.props.inputMode
       }), this.props.flagPasswordField && /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx("button", {
         className: "button-visible-password",
         "aria-label": "Button visible password",

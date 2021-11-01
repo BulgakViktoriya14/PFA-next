@@ -192,13 +192,15 @@ class FormLoginAndCheckIn extends (external_react_default()).Component {
         id: "name",
         type: "text",
         required: true,
-        functionOnChange: this.handleChange
+        functionOnChange: this.handleChange,
+        inputMode: "text"
       }), /*#__PURE__*/jsx_runtime_.jsx(FieldFormWithoutValue/* default */.Z, {
         label: "E-mail",
         id: "email",
         type: "email",
         required: true,
-        functionOnChange: this.handleChange
+        functionOnChange: this.handleChange,
+        inputMode: "email"
       }), /*#__PURE__*/jsx_runtime_.jsx(FieldFormWithoutValue/* default */.Z, {
         label: "Password",
         id: "password",
@@ -206,13 +208,15 @@ class FormLoginAndCheckIn extends (external_react_default()).Component {
         required: true,
         functionOnChange: this.handleChange,
         flagPasswordField: true,
-        showHidePassword: this.doVisibleOrHiddenPassword
+        showHidePassword: this.doVisibleOrHiddenPassword,
+        inputMode: "text"
       }), !this.props.account && /*#__PURE__*/jsx_runtime_.jsx(FieldFormWithValue/* default */.Z, {
         type: "number",
         label: "Starting amount",
         id: "money",
         value: this.state.money,
-        functionOnChange: this.handleChange
+        functionOnChange: this.handleChange,
+        inputMode: "decimal"
       }), /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
         className: "form__wrapper-buttons",
         children: [/*#__PURE__*/jsx_runtime_.jsx("input", {

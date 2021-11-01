@@ -28,7 +28,7 @@ class FormSetNewPassword extends React.Component {
         return (
             <form className="form form-set-password">
                 {!this.state.flagSendEmail &&
-                    <FieldFormWithoutValue ref={this.email} label={"Your email"} id={"email-for-password"} type={"email"} required={true}/>
+                    <FieldFormWithoutValue ref={this.email} label={"Your email"} id={"email-for-password"} type={"email"} required={true} inputMode={"email"}/>
                 }
                 {!this.state.flagSendEmail &&
                     <button className="form__submit" name="submit"

@@ -409,26 +409,30 @@ class FormCreateCard extends (external_react_default()).Component {
         label: "Title",
         type: "text",
         id: "name",
-        flagPasswordField: false
+        flagPasswordField: false,
+        inputMode: "text"
       }), /*#__PURE__*/jsx_runtime_.jsx(FieldFormWithoutValue/* default */.Z, {
         ref: this.category,
         label: "Category",
         type: "text",
         id: "category",
-        flagPasswordField: false
+        flagPasswordField: false,
+        inputMode: "text"
       }), /*#__PURE__*/jsx_runtime_.jsx(FieldFormWithoutValue/* default */.Z, {
         ref: this.sum,
         required: true,
         label: "Amount",
         type: "number",
         id: "sum",
-        flagPasswordField: false
+        flagPasswordField: false,
+        inputMode: "decimal"
       }), /*#__PURE__*/jsx_runtime_.jsx(FieldFormWithoutValue/* default */.Z, {
         ref: this.description,
         label: "Description",
         type: "text",
         id: "description",
-        flagPasswordField: false
+        flagPasswordField: false,
+        inputMode: "text"
       }), /*#__PURE__*/jsx_runtime_.jsx("input", {
         type: "button",
         className: "button-add-card",

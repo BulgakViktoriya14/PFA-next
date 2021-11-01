@@ -117,10 +117,10 @@ class FormCreateCard extends React.Component {
     render() {
         return (
             <form className="form form-add-card" ref={this.form}>
-                <FieldFormWithoutValue ref={this.name} required={true} label={"Title"} type={"text"} id={"name"} flagPasswordField={false}/>
-                <FieldFormWithoutValue ref={this.category} label={"Category"} type={"text"} id={"category"} flagPasswordField={false}/>
-                <FieldFormWithoutValue ref={this.sum} required={true} label={"Amount"} type={"number"} id={"sum"} flagPasswordField={false}/>
-                <FieldFormWithoutValue ref={this.description} label={"Description"} type={"text"} id={"description"} flagPasswordField={false}/>
+                <FieldFormWithoutValue ref={this.name} required={true} label={"Title"} type={"text"} id={"name"} flagPasswordField={false} inputMode={"text"}/>
+                <FieldFormWithoutValue ref={this.category} label={"Category"} type={"text"} id={"category"} flagPasswordField={false} inputMode={"text"}/>
+                <FieldFormWithoutValue ref={this.sum} required={true} label={"Amount"} type={"number"} id={"sum"} flagPasswordField={false} inputMode={"decimal"}/>
+                <FieldFormWithoutValue ref={this.description} label={"Description"} type={"text"} id={"description"} flagPasswordField={false} inputMode={"text"}/>
                 <input type="button" className="button-add-card" value="Add card" onClick={this.addCart}/>
                 {this.state.errorText &&
                     <p className="massage-error">{this.state.errorText}</p>
