@@ -34,7 +34,9 @@ const initialState = {
   userSum: 0,
   userAvatar: '',
   cardsIncome: [],
-  cardsExpenses: []
+  cardsExpenses: [],
+  categoryList: '',
+  enableCategoryFlag: false
 };
 function userInfo(state = initialState, action) {
   switch (action.type) {
@@ -71,6 +73,16 @@ function userInfo(state = initialState, action) {
     case "SET_USER_EXPENSES_CARDS":
       return _objectSpread(_objectSpread({}, state), {}, {
         cardsExpenses: action.payload
+      });
+
+    case "SET_USER_CATEGORY_LIST":
+      return _objectSpread(_objectSpread({}, state), {}, {
+        categoryList: action.payload
+      });
+
+    case "SET_CATEGORY_LIST_FLAG":
+      return _objectSpread(_objectSpread({}, state), {}, {
+        enableCategoryFlag: action.payload
       });
 
     default:

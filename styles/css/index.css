@@ -139,7 +139,7 @@ a:hover:after, a:focus:after {
   -webkit-overflow-scrolling: touch;
 }
 .wrapper::-webkit-scrollbar {
-  width: 7px;
+  width: 4px;
 }
 .wrapper::-webkit-scrollbar-thumb {
   background-color: #828282;
@@ -458,6 +458,20 @@ a:hover:after, a:focus:after {
   margin: 0 0 5px 5px;
   font-family: "Montserrat-SemiBold", sans-serif;
 }
+.form__label.label-checkbox {
+  display: flex;
+  margin: 0;
+}
+.form__label.label-checkbox:before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  border: 1px solid #008817;
+  display: block;
+  margin: 0 10px 0 0;
+  cursor: pointer;
+}
 @media (max-width: 768px) {
   .form__label {
     font-size: 14px;
@@ -556,6 +570,22 @@ a:hover:after, a:focus:after {
 .form__input:-webkit-autofill, .form__input:-webkit-autofill:hover, .form__input:-webkit-autofill:focus, .form__input:-webkit-autofill:active, .form__textarea:-webkit-autofill, .form__textarea:-webkit-autofill:hover, .form__textarea:-webkit-autofill:focus, .form__textarea:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 15px #fff inset !important;
 }
+.form__input_checkbox, .form__textarea_checkbox {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  appearance: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.form__input_checkbox:checked + .form__label:before, .form__textarea_checkbox:checked + .form__label:before {
+  background-image: url("../../images/check-mark.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 80% 80%;
+}
 .form__select > div:nth-child(2) {
   border: none;
   padding: 0 0 0 5px;
@@ -632,6 +662,9 @@ a:hover:after, a:focus:after {
 .form .button-create-report.disabled:focus {
   background-color: #fff;
   color: #828282;
+}
+.form .button-add-card {
+  margin: 0 0 40px 0;
 }
 .form .button-create-report:first-child {
   margin: 0 30px 0 0;
@@ -790,6 +823,29 @@ a:hover:after, a:focus:after {
 .form-login-checkin .form__link {
     margin: 0 0 10px 0;
   }
+}
+.form-add-category {
+  display: flex;
+  width: 100%;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  height: 0;
+  overflow-y: hidden;
+  visibility: hidden;
+  padding: 0;
+  transition: 150ms;
+}
+.form-add-category .form__item {
+  margin: 0;
+  flex-basis: calc(100% - 50px);
+}
+.form-add-category.open {
+  height: 100%;
+  padding: 30px 0;
+  visibility: visible;
+}
+.form-add-category .button-edit-profile {
+  flex-basis: 50px;
 }
 .form.profile__info-form .form__item {
   width: 100%;
@@ -951,6 +1007,7 @@ a:hover:after, a:focus:after {
   text-align: left;
   cursor: pointer;
   transition: 200ms ease-in;
+  color: #000;
 }
 .card__description {
   display: flex;
@@ -1086,6 +1143,10 @@ a:hover:after, a:focus:after {
     display: block;
   }
 }
+.modal-window__show-cards .card {
+  flex-basis: 48%;
+}
+
 .profile {
   display: flex;
   align-items: flex-start;
@@ -1137,7 +1198,6 @@ a:hover:after, a:focus:after {
 .button-change-password,
 .button-logout,
 .button-change-avatar,
-.button-category,
 .button-delete-profile {
   background-color: #fff;
   color: #b90000;
@@ -1160,9 +1220,6 @@ a:hover:after, a:focus:after {
 .button-change-avatar:hover,
 .button-change-avatar:active,
 .button-change-avatar:focus,
-.button-category:hover,
-.button-category:active,
-.button-category:focus,
 .button-delete-profile:hover,
 .button-delete-profile:active,
 .button-delete-profile:focus {
@@ -1174,7 +1231,6 @@ a:hover:after, a:focus:after {
 .button-change-password,
 .button-logout,
 .button-change-avatar,
-.button-category,
 .button-delete-profile {
     font-size: 14px;
     line-height: 14px;
@@ -1184,7 +1240,6 @@ a:hover:after, a:focus:after {
 .button-change-password.disabled,
 .button-logout.disabled,
 .button-change-avatar.disabled,
-.button-category.disabled,
 .button-delete-profile.disabled {
   display: block;
   color: #828282;
@@ -1201,9 +1256,6 @@ a:hover:after, a:focus:after {
 .button-change-avatar.disabled:hover,
 .button-change-avatar.disabled:active,
 .button-change-avatar.disabled:focus,
-.button-category.disabled:hover,
-.button-category.disabled:active,
-.button-category.disabled:focus,
 .button-delete-profile.disabled:hover,
 .button-delete-profile.disabled:active,
 .button-delete-profile.disabled:focus {
@@ -1215,7 +1267,6 @@ a:hover:after, a:focus:after {
 .button-change-password,
 .button-logout,
 .button-change-avatar,
-.button-category,
 .button-delete-profile {
     margin: 0 0 20px 0;
   }
@@ -1253,6 +1304,16 @@ a:hover:after, a:focus:after {
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
   position: relative;
   cursor: default;
+  max-height: 70vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.modal-window__block::-webkit-scrollbar {
+  width: 4px;
+}
+.modal-window__block::-webkit-scrollbar-thumb {
+  background-color: #828282;
+  outline: none;
 }
 @media (max-width: 768px) {
   .modal-window__block {
@@ -1282,8 +1343,8 @@ a:hover:after, a:focus:after {
   }
 }
 .report-container .ct-label {
-  fill: #fff;
-  color: #fff;
+  fill: #000;
+  color: #000;
   font-weight: bold;
 }
 .report-container .report {
@@ -1293,6 +1354,44 @@ a:hover:after, a:focus:after {
   .report-container .report {
     width: 100%;
   }
+}
+
+.button-show-cards {
+  background-color: #fff;
+  color: #b90000;
+  font-size: 16px;
+  line-height: 16px;
+  padding: 10px 15px;
+  border: 2px solid #b90000;
+  transition: 200ms;
+  font-weight: bold;
+  box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.002);
+  background-image: url("../../images/showCards-red.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.button-show-cards:hover, .button-show-cards:active, .button-show-cards:focus {
+  background-color: #b90000;
+  color: #fff;
+}
+@media (max-width: 768px) {
+  .button-show-cards {
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+.button-show-cards.disabled {
+  display: block;
+  color: #828282;
+  border: 2px solid #828282;
+  cursor: not-allowed;
+}
+.button-show-cards.disabled:hover, .button-show-cards.disabled:active, .button-show-cards.disabled:focus {
+  background-color: #fff;
+  color: #828282;
+}
+.button-show-cards:hover, .button-show-cards:active, .button-show-cards:focus {
+  background-image: url("../../images/showCards-white.svg");
 }
 
 .button-open-login-page {
@@ -1382,4 +1481,48 @@ a:hover:after, a:focus:after {
   100% {
     left: 250px;
   }
+}
+.block-categories .container {
+  margin: 0 0 20px 0;
+  justify-content: space-between;
+}
+.block-categories .button-edit-profile {
+  margin: 0;
+}
+.block-categories .form__item {
+  margin: 0;
+}
+.block-categories .form__item_checkbox {
+  width: 70%;
+  position: relative;
+  margin: 0;
+}
+
+.button-category {
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+  opacity: 1;
+  transition: 150ms;
+  border: none;
+  background-size: 70% 70%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.button-category_edit {
+  background-color: #008817;
+  border: 1px solid #008817;
+  background-image: url("../../images/edit.svg");
+}
+.button-category_edit.save {
+  background-image: url("../../images/check-mark.svg");
+  background-color: #fff;
+}
+.button-category_delete {
+  background-color: #b90000;
+  border: 1px solid #b90000;
+  background-image: url("../../images/delete.svg");
+}
+.button-category:hover {
+  opacity: 0.7;
 }

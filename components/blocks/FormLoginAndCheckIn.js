@@ -70,7 +70,7 @@ class FormLoginAndCheckIn extends React.Component {
 			.then(() => {
 				let id = uuidv4();
 				firebase.database().ref('/users/user' + id).set({
-					name: name, email: email, money: money, id: id
+					name: name, email: email, money: money, id: id, category: "", enableCategoryFlag: false
 				})
 				document.querySelector(".modal-window").classList.add("open")
 			}).catch(error => _this.setState({errorText: error.message}));

@@ -30,6 +30,9 @@
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
     position: relative;
     cursor: default;
+    max-height: 70vh;
+    overflow-y: auto;
+    @include scroll;
 
     @include breakpoint(mobile) {
       width: 100%;

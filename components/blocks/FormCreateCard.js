@@ -5,13 +5,15 @@ import firebase from 'firebase';
 import {setUserSumAction} from "../../actions/actionSumUser";
 import {connect} from 'react-redux';
 import FieldFormWithoutValue from "../fields/FieldFormWithoutValue";
+import FieldSelect from "../fields/FieldSelect";
 
 class FormCreateCard extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            errorText: ''
+            errorText: '',
+            categoryList: ['']
         }
 
         this.name = React.createRef();
@@ -19,6 +21,16 @@ class FormCreateCard extends React.Component {
         this.category = React.createRef();
         this.description = React.createRef();
         this.form = React.createRef();
+    }
+
+    componentDidMount() {
+        let array = [];
+        this.props.categoryList.split('#').forEach(function (item) {
+            if(item.length > 0) {
+                array.push(item)
+            }
+        })
+        this.setState({categoryList: array})
     }
 
     getDate = () => {
@@ -36,10 +48,17 @@ class FormCreateCard extends React.Component {
 
     createCard = () => {
         let sum =  this.sum.current.value;
-        let category = this.category.current.value;
         let name = this.name.current.value;
         let description = this.description.current.value;
         let date = this.getDate();
+        let category = '';
+
+        if(!this.props.enableCategoryFlag || this.state.categoryList[0].length === 0) {
+            category = this.category.current.value;
+        } else {
+            category = document.querySelector("#select-categories > div > div > div").innerText;
+        }
+
         return  {
             title: name,
             money: sum,
@@ -57,7 +76,7 @@ class FormCreateCard extends React.Component {
         return true;
     }
 
-    crateOneCard = (pathName, sum, card, _this) => {
+    createOneCard = (pathName, sum, card, _this) => {
         let id = uuidv4();
         let path = '/users/user' + _this.props.userId + '/' + pathName + '/card' + id;
         firebase.database().ref(path).set({
@@ -69,7 +88,10 @@ class FormCreateCard extends React.Component {
             title: card.title,
             description: card.description
         })
-            .then(() => { _this.form.current.reset();})
+            .then(() => {
+                _this.form.current.reset();
+                document.querySelector("#select-categories > div > div > div").innerText = '';
+            })
             .then(() => {_this.props.setUserSumFunction(sum)})
             .then(() => {
                 firebase.database().ref('/users/user' + _this.props.userId).update({
@@ -99,10 +121,10 @@ class FormCreateCard extends React.Component {
 
         if(this.props.type === "income") {
             let newSum = Number(this.props.userSum) + Number(card.money);
-            this.crateOneCard('cardsIncome', +newSum.toFixed(2), card, _this);
+            this.createOneCard('cardsIncome', +newSum.toFixed(2), card, _this);
         } else {
             let newSum = Number(this.props.userSum) - Number(card.money);
-            this.crateOneCard('cardsExpenses', +newSum.toFixed(2), card, _this);
+            this.createOneCard('cardsExpenses', +newSum.toFixed(2), card, _this);
         }
 
         if(document.querySelector(".creation-card.creation-card_open")) {
@@ -117,10 +139,16 @@ class FormCreateCard extends React.Component {
     render() {
         return (
             <form className="form form-add-card" ref={this.form}>
-                <FieldFormWithoutValue ref={this.name} required={true} label={"Title"} type={"text"} id={"name"} flagPasswordField={false} inputMode={"text"}/>
-                <FieldFormWithoutValue ref={this.category} label={"Category"} type={"text"} id={"category"} flagPasswordField={false} inputMode={"text"}/>
-                <FieldFormWithoutValue ref={this.sum} required={true} label={"Amount"} type={"number"} id={"sum"} flagPasswordField={false} inputMode={"decimal"}/>
-                <FieldFormWithoutValue ref={this.description} label={"Description"} type={"text"} id={"description"} flagPasswordField={false} inputMode={"text"}/>
+                <FieldFormWithoutValue innerRef={this.name} required={true} label={"Title"} type={"text"} id={"name"} flagPasswordField={false} inputMode={"text"}/>
+                {(!this.props.enableCategoryFlag || this.state.categoryList[0].length === 0) &&
+                    <FieldFormWithoutValue innerRef={this.category} label={"Category"} type={"text"} id={"category"}
+                                       flagPasswordField={false} inputMode={"text"}/>
+                }
+                {this.props.enableCategoryFlag && this.state.categoryList[0].length !== 0 &&
+                    <FieldSelect label={"Category"} optionsArray={this.state.categoryList} id={"select-categories"}/>
+                }
+                <FieldFormWithoutValue innerRef={this.sum} required={true} label={"Amount"} type={"number"} id={"sum"} flagPasswordField={false} inputMode={"decimal"}/>
+                <FieldFormWithoutValue innerRef={this.description} label={"Description"} type={"text"} id={"description"} flagPasswordField={false} inputMode={"text"}/>
                 <input type="button" className="button-add-card" value="Add card" onClick={this.addCart}/>
                 {this.state.errorText &&
                     <p className="massage-error">{this.state.errorText}</p>
@@ -135,7 +163,9 @@ function mapStateToProps(state) {
         cardsIncome: state.userInfo.cardsIncome,
         cardsExpenses: state.userInfo.cardsExpenses,
         userId: state.userInfo.idUser,
-        userSum: state.userInfo.userSum
+        userSum: state.userInfo.userSum,
+        enableCategoryFlag: state.userInfo.enableCategoryFlag,
+        categoryList: state.userInfo.categoryList
     }
 }
 

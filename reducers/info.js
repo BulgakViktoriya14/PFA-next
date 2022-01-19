@@ -6,6 +6,8 @@ const initialState =  {
         userAvatar: '',
         cardsIncome: [],
         cardsExpenses: [],
+        categoryList: '',
+        enableCategoryFlag: false
 }
 
 
@@ -25,6 +27,10 @@ export default function userInfo(state = initialState, action) {
                 return {...state, cardsIncome: action.payload};
             case "SET_USER_EXPENSES_CARDS":
                 return {...state, cardsExpenses: action.payload};
+            case "SET_USER_CATEGORY_LIST":
+                return {...state, categoryList: action.payload};
+            case "SET_CATEGORY_LIST_FLAG":
+                return {...state, enableCategoryFlag: action.payload};
             default:
                 return state;
         }

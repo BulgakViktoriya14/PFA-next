@@ -1,5 +1,5 @@
 import React from 'react';
-import ChartistGraph from "react-chartist";
+import Chart from "react-google-charts";
 
 class BlockReport extends React.Component {
     constructor(props) {
@@ -9,18 +9,27 @@ class BlockReport extends React.Component {
     render() {
         return (
             <div className="report">
-                <ChartistGraph data={this.props.data} options={this.props.options} type={this.props.typeChart}
-                               responsiveOptions={this.props.responsiveOptions}
-                               className={`${this.props.flag && this.props.type === "graph" ? '' : 'disabled'}`}/>
+                {this.props.data.length > 0 &&
+                    <Chart width={'500px'}
+                           height={'300px'}
+                           chartType="PieChart"
+                           loader={<div>Loading Chart</div>}
+                           data={this.props.data}
+                           options={{
+                               is3D: true,
+                           }}
+                           rootProps={{'data-testid': 'chart'}}/>
+                }
                 <table
                     className={`table report__table${this.props.flag && this.props.type === "table" ? '' : ' disabled'}`}>
                     <thead className="thead">
                         <tr className="tr">
                             <th className="th">Category</th>
                             <th className="th">Amount</th>
+                            <th className="th">Show cards</th>
                         </tr>
                     </thead>
-                    <tbody className="tbody">
+                    <tbody className="tbody" onClick={this.props.showCards}>
                     </tbody>
                 </table>
             </div>

@@ -160,7 +160,9 @@ class FormLoginAndCheckIn extends (external_react_default()).Component {
             name: name,
             email: email,
             money: money,
-            id: id
+            id: id,
+            category: "",
+            enableCategoryFlag: false
           });
           document.querySelector(".modal-window").classList.add("open");
         }).catch(error => _this.setState({

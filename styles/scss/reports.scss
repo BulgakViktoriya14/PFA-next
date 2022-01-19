@@ -10,8 +10,8 @@
   }
 
   .ct-label {
-    fill: $colorWhite;
-    color: $colorWhite;
+    fill: $colorBlack;
+    color: $colorBlack;
     font-weight: bold;
   }
 
@@ -21,5 +21,18 @@
     @include breakpoint(tablet) {
       width: 100%;
     }
+  }
+}
+
+.button-show-cards {
+  @include buttonRed;
+  background-image: url("../../images/showCards-red.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-image: url("../../images/showCards-white.svg");
   }
 }

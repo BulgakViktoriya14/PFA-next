@@ -10,6 +10,7 @@ import {setUserIdAction} from "../../actions/actionIdUser";
 import {setUserAvatarAction} from "../../actions/actionUserAvatar";
 import {setUserIncomeCardsAction} from "../../actions/actionUserIncomeCards";
 import {setUserExpensesCardsAction} from "../../actions/actionUserExpensesCards";
+import {setUserCategoryListAction} from "../../actions/actionCategoryList";
 import ModalWindow from "../../components/blocks/ModalWindow";
 import ButtonProfile from "../../components/buttons/ButtonProfile";
 import Wrapper from "../../components/common/Wrapper";
@@ -17,6 +18,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import FormInfoProfile from "../../components/blocks/FormInfoProfile";
 import Loader from "../../components/common/Loader";
+import {setUserCategoryListFlagAction} from "../../actions/actionEnableCategoryFlag";
 
 class Profile extends React.Component {
     constructor(props) {
@@ -49,6 +51,8 @@ class Profile extends React.Component {
                             _this.props.setUserSumFunction(objectUsers[key].money);
                             _this.props.setUserIncomeCardsFunction(objectUsers[key].cardsIncome);
                             _this.props.setUserExpensesCardsFunction(objectUsers[key].cardsExpenses);
+                            _this.props.setUserCategoryListFunction(objectUsers[key].category);
+                            _this.props.setUserCategoryListFlagFunction(objectUsers[key].enableCategoryFlag)
                             _this.getAvatar(objectUsers[key].id);
                         }
                     }
@@ -105,6 +109,10 @@ class Profile extends React.Component {
         document.querySelector(".modal-window.modal-window__change-avatar").classList.add("open");
     }
 
+    openCategoryList = () => {
+        document.querySelector(".modal-window.modal-window__change-category").classList.add("open");
+    }
+
     handleChange = (e) => {
         switch (e.target.name) {
             case 'name-user':
@@ -139,9 +147,11 @@ class Profile extends React.Component {
 
                 {this.props.userId &&
                     <div className={`content__logged-in`}>
-                        <ModalWindow page={"profile-password"} nameClass={"modal-window modal-window__change-password"}/>
-                        <ModalWindow idUser={this.props.userId} page={"profile-avatar"}
+                        <ModalWindow modalTitle={"Change password"} page={"profile-password"} nameClass={"modal-window modal-window__change-password"}/>
+                        <ModalWindow idUser={this.props.userId} page={"profile-avatar"} modalTitle={"Change avatar"}
                                      nameClass={"modal-window modal-window__change-avatar"} history={this.props.history}/>
+                        <ModalWindow modalTitle={"My category list"} page={"profile-category"} nameClass={"modal-window modal-window__change-category"}
+                                     arrayCategory={this.props.categoryList.split('#')}/>
                         <h1 className="title">Profile</h1>
                         <div className="profile">
                             <div className="profile__image wrapper-img" ref={this.containerImage}>
@@ -151,6 +161,8 @@ class Profile extends React.Component {
                                              userName={this.props.userName} userEmail={this.props.userEmail}/>
                         </div>
                         <div className="profile__wrapper-buttons">
+                            <ButtonProfile functionOnCLick={this.openCategoryList}
+                                           nameButton={"Open my category list"}/>
                             {this.state.flag &&
                             <ButtonProfile functionOnCLick={this.changeUserInfo}
                                            nameButton={"Change information about yourself"}/>
@@ -187,6 +199,8 @@ function mapStateToProps(state) {
         userEmail: state.userInfo.userEmail,
         userSum: state.userInfo.userSum,
         userAvatar: state.userInfo.userAvatar,
+        categoryList: state.userInfo.categoryList,
+        enableCategoryFlag: state.userInfo.enableCategoryFlag
     }
 }
 
@@ -218,6 +232,14 @@ function matchDispatchToProps(dispatch) {
 
         setUserExpensesCardsFunction: (cards) => {
             dispatch(setUserExpensesCardsAction(cards))
+        },
+
+        setUserCategoryListFunction: (category) => {
+            dispatch(setUserCategoryListAction(category))
+        },
+
+        setUserCategoryListFlagFunction: (flag) => {
+            dispatch(setUserCategoryListFlagAction(flag))
         }
     }
 }

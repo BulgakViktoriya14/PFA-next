@@ -95,10 +95,12 @@ class ButtonOpenPopupAddCard extends (react__WEBPACK_IMPORTED_MODULE_0___default
 /* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(79);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _actions_actionSumUser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(1887);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5282);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _actions_actionSumUser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(1887);
+/* harmony import */ var _Card__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7918);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5282);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -127,10 +129,6 @@ class Cards extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
 
     _defineProperty(this, "openMoreDetails", e => {
       e.target.parentElement.classList.add("open");
-    });
-
-    _defineProperty(this, "closeMoreDetails", e => {
-      e.target.parentElement.parentElement.classList.remove("open");
     });
 
     _defineProperty(this, "deleteCard", e => {
@@ -176,46 +174,14 @@ class Cards extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
   }
 
   render() {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "container cards",
-      children: [!this.state.arrayCards.length && /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx("p", {
+      children: [!this.state.arrayCards.length && /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx("p", {
         className: "cards-container-empty",
         children: "You haven't created any cards yet."
-      }), this.state.arrayCards.map(item => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("article", {
-        className: "card",
-        id: item.id,
-        children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx("button", {
-          className: `card__button-delete${this.props.flagDeleteCard ? " visible" : ""}`,
-          onClick: this.deleteCard
-        }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx("h3", {
-          className: "card__title",
-          children: item.title
-        }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx("h4", {
-          className: "card__category",
-          children: item.category
-        }), item.description && /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx("button", {
-          className: "card__more-details",
-          onClick: this.openMoreDetails,
-          children: "More details"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
-          className: "card__bottom",
-          children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx("span", {
-            className: "card__sum",
-            children: item.money
-          }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx("span", {
-            className: "card__date",
-            children: item.date
-          })]
-        }), item.description && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "card__description",
-          children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx("p", {
-            children: item.description
-          }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx("button", {
-            className: "card__more-details",
-            onClick: this.closeMoreDetails,
-            children: "Hide"
-          })]
-        })]
+      }), this.state.arrayCards.map(item => /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx(_Card__WEBPACK_IMPORTED_MODULE_3__/* .default */ .Z, {
+        cardItem: item,
+        flagDeleteCard: this.props.flagDeleteCard
       }, item.id))]
     });
   }
@@ -234,7 +200,7 @@ function mapStateToProps(state) {
 function matchDispatchToProps(dispatch) {
   return {
     setUserSumFunction: sum => {
-      dispatch((0,_actions_actionSumUser__WEBPACK_IMPORTED_MODULE_4__/* .setUserSumAction */ .A)(sum));
+      dispatch((0,_actions_actionSumUser__WEBPACK_IMPORTED_MODULE_5__/* .setUserSumAction */ .A)(sum));
     }
   };
 }
@@ -270,10 +236,13 @@ var actionSumUser = __webpack_require__(1887);
 var external_react_redux_ = __webpack_require__(79);
 // EXTERNAL MODULE: ./components/fields/FieldFormWithoutValue.js
 var FieldFormWithoutValue = __webpack_require__(7449);
+// EXTERNAL MODULE: ./components/fields/FieldSelect.js + 1 modules
+var FieldSelect = __webpack_require__(7061);
 // EXTERNAL MODULE: external "react/jsx-runtime"
 var jsx_runtime_ = __webpack_require__(5282);
 ;// CONCATENATED MODULE: ./components/blocks/FormCreateCard.js
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -302,10 +271,17 @@ class FormCreateCard extends (external_react_default()).Component {
 
     _defineProperty(this, "createCard", () => {
       let sum = this.sum.current.value;
-      let category = this.category.current.value;
       let name = this.name.current.value;
       let description = this.description.current.value;
       let date = this.getDate();
+      let category = '';
+
+      if (!this.props.enableCategoryFlag || this.state.categoryList[0].length === 0) {
+        category = this.category.current.value;
+      } else {
+        category = document.querySelector("#select-categories > div > div > div").innerText;
+      }
+
       return {
         title: name,
         money: sum,
@@ -326,7 +302,7 @@ class FormCreateCard extends (external_react_default()).Component {
       return true;
     });
 
-    _defineProperty(this, "crateOneCard", (pathName, sum, card, _this) => {
+    _defineProperty(this, "createOneCard", (pathName, sum, card, _this) => {
       let id = (0,external_uuid_.v4)();
       let path = '/users/user' + _this.props.userId + '/' + pathName + '/card' + id;
       external_firebase_default().database().ref(path).set({
@@ -339,6 +315,8 @@ class FormCreateCard extends (external_react_default()).Component {
         description: card.description
       }).then(() => {
         _this.form.current.reset();
+
+        document.querySelector("#select-categories > div > div > div").innerText = '';
       }).then(() => {
         _this.props.setUserSumFunction(sum);
       }).then(() => {
@@ -374,10 +352,10 @@ class FormCreateCard extends (external_react_default()).Component {
 
       if (this.props.type === "income") {
         let newSum = Number(this.props.userSum) + Number(card.money);
-        this.crateOneCard('cardsIncome', +newSum.toFixed(2), card, _this);
+        this.createOneCard('cardsIncome', +newSum.toFixed(2), card, _this);
       } else {
         let newSum = Number(this.props.userSum) - Number(card.money);
-        this.crateOneCard('cardsExpenses', +newSum.toFixed(2), card, _this);
+        this.createOneCard('cardsExpenses', +newSum.toFixed(2), card, _this);
       }
 
       if (document.querySelector(".creation-card.creation-card_open")) {
@@ -390,7 +368,8 @@ class FormCreateCard extends (external_react_default()).Component {
     });
 
     this.state = {
-      errorText: ''
+      errorText: '',
+      categoryList: ['']
     };
     this.name = /*#__PURE__*/external_react_default().createRef();
     this.sum = /*#__PURE__*/external_react_default().createRef();
@@ -399,27 +378,43 @@ class FormCreateCard extends (external_react_default()).Component {
     this.form = /*#__PURE__*/external_react_default().createRef();
   }
 
+  componentDidMount() {
+    let array = [];
+    this.props.categoryList.split('#').forEach(function (item) {
+      if (item.length > 0) {
+        array.push(item);
+      }
+    });
+    this.setState({
+      categoryList: array
+    });
+  }
+
   render() {
     return /*#__PURE__*/(0,jsx_runtime_.jsxs)("form", {
       className: "form form-add-card",
       ref: this.form,
       children: [/*#__PURE__*/jsx_runtime_.jsx(FieldFormWithoutValue/* default */.Z, {
-        ref: this.name,
+        innerRef: this.name,
         required: true,
         label: "Title",
         type: "text",
         id: "name",
         flagPasswordField: false,
         inputMode: "text"
-      }), /*#__PURE__*/jsx_runtime_.jsx(FieldFormWithoutValue/* default */.Z, {
-        ref: this.category,
+      }), (!this.props.enableCategoryFlag || this.state.categoryList[0].length === 0) && /*#__PURE__*/jsx_runtime_.jsx(FieldFormWithoutValue/* default */.Z, {
+        innerRef: this.category,
         label: "Category",
         type: "text",
         id: "category",
         flagPasswordField: false,
         inputMode: "text"
+      }), this.props.enableCategoryFlag && this.state.categoryList[0].length !== 0 && /*#__PURE__*/jsx_runtime_.jsx(FieldSelect/* default */.Z, {
+        label: "Category",
+        optionsArray: this.state.categoryList,
+        id: "select-categories"
       }), /*#__PURE__*/jsx_runtime_.jsx(FieldFormWithoutValue/* default */.Z, {
-        ref: this.sum,
+        innerRef: this.sum,
         required: true,
         label: "Amount",
         type: "number",
@@ -427,7 +422,7 @@ class FormCreateCard extends (external_react_default()).Component {
         flagPasswordField: false,
         inputMode: "decimal"
       }), /*#__PURE__*/jsx_runtime_.jsx(FieldFormWithoutValue/* default */.Z, {
-        ref: this.description,
+        innerRef: this.description,
         label: "Description",
         type: "text",
         id: "description",
@@ -452,7 +447,9 @@ function mapStateToProps(state) {
     cardsIncome: state.userInfo.cardsIncome,
     cardsExpenses: state.userInfo.cardsExpenses,
     userId: state.userInfo.idUser,
-    userSum: state.userInfo.userSum
+    userSum: state.userInfo.userSum,
+    enableCategoryFlag: state.userInfo.enableCategoryFlag,
+    categoryList: state.userInfo.categoryList
   };
 }
 

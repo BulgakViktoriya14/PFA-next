@@ -2,6 +2,7 @@ import React from 'react';
 import firebase from 'firebase';
 import {connect} from 'react-redux';
 import {setUserSumAction} from "../../actions/actionSumUser";
+import Card from "./Card";
 
 class Cards extends React.Component {
     constructor(props) {
@@ -39,10 +40,6 @@ class Cards extends React.Component {
         e.target.parentElement.classList.add("open");
     }
 
-    closeMoreDetails = (e) => {
-        e.target.parentElement.parentElement.classList.remove("open");
-    }
-
     deleteCard = (e) => {
         let _this = this;
         let id = e.target.parentElement.getAttribute("id");
@@ -72,24 +69,7 @@ class Cards extends React.Component {
                     <p className="cards-container-empty">{"You haven't created any cards yet."}</p>
                 }
                 {this.state.arrayCards.map((item) =>
-                    <article className="card" id={item.id} key={item.id}>
-                        <button className={`card__button-delete${this.props.flagDeleteCard ? " visible" : ""}`} onClick={this.deleteCard}/>
-                        <h3 className="card__title">{item.title}</h3>
-                        <h4 className="card__category">{item.category}</h4>
-                        {item.description &&
-                            <button className="card__more-details" onClick={this.openMoreDetails}>More details</button>
-                        }
-                        <p className="card__bottom">
-                            <span className="card__sum">{item.money}</span>
-                            <span className="card__date">{item.date}</span>
-                        </p>
-                        {item.description &&
-                            <div className="card__description">
-                                <p>{item.description}</p>
-                                <button className="card__more-details" onClick={this.closeMoreDetails}>Hide</button>
-                            </div>
-                        }
-                    </article>
+                    <Card key={item.id} cardItem={item} flagDeleteCard={this.props.flagDeleteCard}/>
                 )}
             </div>
         )

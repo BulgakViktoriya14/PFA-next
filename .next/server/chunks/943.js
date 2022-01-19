@@ -1,9 +1,39 @@
 "use strict";
-exports.id = 608;
-exports.ids = [608];
+exports.id = 943;
+exports.ids = [943];
 exports.modules = {
 
-/***/ 887:
+/***/ 7238:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "F": () => (/* binding */ setUserCategoryListAction)
+/* harmony export */ });
+function setUserCategoryListAction(categoryList) {
+  return {
+    type: "SET_USER_CATEGORY_LIST",
+    payload: categoryList
+  };
+}
+
+/***/ }),
+
+/***/ 4347:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "y": () => (/* binding */ setUserCategoryListFlagAction)
+/* harmony export */ });
+function setUserCategoryListFlagAction(categoryList) {
+  return {
+    type: "SET_CATEGORY_LIST_FLAG",
+    payload: categoryList
+  };
+}
+
+/***/ }),
+
+/***/ 9943:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 
@@ -308,8 +338,388 @@ class FormSetNewPassword extends (external_react_default()).Component {
 /* harmony default export */ const blocks_FormSetNewPassword = (FormSetNewPassword);
 // EXTERNAL MODULE: ./node_modules/next/image.js
 var next_image = __webpack_require__(5675);
+;// CONCATENATED MODULE: ./components/buttons/ButtonEditCategory.js
+
+
+
+class ButtonEditCategory extends (external_react_default()).Component {
+  render() {
+    return /*#__PURE__*/jsx_runtime_.jsx("button", {
+      className: "button-category button-category_edit",
+      onClick: this.props.functionOnClick
+    });
+  }
+
+}
+
+/* harmony default export */ const buttons_ButtonEditCategory = (ButtonEditCategory);
+;// CONCATENATED MODULE: ./components/buttons/ButtonDeleteCategory.js
+
+
+
+class ButtonDeleteCategory extends (external_react_default()).Component {
+  render() {
+    return /*#__PURE__*/jsx_runtime_.jsx("button", {
+      className: "button-category button-category_delete",
+      onClick: this.props.functionOnClick
+    });
+  }
+
+}
+
+/* harmony default export */ const buttons_ButtonDeleteCategory = (ButtonDeleteCategory);
+// EXTERNAL MODULE: ./components/buttons/ButtonProfile.js
+var ButtonProfile = __webpack_require__(3649);
+;// CONCATENATED MODULE: ./components/fields/FieldFormCheckbox.js
+function FieldFormCheckbox_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function FieldFormCheckbox_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { FieldFormCheckbox_ownKeys(Object(source), true).forEach(function (key) { FieldFormCheckbox_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { FieldFormCheckbox_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function FieldFormCheckbox_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+class FieldFormCheckbox extends (external_react_default()).Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
+      className: "form__item form__item_checkbox",
+      children: [/*#__PURE__*/jsx_runtime_.jsx("input", {
+        type: "checkbox",
+        name: "checkbox-category-list",
+        className: "form__input_checkbox",
+        ref: this.props.innerRef,
+        "aria-label": this.props.label,
+        onClick: this.props.functionOnCLick,
+        checked: this.props.checked ? "checked" : ""
+      }), /*#__PURE__*/jsx_runtime_.jsx("label", {
+        className: "form__label label-checkbox",
+        htmlFor: "checkbox-category-list",
+        children: this.props.label
+      })]
+    });
+  }
+
+}
+
+/* harmony default export */ const fields_FieldFormCheckbox = (/*#__PURE__*/external_react_default().forwardRef((props, ref) => /*#__PURE__*/jsx_runtime_.jsx(FieldFormCheckbox, FieldFormCheckbox_objectSpread({
+  innerRef: ref
+}, props))));
+// EXTERNAL MODULE: ./actions/actionCategoryList.js
+var actionCategoryList = __webpack_require__(7238);
+// EXTERNAL MODULE: external "react-redux"
+var external_react_redux_ = __webpack_require__(79);
+;// CONCATENATED MODULE: ./components/blocks/FormAddCategory.js
+function FormAddCategory_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function FormAddCategory_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { FormAddCategory_ownKeys(Object(source), true).forEach(function (key) { FormAddCategory_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { FormAddCategory_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function FormAddCategory_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+
+
+
+
+class FormAddCategory extends (external_react_default()).Component {
+  constructor(props) {
+    super(props);
+
+    FormAddCategory_defineProperty(this, "addCategory", () => {
+      let _this = this;
+
+      let value = _this.inputValue.current.value;
+
+      if (!(0,validateEmptyField/* validateEmptyField */.m)([value])) {
+        _this.setState({
+          message: "You did not fill in the required field"
+        });
+
+        return;
+      }
+
+      _this.setState({
+        message: ""
+      });
+
+      let array = _this.props.arrayCategory;
+      array.unshift(value);
+      let string = array.join('#');
+      external_firebase_default().database().ref('/users/user' + _this.props.userId).update({
+        category: string
+      }).then(() => {
+        _this.props.setUserCategoryList(string);
+
+        _this.inputValue.current.value = '';
+      });
+    });
+
+    this.state = {
+      message: ''
+    };
+    this.inputValue = /*#__PURE__*/(0,external_react_.createRef)();
+  }
+
+  render() {
+    return /*#__PURE__*/(0,jsx_runtime_.jsxs)("form", {
+      className: "form form-add-category",
+      ref: this.props.innerRef,
+      children: [/*#__PURE__*/jsx_runtime_.jsx(FieldFormWithoutValue/* default */.Z, {
+        required: "required",
+        innerRef: this.inputValue,
+        label: "Name category",
+        type: "text",
+        flagPasswordField: false,
+        inputMode: "text"
+      }), /*#__PURE__*/jsx_runtime_.jsx(ButtonProfile/* default */.Z, {
+        nameButton: "+",
+        functionOnCLick: this.addCategory
+      }), this.state.message && /*#__PURE__*/jsx_runtime_.jsx("p", {
+        className: "massage-error",
+        children: this.state.message
+      })]
+    });
+  }
+
+}
+
+function mapStateToProps(state) {
+  return {
+    userId: state.userInfo.idUser
+  };
+}
+
+function matchDispatchToProps(dispatch) {
+  return {
+    setUserCategoryList: category => {
+      dispatch((0,actionCategoryList/* setUserCategoryListAction */.F)(category));
+    }
+  };
+}
+
+/* harmony default export */ const blocks_FormAddCategory = ((0,external_react_redux_.connect)(mapStateToProps, matchDispatchToProps)( /*#__PURE__*/external_react_default().forwardRef((props, ref) => /*#__PURE__*/jsx_runtime_.jsx(FormAddCategory, FormAddCategory_objectSpread({
+  innerRef: ref
+}, props)))));
+// EXTERNAL MODULE: ./actions/actionEnableCategoryFlag.js
+var actionEnableCategoryFlag = __webpack_require__(4347);
+// EXTERNAL MODULE: ./components/fields/FieldFormWithValue.js
+var FieldFormWithValue = __webpack_require__(614);
+;// CONCATENATED MODULE: ./components/blocks/BlockCategories.js
+function BlockCategories_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class BlockCategories extends (external_react_default()).Component {
+  constructor(props) {
+    super(props);
+
+    BlockCategories_defineProperty(this, "openFormAddCategory", e => {
+      if (this.formAdd.current.classList.contains("open")) {
+        this.formAdd.current.classList.remove("open");
+        e.target.innerText = "add";
+      } else {
+        this.formAdd.current.classList.add("open");
+        e.target.innerText = "×";
+      }
+    });
+
+    BlockCategories_defineProperty(this, "editCategory", e => {
+      let row = e.target.parentElement.parentElement;
+
+      if (e.target.classList.contains("save")) {
+        let id = row.getAttribute("id");
+        let array = this.props.arrayCategory;
+        let value = row.querySelector(".form__input").value;
+        array.forEach(function (item, index) {
+          if (id === index) {
+            item = value;
+          }
+        });
+        let string = array.join('#');
+        external_firebase_default().database().ref('/users/user' + this.state.idUser).update({
+          category: string
+        }).then(() => {
+          this.props.setUserCategoryListFunction(string);
+        });
+        e.target.classList.remove("save");
+        row.querySelector(".form__input").setAttribute("readonly", true);
+      } else {
+        e.target.classList.add("save");
+        row.querySelector(".form__input").removeAttribute("readonly");
+      }
+    });
+
+    BlockCategories_defineProperty(this, "enableCategory", () => {
+      let _this = this;
+
+      if (_this.checkboxValue.current.checked) {
+        external_firebase_default().database().ref('/users/user' + _this.props.userId).update({
+          enableCategoryFlag: true
+        }).then(() => {
+          _this.props.setUserCategoryListFlagFunction(true);
+        });
+      } else {
+        external_firebase_default().database().ref('/users/user' + _this.props.userId).update({
+          enableCategoryFlag: false
+        }).then(() => {
+          _this.props.setUserCategoryListFlagFunction(false);
+        });
+      }
+    });
+
+    BlockCategories_defineProperty(this, "deleteCategory", e => {
+      let _this = this;
+
+      let id = e.target.parentElement.parentElement.getAttribute("id");
+      let array = _this.props.arrayCategory;
+      array.splice(Number(id), 1);
+      let string = array.join('#');
+      external_firebase_default().database().ref('/users/user' + _this.props.userId).update({
+        category: string
+      }).then(() => {
+        _this.props.setUserCategoryListFunction(string);
+      });
+    });
+
+    this.state = {
+      message: 'The list of categories is empty. To create a category, click the button "add".'
+    };
+    this.formAdd = /*#__PURE__*/(0,external_react_.createRef)();
+    this.checkboxValue = /*#__PURE__*/(0,external_react_.createRef)();
+  }
+
+  render() {
+    return /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
+      className: "block-categories",
+      children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
+        className: "container",
+        children: [/*#__PURE__*/jsx_runtime_.jsx(fields_FieldFormCheckbox, {
+          checked: this.props.enableCategoryFlag,
+          innerRef: this.checkboxValue,
+          label: "Enabling the category list function",
+          functionOnCLick: this.enableCategory
+        }), /*#__PURE__*/jsx_runtime_.jsx(ButtonProfile/* default */.Z, {
+          functionOnCLick: this.openFormAddCategory,
+          nameButton: "add"
+        }), /*#__PURE__*/jsx_runtime_.jsx(blocks_FormAddCategory, {
+          innerRef: this.formAdd,
+          arrayCategory: this.props.arrayCategory
+        })]
+      }), this.props.arrayCategory[0].length !== 0 && /*#__PURE__*/(0,jsx_runtime_.jsxs)("table", {
+        className: "table",
+        children: [/*#__PURE__*/jsx_runtime_.jsx("thead", {
+          className: "thead",
+          children: /*#__PURE__*/(0,jsx_runtime_.jsxs)("tr", {
+            className: "tr",
+            children: [/*#__PURE__*/jsx_runtime_.jsx("th", {
+              className: "th",
+              children: "Name category"
+            }), /*#__PURE__*/jsx_runtime_.jsx("th", {
+              className: "th",
+              children: "Actions"
+            })]
+          })
+        }), /*#__PURE__*/jsx_runtime_.jsx("tbody", {
+          children: this.props.arrayCategory.map((item, index) => {
+            if (item.length > 0) return /*#__PURE__*/(0,jsx_runtime_.jsxs)("tr", {
+              id: index,
+              className: "tr",
+              children: [/*#__PURE__*/jsx_runtime_.jsx("td", {
+                className: "td",
+                children: /*#__PURE__*/jsx_runtime_.jsx(FieldFormWithValue/* default */.Z, {
+                  value: item,
+                  readonly: true
+                })
+              }), /*#__PURE__*/(0,jsx_runtime_.jsxs)("td", {
+                className: "td",
+                children: [/*#__PURE__*/jsx_runtime_.jsx(buttons_ButtonEditCategory, {
+                  functionOnClick: this.editCategory
+                }), /*#__PURE__*/jsx_runtime_.jsx(buttons_ButtonDeleteCategory, {
+                  functionOnClick: this.deleteCategory
+                })]
+              })]
+            }, index);
+          })
+        })]
+      }), this.props.arrayCategory[0].length === 0 && /*#__PURE__*/jsx_runtime_.jsx("p", {
+        className: "success-result__text",
+        children: this.state.message
+      })]
+    });
+  }
+
+}
+
+function BlockCategories_mapStateToProps(state) {
+  return {
+    userId: state.userInfo.idUser,
+    enableCategoryFlag: state.userInfo.enableCategoryFlag
+  };
+}
+
+function BlockCategories_matchDispatchToProps(dispatch) {
+  return {
+    setUserCategoryListFunction: category => {
+      dispatch((0,actionCategoryList/* setUserCategoryListAction */.F)(category));
+    },
+    setUserCategoryListFlagFunction: flag => {
+      dispatch((0,actionEnableCategoryFlag/* setUserCategoryListFlagAction */.y)(flag));
+    }
+  };
+}
+
+/* harmony default export */ const blocks_BlockCategories = ((0,external_react_redux_.connect)(BlockCategories_mapStateToProps, BlockCategories_matchDispatchToProps)(BlockCategories));
+// EXTERNAL MODULE: ./components/card/Card.js
+var Card = __webpack_require__(7918);
+;// CONCATENATED MODULE: ./components/blocks/BlockReportCards.js
+
+
+
+
+class BlockReportCards extends (external_react_default()).Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return /*#__PURE__*/jsx_runtime_.jsx("div", {
+      className: "container",
+      children: this.props.flag && this.props.cardsReport[this.props.idButton].map(item => /*#__PURE__*/jsx_runtime_.jsx(Card/* default */.Z, {
+        cardItem: item,
+        flagDeleteCard: false
+      }, item.id))
+    });
+  }
+
+}
+
+/* harmony default export */ const blocks_BlockReportCards = (BlockReportCards);
 ;// CONCATENATED MODULE: ./components/blocks/ModalWindow.js
 function ModalWindow_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -333,6 +743,10 @@ class ModalWindow extends (external_react_default()).Component {
           this.setState({
             flagChangePassword: false
           });
+        }
+
+        if (modalWindow.classList.contains("modal-window__show-cards")) {
+          this.props.clearReportCards();
         }
 
         if (modalWindow.classList.contains("modal-window__success-check-in")) {
@@ -374,9 +788,9 @@ class ModalWindow extends (external_react_default()).Component {
       className: this.props.nameClass,
       onClick: this.closeModalWindow,
       ref: this.modalWindow,
-      children: /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
+      children: /*#__PURE__*/jsx_runtime_.jsx("div", {
         className: "modal-window__block",
-        children: [this.props.page === "page-login" && /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
+        children: /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
           className: "modal-window__content",
           children: [/*#__PURE__*/jsx_runtime_.jsx("button", {
             className: "close",
@@ -390,62 +804,36 @@ class ModalWindow extends (external_react_default()).Component {
             })
           }), /*#__PURE__*/jsx_runtime_.jsx("h4", {
             className: "modal-window__title",
-            children: "Change password"
-          }), /*#__PURE__*/jsx_runtime_.jsx(blocks_FormSetNewPassword, {
+            children: this.props.modalTitle
+          }), this.props.page === "show-cards" && /*#__PURE__*/jsx_runtime_.jsx(blocks_BlockReportCards, {
+            cardsReport: this.props.cardsReport,
+            idButton: this.props.idButton,
+            flag: this.props.flag
+          }), this.props.page === "page-login" && /*#__PURE__*/jsx_runtime_.jsx(blocks_FormSetNewPassword, {
             functionCloseWindow: this.closeModalWindowAfterChangePassword
-          })]
-        }), this.props.page === "profile-password" && /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
-          className: "modal-window__content",
-          children: [/*#__PURE__*/jsx_runtime_.jsx("button", {
-            className: "close",
-            children: /*#__PURE__*/jsx_runtime_.jsx(next_image.default, {
-              className: "close",
-              src: images_close/* default */.Z,
-              alt: "icon",
-              width: 30,
-              height: 30,
-              loading: 'lazy'
-            })
-          }), /*#__PURE__*/jsx_runtime_.jsx("h4", {
-            className: "modal-window__title",
-            children: "Change password"
-          }), /*#__PURE__*/jsx_runtime_.jsx(blocks_FormChangePassword, {
+          }), this.props.page === "profile-password" && /*#__PURE__*/jsx_runtime_.jsx(blocks_FormChangePassword, {
             functionCloseWindow: this.closeModalWindowAfterChangePassword,
             openSuccessResult: this.openSuccessResult,
             flagChangePassword: this.state.flagChangePassword
-          })]
-        }), this.props.page === "profile-avatar" && /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
-          className: "modal-window__content",
-          children: [/*#__PURE__*/jsx_runtime_.jsx("button", {
-            className: "close",
-            children: /*#__PURE__*/jsx_runtime_.jsx(next_image.default, {
-              className: "close",
-              src: images_close/* default */.Z,
-              alt: "icon",
-              width: 30,
-              height: 30,
-              loading: 'lazy'
-            })
-          }), /*#__PURE__*/jsx_runtime_.jsx("h4", {
-            className: "modal-window__title",
-            children: "Change avatar"
-          }), /*#__PURE__*/jsx_runtime_.jsx(blocks_FormChangeAvatar, {
+          }), this.props.page === "profile-avatar" && /*#__PURE__*/jsx_runtime_.jsx(blocks_FormChangeAvatar, {
             history: this.props.history,
             ref: this.inputFile,
             idUser: this.props.idUser
+          }), this.props.page === "check-in" && /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
+            className: "success-result",
+            children: [/*#__PURE__*/jsx_runtime_.jsx("p", {
+              className: "success-result__text",
+              children: "You are registered"
+            }), /*#__PURE__*/jsx_runtime_.jsx("button", {
+              className: "form__submit",
+              name: "submit",
+              onClick: () => this.props.router.push('/'),
+              children: "Login to your account"
+            })]
+          }), this.props.page === "profile-category" && /*#__PURE__*/jsx_runtime_.jsx(blocks_BlockCategories, {
+            arrayCategory: this.props.arrayCategory
           })]
-        }), this.props.page === "check-in" && /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
-          className: "modal-window__content success-result",
-          children: [/*#__PURE__*/jsx_runtime_.jsx("p", {
-            className: "success-result__text",
-            children: "You are registered"
-          }), /*#__PURE__*/jsx_runtime_.jsx("button", {
-            className: "form__submit",
-            name: "submit",
-            onClick: () => this.props.router.push('/'),
-            children: "Login to your account"
-          })]
-        })]
+        })
       })
     });
   }
@@ -453,6 +841,35 @@ class ModalWindow extends (external_react_default()).Component {
 }
 
 /* harmony default export */ const blocks_ModalWindow = ((0,router_.withRouter)(ModalWindow));
+
+/***/ }),
+
+/***/ 3649:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9297);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5282);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+class ButtonProfile extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
+  render() {
+    return /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx("button", {
+      type: "button",
+      onClick: this.props.functionOnCLick,
+      className: "button-edit-profile",
+      children: this.props.nameButton
+    });
+  }
+
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ButtonProfile);
 
 /***/ }),
 
@@ -480,7 +897,7 @@ class FieldFormWithValue extends (react__WEBPACK_IMPORTED_MODULE_0___default().C
   render() {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "form__item",
-      children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx("label", {
+      children: [this.props.label && /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx("label", {
         htmlFor: this.props.id,
         className: `form__label${this.props.required ? ' required' : ''}`,
         children: this.props.label

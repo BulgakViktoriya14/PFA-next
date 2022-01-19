@@ -11,15 +11,19 @@ import {createMonthlyReport} from "../../functions/createMonthlyReport";
 import {createTable} from "../../functions/createTable";
 import {validateDateEnd} from "../../functions/validateDateEnd";
 import BlockReport from "../../components/blocks/BlockReport";
+import ModalWindow from "../../components/blocks/ModalWindow";
 
 class Reports extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: {},
+            data: [],
             errorText: '',
             type: '',
-            flag: false
+            flag: false,
+            cardsReport: [],
+            idButton: 0,
+            flagCardReport: false
         }
 
         this.startDate = React.createRef();
@@ -32,6 +36,18 @@ class Reports extends React.Component {
             this.setState({type: ""});
             this.setState({flag: false});
         }
+    }
+
+    showCards = (e) => {
+        if(e.target.classList.contains("button-show-cards")) {
+            document.querySelector(".modal-window__show-cards").classList.add("open");
+            let idButton = Number(e.target.getAttribute("id"));
+            this.setState({idButton: idButton, flagCardReport: true})
+        }
+    }
+
+    clearReportCards = () => {
+        this.setState({flagCardReport: false});
     }
 
     createReport = (e) => {
@@ -68,72 +84,74 @@ class Reports extends React.Component {
 
         let cards = typeReport === "Expenses" ? this.props.cardsExpenses : this.props.cardsIncome;
 
+        function setDataArrayGraph(resultArray) {
+            let array = [];
+            array.push(['Title', 'Sum'])
+            resultArray[0].forEach(function (item, id) {
+                array.push([item, Number(resultArray[1][id])])
+            })
+            return array;
+        }
+
         switch (categoryReport) {
             case "Daily graph":
                 let resultArrayDaily = createDailyReport(startDateItem, endDateItem, cards);
                 this.checkData(resultArrayDaily);
                 if (type === "graph") {
-                    this.setState({data: {labels: resultArrayDaily[0], series: resultArrayDaily[1]}});
+                    this.setState({data: setDataArrayGraph(resultArrayDaily)});
                 } else if (type === "table") {
+                    this.setState({data: []});
                     createTable(resultArrayDaily[0], resultArrayDaily[1]);
+                    this.setState({cardsReport: resultArrayDaily[2]});
                 }
                 break;
             case "Category graph":
                 let resultArrayCategory = createCategoryReport(startDateItem, endDateItem, cards);
                 this.checkData(resultArrayCategory);
                 if (type === "graph") {
-                    this.setState({data: {labels: resultArrayCategory[0], series: resultArrayCategory[1]}});
+                    this.setState({data: setDataArrayGraph(resultArrayCategory)});
                 } else if (type === "table") {
+                    this.setState({data: []});
                     createTable(resultArrayCategory[0], resultArrayCategory[1]);
+                    this.setState({cardsReport: resultArrayCategory[2]});
                 }
                 break;
             case "Yearly graph":
                 let resultArrayYearly = createYearlyReport(startDateItem, endDateItem, cards);
                 this.checkData(resultArrayYearly);
                 if (type === "graph") {
-                    this.setState({data: {labels: resultArrayYearly[0], series: resultArrayYearly[1]}});
+                    this.setState({data: setDataArrayGraph(resultArrayYearly)});
                 } else if (type === "table") {
+                    this.setState({data: []});
                     createTable(resultArrayYearly[0], resultArrayYearly[1]);
+                    this.setState({cardsReport: resultArrayYearly[2]});
                 }
                 break;
             case "Monthly graph":
                 let resultArrayMonthly = createMonthlyReport(startDateItem, endDateItem, cards);
                 this.checkData(resultArrayMonthly);
                 if (type === "graph") {
-                    this.setState({data: {labels: resultArrayMonthly[0], series: resultArrayMonthly[1]}});
+                    this.setState({data: setDataArrayGraph(resultArrayMonthly)});
                 } else if (type === "table") {
+                    this.setState({data: []});
                     createTable(resultArrayMonthly[0], resultArrayMonthly[1]);
+                    this.setState({cardsReport: resultArrayMonthly[2]});
                 }
                 break;
         }
     }
 
     render() {
-        let options = {
-            width: "400px",
-            height: "400px",
-            donut: false,
-            labelOffset: 50,
-        }
-
-        let type = "Pie";
-
-        let responsiveOptions = [
-            ['screen and (max-width: 500px)', {
-                height: '300px',
-                width: "300px",
-                labelOffset: 20
-            }]
-        ]
-
         return (
             <Wrapper>
+                <ModalWindow modalTitle={"Cards"} page={"show-cards"} nameClass={"modal-window modal-window__show-cards"} flag={this.state.flagCardReport}
+                             clearReportCards={this.clearReportCards} cardsReport={this.state.cardsReport} idButton={this.state.idButton}/>
                 <h1 className="title">Reports about your income and expenses</h1>
                 <div className="report-container">
                     <FormCreateChart startDate={this.startDate} endDate={this.endDate} createReport={this.createReport}
                                      errorText={this.state.errorText} typeReport={this.typeReport}
                                      categoryReport={this.categoryReport} buttonCreateType={this.buttonCreateType}/>
-                    <BlockReport data={this.state.data} flag={this.state.flag} type={this.state.type} typeChart={type} responsiveOptions={responsiveOptions} options={options}/>
+                    <BlockReport showCards={this.showCards} data={this.state.data} flag={this.state.flag} type={this.state.type}/>
                 </div>
             </Wrapper>
         )

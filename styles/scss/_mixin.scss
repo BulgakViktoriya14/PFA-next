@@ -49,3 +49,16 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+
+@mixin scroll {
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $colorGrey;
+    outline: none;
+  }
+}

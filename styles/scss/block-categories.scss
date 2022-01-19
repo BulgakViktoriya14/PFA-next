@@ -1,0 +1,56 @@
+.block-categories {
+  .container {
+    margin: 0 0 20px 0;
+    justify-content: space-between;
+  }
+
+  .button-edit-profile {
+    margin: 0;
+  }
+
+  .form {
+    &__item {
+      margin: 0;
+
+      &_checkbox {
+        width: 70%;
+        position: relative;
+        margin: 0;
+      }
+    }
+  }
+}
+
+.button-category {
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+  opacity: 1;
+  transition: 150ms;
+  border: none;
+  background-size: 70% 70%;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &_edit {
+    background-color: $colorGreen;
+    border: 1px solid $colorGreen;
+    background-image: url("../../images/edit.svg");
+
+    &.save {
+      background-image: url("../../images/check-mark.svg");
+      background-color: $colorWhite;
+    }
+  }
+
+  &_delete {
+    background-color: $colorRed;
+    border: 1px solid $colorRed;
+    background-image: url("../../images/delete.svg");
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+

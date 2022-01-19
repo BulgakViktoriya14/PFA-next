@@ -1,6 +1,77 @@
-exports.id = 71;
-exports.ids = [71];
+exports.id = 280;
+exports.ids = [280];
 exports.modules = {
+
+/***/ 7918:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9297);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5282);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+class Card extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
+  constructor(props) {
+    super(props);
+
+    _defineProperty(this, "closeMoreDetails", e => {
+      e.target.parentElement.parentElement.classList.remove("open");
+    });
+  }
+
+  render() {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("article", {
+      className: "card",
+      id: this.props.cardItem.id,
+      children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx("button", {
+        className: `card__button-delete${this.props.flagDeleteCard ? " visible" : ""}`,
+        onClick: this.deleteCard
+      }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx("h3", {
+        className: "card__title",
+        children: this.props.cardItem.title
+      }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx("h4", {
+        className: "card__category",
+        children: this.props.cardItem.category
+      }), this.props.cardItem.description && /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx("button", {
+        className: "card__more-details",
+        onClick: this.openMoreDetails,
+        children: "More details"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
+        className: "card__bottom",
+        children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx("span", {
+          className: "card__sum",
+          children: this.props.cardItem.money
+        }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx("span", {
+          className: "card__date",
+          children: this.props.cardItem.date
+        })]
+      }), this.props.cardItem.description && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "card__description",
+        children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx("p", {
+          children: this.props.cardItem.description
+        }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx("button", {
+          className: "card__more-details",
+          onClick: this.closeMoreDetails,
+          children: "Hide"
+        })]
+      })]
+    });
+  }
+
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Card);
+
+/***/ }),
 
 /***/ 123:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
@@ -349,7 +420,7 @@ class FieldFormWithoutValue extends (react__WEBPACK_IMPORTED_MODULE_0___default(
   render() {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "form__item",
-      children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx("label", {
+      children: [this.props.label && /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx("label", {
         htmlFor: this.props.id,
         className: `form__label${this.props.required ? ' required' : ''}`,
         children: this.props.label

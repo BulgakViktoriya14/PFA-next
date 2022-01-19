@@ -5,6 +5,8 @@ import FormChangeAvatar from "./FormChangeAvatar";
 import FormSetNewPassword from "./FormSetNewPassword";
 import Image from 'next/image'
 import { withRouter } from "next/router";
+import BlockCategories from "./BlockCategories";
+import BlockReportCards from "./BlockReportCards";
 
 class ModalWindow extends React.Component {
     constructor(props) {
@@ -23,6 +25,10 @@ class ModalWindow extends React.Component {
         if(e.target.classList.contains("modal-window") || e.target.classList.contains("close")) {
             if(modalWindow.classList.contains("modal-window__change-password")) {
                 this.setState({flagChangePassword: false});
+            }
+
+            if(modalWindow.classList.contains("modal-window__show-cards")) {
+                this.props.clearReportCards();
             }
 
             if(modalWindow.classList.contains("modal-window__success-check-in")) {
@@ -52,41 +58,36 @@ class ModalWindow extends React.Component {
         return (
             <div className={this.props.nameClass} onClick={this.closeModalWindow} ref={this.modalWindow}>
                 <div className="modal-window__block">
-                    {this.props.page === "page-login" &&
                     <div className="modal-window__content">
                         <button className="close">
                             <Image className="close" src={close} alt="icon" width={30} height={30} loading={'lazy'}/>
                         </button>
-                        <h4 className="modal-window__title">Change password</h4>
-                        <FormSetNewPassword functionCloseWindow={this.closeModalWindowAfterChangePassword}/>
+                        <h4 className="modal-window__title">{this.props.modalTitle}</h4>
+                        {this.props.page === "show-cards" &&
+                            <BlockReportCards cardsReport={this.props.cardsReport}
+                                              idButton={this.props.idButton} flag={this.props.flag}/>
+                        }
+                        {this.props.page === "page-login" &&
+                            <FormSetNewPassword functionCloseWindow={this.closeModalWindowAfterChangePassword}/>
+                        }
+                        {this.props.page === "profile-password" &&
+                                <FormChangePassword functionCloseWindow={this.closeModalWindowAfterChangePassword}
+                                                    openSuccessResult={this.openSuccessResult} flagChangePassword={this.state.flagChangePassword}/>
+                        }
+                        {this.props.page === "profile-avatar" &&
+                                <FormChangeAvatar history={this.props.history} ref={this.inputFile} idUser={this.props.idUser}/>
+                        }
+                        {this.props.page === "check-in" &&
+                            <div className="success-result">
+                                <p className="success-result__text">You are registered</p>
+                                <button className="form__submit" name="submit"
+                                        onClick={() => this.props.router.push('/')}>Login to your account</button>
+                            </div>
+                        }
+                        {this.props.page === "profile-category" &&
+                            <BlockCategories arrayCategory={this.props.arrayCategory}/>
+                        }
                     </div>
-                    }
-                    {this.props.page === "profile-password" &&
-                        <div className="modal-window__content">
-                            <button className="close">
-                                <Image className="close" src={close} alt="icon" width={30} height={30} loading={'lazy'}/>
-                            </button>
-                            <h4 className="modal-window__title">Change password</h4>
-                            <FormChangePassword functionCloseWindow={this.closeModalWindowAfterChangePassword}
-                                                openSuccessResult={this.openSuccessResult} flagChangePassword={this.state.flagChangePassword}/>
-                        </div>
-                    }
-                    {this.props.page === "profile-avatar" &&
-                        <div className="modal-window__content">
-                            <button className="close">
-                                <Image className="close" src={close} alt="icon" width={30} height={30} loading={'lazy'}/>
-                            </button>
-                            <h4 className="modal-window__title">Change avatar</h4>
-                            <FormChangeAvatar history={this.props.history} ref={this.inputFile} idUser={this.props.idUser}/>
-                        </div>
-                    }
-                    {this.props.page === "check-in" &&
-                        <div className="modal-window__content success-result">
-                            <p className="success-result__text">You are registered</p>
-                            <button className="form__submit" name="submit"
-                                    onClick={() => this.props.router.push('/')}>Login to your account</button>
-                        </div>
-                    }
                 </div>
             </div>
         )
