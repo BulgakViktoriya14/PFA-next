@@ -95,11 +95,15 @@ class ButtonOpenPopupAddCard extends (react__WEBPACK_IMPORTED_MODULE_0___default
 /* harmony import */ var firebase__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(firebase__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(79);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _actions_actionSumUser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(1887);
+/* harmony import */ var _actions_actionSumUser__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(1887);
 /* harmony import */ var _Card__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7918);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5282);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _buttons_ButtonProfile__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(3649);
+/* harmony import */ var _functions_sortCard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7249);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(5282);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -113,22 +117,26 @@ class Cards extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
   constructor(props) {
     super(props);
 
+    _defineProperty(this, "loadMore", () => {
+      this.setState(prev => {
+        return {
+          visible: prev.visible + 8
+        };
+      });
+    });
+
     _defineProperty(this, "createList", () => {
       let arrayCards = [];
 
       for (let card in this.props.cards) {
         arrayCards.push(this.props.cards[card]);
-        this.sortCard(arrayCards);
+        (0,_functions_sortCard__WEBPACK_IMPORTED_MODULE_6__/* .sortCard */ .v)(arrayCards);
       }
 
       arrayCards.reverse();
       this.setState({
         arrayCards: arrayCards
       });
-    });
-
-    _defineProperty(this, "openMoreDetails", e => {
-      e.target.parentElement.classList.add("open");
     });
 
     _defineProperty(this, "deleteCard", e => {
@@ -155,7 +163,8 @@ class Cards extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
     });
 
     this.state = {
-      arrayCards: []
+      arrayCards: [],
+      visible: 20
     };
   }
 
@@ -169,20 +178,20 @@ class Cards extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
     this.createList();
   }
 
-  sortCard(array) {
-    array.sort((a, b) => a.startedAt > b.startedAt ? 1 : -1);
-  }
-
   render() {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "container cards",
-      children: [!this.state.arrayCards.length && /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx("p", {
+      children: [!this.state.arrayCards.length && /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx("p", {
         className: "cards-container-empty",
         children: "You haven't created any cards yet."
-      }), this.state.arrayCards.map(item => /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx(_Card__WEBPACK_IMPORTED_MODULE_3__/* .default */ .Z, {
+      }), this.state.arrayCards.slice(0, this.state.visible).map(item => /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx(_Card__WEBPACK_IMPORTED_MODULE_3__/* .default */ .Z, {
         cardItem: item,
-        flagDeleteCard: this.props.flagDeleteCard
-      }, item.id))]
+        flagDeleteCard: this.props.flagDeleteCard,
+        functionOnCLick: this.deleteCard
+      }, item.id)), this.state.visible < this.state.arrayCards.length && /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx(_buttons_ButtonProfile__WEBPACK_IMPORTED_MODULE_4__/* .default */ .Z, {
+        functionOnCLick: this.loadMore,
+        nameButton: "Load more"
+      })]
     });
   }
 
@@ -200,7 +209,7 @@ function mapStateToProps(state) {
 function matchDispatchToProps(dispatch) {
   return {
     setUserSumFunction: sum => {
-      dispatch((0,_actions_actionSumUser__WEBPACK_IMPORTED_MODULE_5__/* .setUserSumAction */ .A)(sum));
+      dispatch((0,_actions_actionSumUser__WEBPACK_IMPORTED_MODULE_7__/* .setUserSumAction */ .A)(sum));
     }
   };
 }
@@ -379,15 +388,17 @@ class FormCreateCard extends (external_react_default()).Component {
   }
 
   componentDidMount() {
-    let array = [];
-    this.props.categoryList.split('#').forEach(function (item) {
-      if (item.length > 0) {
-        array.push(item);
-      }
-    });
-    this.setState({
-      categoryList: array
-    });
+    if (this.props.categoryList.length !== 0) {
+      let array = [];
+      this.props.categoryList.split('#').forEach(function (item) {
+        if (item.length > 0) {
+          array.push(item);
+        }
+      });
+      this.setState({
+        categoryList: array
+      });
+    }
   }
 
   render() {

@@ -1,4 +1,5 @@
 import {convertDate} from "./convertDate";
+import {findCards} from "./findCards";
 
 export function createCategoryReport(startDateItem, endDateItem, cards) {
     let startDate = convertDate(`${startDateItem} 00:00:00`);
@@ -20,13 +21,16 @@ export function createCategoryReport(startDateItem, endDateItem, cards) {
     for (let i = 0; i < arrayData.length; i++) {
         let cardsArrayID = [];
         if (arrayData[i].length < 5) {
+            cardsArrayID.push((arrayData[i][3]));
+            arrayData[i].push("true");
             for (let j = i + 1; j < arrayData.length; j++) {
                 if (arrayData[i][2].toLowerCase().trim() === arrayData[j][2].toLowerCase().trim() && arrayData[j].length < 5) {
                     arrayData[i][1] = (Number(arrayData[i][1]) + Number(arrayData[j][1])).toFixed(2);
-                    cardsArrayID.push(arrayData[i][3]);
+                    cardsArrayID.push(arrayData[j][3]);
                     arrayData[j].push("true");
                 }
             }
+
             arrayObjects.push({date: arrayData[i][0], money: arrayData[i][1], label: arrayData[i][2], cardsArray: cardsArrayID});
         }
     }
@@ -35,21 +39,9 @@ export function createCategoryReport(startDateItem, endDateItem, cards) {
         if (item.date >= startDate && item.date <= endDate) {
             arrayDataValues.push(item.money);
             arrayDataLabels.push(item.label);
-            arrayCards.push(findCards(item.cardsArray));
+            arrayCards.push(findCards(item.cardsArray, cards));
         }
     })
-
-    function findCards(array) {
-        let resultArray = [];
-        for (let key in cards) {
-            array.forEach(function (item) {
-                if(cards[key].id === item) {
-                    resultArray.push(cards[key])
-                }
-            })
-        }
-        return resultArray;
-    }
 
     return [arrayDataLabels, arrayDataValues, arrayCards];
 }

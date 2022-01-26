@@ -71,11 +71,11 @@ class ModalWindow extends React.Component {
                             <FormSetNewPassword functionCloseWindow={this.closeModalWindowAfterChangePassword}/>
                         }
                         {this.props.page === "profile-password" &&
-                                <FormChangePassword functionCloseWindow={this.closeModalWindowAfterChangePassword}
+                            <FormChangePassword functionCloseWindow={this.closeModalWindowAfterChangePassword}
                                                     openSuccessResult={this.openSuccessResult} flagChangePassword={this.state.flagChangePassword}/>
                         }
                         {this.props.page === "profile-avatar" &&
-                                <FormChangeAvatar history={this.props.history} ref={this.inputFile} idUser={this.props.idUser}/>
+                            <FormChangeAvatar history={this.props.history} ref={this.inputFile} idUser={this.props.idUser}/>
                         }
                         {this.props.page === "check-in" &&
                             <div className="success-result">

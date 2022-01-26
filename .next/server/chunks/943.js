@@ -535,6 +535,14 @@ class BlockCategories extends (external_react_default()).Component {
   constructor(props) {
     super(props);
 
+    BlockCategories_defineProperty(this, "checkArrayCategory", () => {
+      if (this.props.arrayCategory.length === 1 && this.props.arrayCategory[0].length === 0) {
+        return false;
+      }
+
+      return true;
+    });
+
     BlockCategories_defineProperty(this, "openFormAddCategory", e => {
       if (this.formAdd.current.classList.contains("open")) {
         this.formAdd.current.classList.remove("open");
@@ -549,25 +557,13 @@ class BlockCategories extends (external_react_default()).Component {
       let row = e.target.parentElement.parentElement;
 
       if (e.target.classList.contains("save")) {
-        let id = row.getAttribute("id");
-        let array = this.props.arrayCategory;
-        let value = row.querySelector(".form__input").value;
-        array.forEach(function (item, index) {
-          if (id === index) {
-            item = value;
-          }
-        });
-        let string = array.join('#');
-        external_firebase_default().database().ref('/users/user' + this.state.idUser).update({
-          category: string
-        }).then(() => {
-          this.props.setUserCategoryListFunction(string);
-        });
         e.target.classList.remove("save");
-        row.querySelector(".form__input").setAttribute("readonly", true);
+        row.querySelector(".form__input").classList.add("hidden");
+        row.querySelector(".static-name").classList.remove("hidden");
       } else {
         e.target.classList.add("save");
-        row.querySelector(".form__input").removeAttribute("readonly");
+        row.querySelector(".form__input").classList.remove("hidden");
+        row.querySelector(".static-name").classList.add("hidden");
       }
     });
 
@@ -603,6 +599,25 @@ class BlockCategories extends (external_react_default()).Component {
       });
     });
 
+    BlockCategories_defineProperty(this, "handleChange", e => {
+      let categoryList = this.props.arrayCategory;
+
+      let _this = this;
+
+      if (e.target.value.length > 0) {
+        categoryList[e.target.name] = e.target.value;
+      } else {
+        categoryList.splice([e.target.name], 1);
+      }
+
+      let string = categoryList.join('#');
+      external_firebase_default().database().ref('/users/user' + _this.props.userId).update({
+        category: string
+      }).then(() => {
+        this.props.setUserCategoryListFunction(string);
+      });
+    });
+
     this.state = {
       message: 'The list of categories is empty. To create a category, click the button "add".'
     };
@@ -627,7 +642,7 @@ class BlockCategories extends (external_react_default()).Component {
           innerRef: this.formAdd,
           arrayCategory: this.props.arrayCategory
         })]
-      }), this.props.arrayCategory[0].length !== 0 && /*#__PURE__*/(0,jsx_runtime_.jsxs)("table", {
+      }), this.checkArrayCategory() && /*#__PURE__*/(0,jsx_runtime_.jsxs)("table", {
         className: "table",
         children: [/*#__PURE__*/jsx_runtime_.jsx("thead", {
           className: "thead",
@@ -644,14 +659,20 @@ class BlockCategories extends (external_react_default()).Component {
         }), /*#__PURE__*/jsx_runtime_.jsx("tbody", {
           children: this.props.arrayCategory.map((item, index) => {
             if (item.length > 0) return /*#__PURE__*/(0,jsx_runtime_.jsxs)("tr", {
-              id: index,
               className: "tr",
-              children: [/*#__PURE__*/jsx_runtime_.jsx("td", {
+              children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)("td", {
                 className: "td",
-                children: /*#__PURE__*/jsx_runtime_.jsx(FieldFormWithValue/* default */.Z, {
+                children: [/*#__PURE__*/jsx_runtime_.jsx(FieldFormWithValue/* default */.Z, {
+                  id: index,
+                  functionOnChange: this.handleChange,
+                  inputMode: item,
+                  classInput: "hidden",
                   value: item,
-                  readonly: true
-                })
+                  readonly: false
+                }), /*#__PURE__*/jsx_runtime_.jsx("span", {
+                  className: "static-name",
+                  children: item
+                })]
               }), /*#__PURE__*/(0,jsx_runtime_.jsxs)("td", {
                 className: "td",
                 children: [/*#__PURE__*/jsx_runtime_.jsx(buttons_ButtonEditCategory, {
@@ -663,7 +684,7 @@ class BlockCategories extends (external_react_default()).Component {
             }, index);
           })
         })]
-      }), this.props.arrayCategory[0].length === 0 && /*#__PURE__*/jsx_runtime_.jsx("p", {
+      }), !this.checkArrayCategory() && /*#__PURE__*/jsx_runtime_.jsx("p", {
         className: "success-result__text",
         children: this.state.message
       })]
@@ -694,6 +715,10 @@ function BlockCategories_matchDispatchToProps(dispatch) {
 // EXTERNAL MODULE: ./components/card/Card.js
 var Card = __webpack_require__(7918);
 ;// CONCATENATED MODULE: ./components/blocks/BlockReportCards.js
+function BlockReportCards_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
 
 
 
@@ -701,15 +726,30 @@ var Card = __webpack_require__(7918);
 class BlockReportCards extends (external_react_default()).Component {
   constructor(props) {
     super(props);
+
+    BlockReportCards_defineProperty(this, "loadMore", () => {
+      this.setState(prev => {
+        return {
+          visible: prev.visible + 4
+        };
+      });
+    });
+
+    this.state = {
+      visible: 6
+    };
   }
 
   render() {
-    return /*#__PURE__*/jsx_runtime_.jsx("div", {
+    return /*#__PURE__*/(0,jsx_runtime_.jsxs)("div", {
       className: "container",
-      children: this.props.flag && this.props.cardsReport[this.props.idButton].map(item => /*#__PURE__*/jsx_runtime_.jsx(Card/* default */.Z, {
+      children: [this.props.flag && this.props.cardsReport[this.props.idButton].slice(0, this.state.visible).map(item => /*#__PURE__*/jsx_runtime_.jsx(Card/* default */.Z, {
         cardItem: item,
         flagDeleteCard: false
-      }, item.id))
+      }, item.id)), this.props.flag && this.state.visible < this.props.cardsReport[this.props.idButton].length && /*#__PURE__*/jsx_runtime_.jsx(ButtonProfile/* default */.Z, {
+        functionOnCLick: this.loadMore,
+        nameButton: "Load more"
+      })]
     });
   }
 
@@ -844,35 +884,6 @@ class ModalWindow extends (external_react_default()).Component {
 
 /***/ }),
 
-/***/ 3649:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9297);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5282);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
-
-
-
-class ButtonProfile extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
-  render() {
-    return /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx("button", {
-      type: "button",
-      onClick: this.props.functionOnCLick,
-      className: "button-edit-profile",
-      children: this.props.nameButton
-    });
-  }
-
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ButtonProfile);
-
-/***/ }),
-
 /***/ 614:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -907,7 +918,7 @@ class FieldFormWithValue extends (react__WEBPACK_IMPORTED_MODULE_0___default().C
         value: this.props.value ? this.props.value : "",
         readOnly: this.props.readonly ? "readonly" : "",
         name: this.props.id,
-        className: "form__input",
+        className: this.props.classInput !== undefined ? `form__input ${this.props.classInput}` : 'form__input',
         "aria-required": this.props.required ? "required" : "",
         required: this.props.required ? "required" : "",
         ref: this.props.innerRef,

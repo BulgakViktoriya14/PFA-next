@@ -113,6 +113,8 @@
     border-bottom: 1px solid $colorBlack;
     background-color: $colorWhite;
     width: 100%;
+    font-family: Montserrat, sans-serif;
+    letter-spacing: 0.3px;
 
     &[readonly] {
       cursor: default;

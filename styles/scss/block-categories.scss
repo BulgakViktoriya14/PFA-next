@@ -2,20 +2,51 @@
   .container {
     margin: 0 0 20px 0;
     justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .form__item_checkbox {
+    flex-basis: 70%;
   }
 
   .button-edit-profile {
     margin: 0;
   }
 
-  .form {
-    &__item {
-      margin: 0;
+  .static-name {
+    display: block;
+    text-align: left;
+    color: $colorBlack;
+    padding: 5px;
+    font-size: 14px;
+    line-height: 22px;
+    width: 200px;
+    letter-spacing: 0.3px;
+    border-bottom: 1px solid $colorWhite;
 
-      &_checkbox {
-        width: 70%;
-        position: relative;
+    &.hidden {
+      display: none;
+    }
+  }
+
+  .table {
+    .form {
+      &__input {
+        width: 200px;
+
+        &.hidden {
+          display: none;
+        }
+      }
+
+      &__item {
         margin: 0;
+
+        &_checkbox {
+          width: 70%;
+          position: relative;
+          margin: 0;
+        }
       }
     }
   }

@@ -3,12 +3,15 @@ import firebase from 'firebase';
 import {connect} from 'react-redux';
 import {setUserSumAction} from "../../actions/actionSumUser";
 import Card from "./Card";
+import ButtonProfile from "../buttons/ButtonProfile";
+import {sortCard} from "../../functions/sortCard";
 
 class Cards extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            arrayCards: []
+            arrayCards: [],
+            visible: 20,
         }
     }
 
@@ -22,22 +25,20 @@ class Cards extends React.Component {
         this.createList();
     }
 
-    sortCard(array) {
-        array.sort((a, b) => a.startedAt > b.startedAt ? 1 : -1);
+    loadMore = () => {
+        this.setState((prev) => {
+            return {visible: prev.visible + 8};
+        });
     }
 
     createList = () => {
         let arrayCards = [];
         for(let card in this.props.cards) {
             arrayCards.push(this.props.cards[card]);
-            this.sortCard(arrayCards);
+            sortCard(arrayCards);
         }
         arrayCards.reverse();
         this.setState({arrayCards: arrayCards});
-    }
-
-    openMoreDetails = (e) => {
-        e.target.parentElement.classList.add("open");
     }
 
     deleteCard = (e) => {
@@ -68,9 +69,13 @@ class Cards extends React.Component {
                 {!this.state.arrayCards.length &&
                     <p className="cards-container-empty">{"You haven't created any cards yet."}</p>
                 }
-                {this.state.arrayCards.map((item) =>
-                    <Card key={item.id} cardItem={item} flagDeleteCard={this.props.flagDeleteCard}/>
+                {this.state.arrayCards.slice(0, this.state.visible).map((item) =>
+                    <Card key={item.id} cardItem={item} flagDeleteCard={this.props.flagDeleteCard} functionOnCLick={this.deleteCard}/>
                 )}
+
+                {this.state.visible < this.state.arrayCards.length &&
+                    <ButtonProfile functionOnCLick={this.loadMore} nameButton={"Load more"}/>
+                }
             </div>
         )
 	}

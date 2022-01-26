@@ -9,11 +9,15 @@ class Card extends React.Component {
         e.target.parentElement.parentElement.classList.remove("open");
     }
 
+    openMoreDetails = (e) => {
+        e.target.parentElement.classList.add("open");
+    }
+
     render() {
         return (
             <article className="card" id={this.props.cardItem.id}>
                 <button className={`card__button-delete${this.props.flagDeleteCard ? " visible" : ""}`}
-                        onClick={this.deleteCard}/>
+                        onClick={this.props.functionOnCLick}/>
                 <h3 className="card__title">{this.props.cardItem.title}</h3>
                 <h4 className="card__category">{this.props.cardItem.category}</h4>
                 {this.props.cardItem.description &&

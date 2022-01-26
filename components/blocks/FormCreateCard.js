@@ -24,13 +24,15 @@ class FormCreateCard extends React.Component {
     }
 
     componentDidMount() {
-        let array = [];
-        this.props.categoryList.split('#').forEach(function (item) {
-            if(item.length > 0) {
-                array.push(item)
-            }
-        })
-        this.setState({categoryList: array})
+        if(this.props.categoryList.length !== 0) {
+            let array = [];
+            this.props.categoryList.split('#').forEach(function (item) {
+                if (item.length > 0) {
+                    array.push(item)
+                }
+            })
+            this.setState({categoryList: array})
+        }
     }
 
     getDate = () => {

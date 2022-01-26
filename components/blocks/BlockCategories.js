@@ -22,6 +22,14 @@ class BlockCategories extends React.Component {
         this.checkboxValue = createRef();
     }
 
+    checkArrayCategory = () => {
+        if(this.props.arrayCategory.length === 1 && this.props.arrayCategory[0].length === 0) {
+            return false;
+        }
+
+        return true;
+    }
+
     openFormAddCategory = (e) => {
         if(this.formAdd.current.classList.contains("open")) {
             this.formAdd.current.classList.remove("open");
@@ -35,25 +43,13 @@ class BlockCategories extends React.Component {
     editCategory = (e) => {
         let row = e.target.parentElement.parentElement;
         if(e.target.classList.contains("save")) {
-            let id = row.getAttribute("id");
-            let array = this.props.arrayCategory;
-            let value = row.querySelector(".form__input").value;
-            array.forEach(function (item, index) {
-                if(id === index) {
-                    item = value;
-                }
-            })
-            let string = array.join('#');
-            firebase.database().ref('/users/user' + this.state.idUser).update({
-                category: string
-            }).then(() => {
-                this.props.setUserCategoryListFunction(string);
-            })
             e.target.classList.remove("save")
-            row.querySelector(".form__input").setAttribute("readonly", true);
+            row.querySelector(".form__input").classList.add("hidden");
+            row.querySelector(".static-name").classList.remove("hidden");
         } else {
             e.target.classList.add("save")
-            row.querySelector(".form__input").removeAttribute("readonly");
+            row.querySelector(".form__input").classList.remove("hidden");
+            row.querySelector(".static-name").classList.add("hidden");
         }
     }
 
@@ -87,6 +83,22 @@ class BlockCategories extends React.Component {
         })
     }
 
+    handleChange = (e) => {
+        let categoryList = this.props.arrayCategory;
+        let _this = this;
+        if(e.target.value.length > 0) {
+            categoryList[e.target.name] = e.target.value;
+        } else {
+            categoryList.splice([e.target.name], 1);
+        }
+        let string = categoryList.join('#');
+        firebase.database().ref('/users/user' + _this.props.userId).update({
+            category: string
+        }).then(() => {
+            this.props.setUserCategoryListFunction(string);
+        })
+    }
+
     render() {
         return (
             <div className="block-categories">
@@ -95,7 +107,7 @@ class BlockCategories extends React.Component {
                     <ButtonProfile functionOnCLick={this.openFormAddCategory} nameButton={"add"}/>
                     <FormAddCategory innerRef={this.formAdd} arrayCategory={this.props.arrayCategory}/>
                 </div>
-                {this.props.arrayCategory[0].length !== 0 &&
+                {this.checkArrayCategory() &&
                     <table className="table">
                         <thead className="thead">
                             <tr className="tr">
@@ -106,9 +118,10 @@ class BlockCategories extends React.Component {
                         <tbody>
                         {this.props.arrayCategory.map((item, index) => {
                             if (item.length > 0)
-                                return <tr id={index} key={index} className="tr">
+                                return <tr key={index} className="tr">
                                     <td className="td">
-                                        <FieldFormWithValue value={item} readonly={true}/>
+                                        <FieldFormWithValue id={index} functionOnChange={this.handleChange} inputMode={item} classInput={"hidden"} value={item} readonly={false}/>
+                                        <span className="static-name">{item}</span>
                                     </td>
                                     <td className="td">
                                         <ButtonEditCategory functionOnClick={this.editCategory}/>
@@ -120,7 +133,7 @@ class BlockCategories extends React.Component {
                         </tbody>
                     </table>
                 }
-                {this.props.arrayCategory[0].length === 0 &&
+                {!this.checkArrayCategory() &&
                     <p className="success-result__text">{this.state.message}</p>
                 }
             </div>

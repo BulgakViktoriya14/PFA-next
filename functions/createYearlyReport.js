@@ -1,3 +1,5 @@
+import {findCards} from "./findCards";
+
 export function createYearlyReport(startDateItem, endDateItem, cards) {
     let startDateComponents = startDateItem.split("-");
     let endDateComponents = endDateItem.split("-");
@@ -18,13 +20,16 @@ export function createYearlyReport(startDateItem, endDateItem, cards) {
     for (let i = 0; i < arrayData.length; i++) {
         let cardsArrayID = [];
         if(arrayData[i].length < 4) {
+            cardsArrayID.push((arrayData[i][2]));
+            arrayData[i].push("true");
             for (let j = i + 1; j < arrayData.length; j++) {
                 if(arrayData[i][0] === arrayData[j][0] && arrayData[j].length < 4) {
                     arrayData[i][1] = (Number(arrayData[i][1]) + Number(arrayData[j][1])).toFixed(2);
-                    cardsArrayID.push(arrayData[i][2]);
+                    cardsArrayID.push(arrayData[j][2]);
                     arrayData[j].push("true");
                 }
             }
+
             arrayObjects.push({date: arrayData[i][0], money: arrayData[i][1], cardsArray: cardsArrayID});
         }
     }
@@ -33,21 +38,9 @@ export function createYearlyReport(startDateItem, endDateItem, cards) {
         if (item.date >= startDate && item.date <= endDate) {
             arrayDataValues.push(item.money);
             arrayDataLabels.push(item.date);
-            arrayCards.push(findCards(item.cardsArray));
+            arrayCards.push(findCards(item.cardsArray, cards));
         }
     })
-
-    function findCards(array) {
-        let resultArray = [];
-        for (let key in cards) {
-            array.forEach(function (item) {
-                if(cards[key].id === item) {
-                    resultArray.push(cards[key])
-                }
-            })
-        }
-        return resultArray;
-    }
 
     return [arrayDataLabels, arrayDataValues, arrayCards];
 }

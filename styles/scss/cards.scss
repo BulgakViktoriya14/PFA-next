@@ -18,6 +18,10 @@
             line-height: 20px;
         }
     }
+
+    .button-edit-profile {
+        margin: 15px auto 0 auto;
+    }
 }
 
 .card {
@@ -33,6 +37,7 @@
         font-size: 18px;
         line-height: 22px;
         margin: 0 0 10px 0;
+        word-break: break-word;
     }
 
     &__category {
@@ -41,6 +46,7 @@
         font-weight: 300;
         margin: 10px 0 20px 0;
         font-family: 'Montserrat', sans-serif;
+        word-break: break-word;
     }
 
     &__bottom {
@@ -84,6 +90,7 @@
         font-weight: bold;
         color: $colorRed;
     }
+
     &__date {
         font-size: 14px;
         line-height: 14px;
@@ -101,6 +108,7 @@
         cursor: pointer;
         transition: 200ms ease-in;
         color: $colorBlack;
+        word-break: break-word;
     }
 
     &__description {
@@ -246,5 +254,9 @@
 .modal-window__show-cards {
     .card {
         flex-basis: 48%;
+    }
+
+    .button-edit-profile {
+        margin: 15px auto 0 auto;
     }
 }

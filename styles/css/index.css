@@ -539,6 +539,8 @@ a:hover:after, a:focus:after {
   border-bottom: 1px solid #000;
   background-color: #fff;
   width: 100%;
+  font-family: Montserrat, sans-serif;
+  letter-spacing: 0.3px;
 }
 .form__input[readonly], .form__textarea[readonly] {
   cursor: default;
@@ -934,6 +936,9 @@ a:hover:after, a:focus:after {
     line-height: 20px;
   }
 }
+.cards .button-edit-profile {
+  margin: 15px auto 0 auto;
+}
 
 .card {
   display: flex;
@@ -948,6 +953,7 @@ a:hover:after, a:focus:after {
   font-size: 18px;
   line-height: 22px;
   margin: 0 0 10px 0;
+  word-break: break-word;
 }
 .card__category {
   font-size: 16px;
@@ -955,6 +961,7 @@ a:hover:after, a:focus:after {
   font-weight: 300;
   margin: 10px 0 20px 0;
   font-family: "Montserrat", sans-serif;
+  word-break: break-word;
 }
 .card__bottom {
   margin: auto 0 0 0;
@@ -1008,6 +1015,7 @@ a:hover:after, a:focus:after {
   cursor: pointer;
   transition: 200ms ease-in;
   color: #000;
+  word-break: break-word;
 }
 .card__description {
   display: flex;
@@ -1145,6 +1153,9 @@ a:hover:after, a:focus:after {
 }
 .modal-window__show-cards .card {
   flex-basis: 48%;
+}
+.modal-window__show-cards .button-edit-profile {
+  margin: 15px auto 0 auto;
 }
 
 .profile {
@@ -1485,14 +1496,38 @@ a:hover:after, a:focus:after {
 .block-categories .container {
   margin: 0 0 20px 0;
   justify-content: space-between;
+  align-items: baseline;
+}
+.block-categories .form__item_checkbox {
+  flex-basis: 70%;
 }
 .block-categories .button-edit-profile {
   margin: 0;
 }
-.block-categories .form__item {
+.block-categories .static-name {
+  display: block;
+  text-align: left;
+  color: #000;
+  padding: 5px;
+  font-size: 14px;
+  line-height: 22px;
+  width: 200px;
+  letter-spacing: 0.3px;
+  border-bottom: 1px solid #fff;
+}
+.block-categories .static-name.hidden {
+  display: none;
+}
+.block-categories .table .form__input {
+  width: 200px;
+}
+.block-categories .table .form__input.hidden {
+  display: none;
+}
+.block-categories .table .form__item {
   margin: 0;
 }
-.block-categories .form__item_checkbox {
+.block-categories .table .form__item_checkbox {
   width: 70%;
   position: relative;
   margin: 0;
