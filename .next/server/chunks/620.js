@@ -325,7 +325,7 @@ class FormCreateCard extends (external_react_default()).Component {
       }).then(() => {
         _this.form.current.reset();
 
-        document.querySelector("#select-categories > div > div > div").innerText = '';
+        this.select.current.select.clearValue();
       }).then(() => {
         _this.props.setUserSumFunction(sum);
       }).then(() => {
@@ -385,6 +385,7 @@ class FormCreateCard extends (external_react_default()).Component {
     this.category = /*#__PURE__*/external_react_default().createRef();
     this.description = /*#__PURE__*/external_react_default().createRef();
     this.form = /*#__PURE__*/external_react_default().createRef();
+    this.select = /*#__PURE__*/external_react_default().createRef();
   }
 
   componentDidMount() {
@@ -421,6 +422,7 @@ class FormCreateCard extends (external_react_default()).Component {
         flagPasswordField: false,
         inputMode: "text"
       }), this.props.enableCategoryFlag && this.state.categoryList[0].length !== 0 && /*#__PURE__*/jsx_runtime_.jsx(FieldSelect/* default */.Z, {
+        selectRef: this.select,
         label: "Category",
         optionsArray: this.state.categoryList,
         id: "select-categories"

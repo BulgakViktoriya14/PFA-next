@@ -51,6 +51,9 @@ const customStyles = {
     cursor: 'pointer',
     border: '1px solid #000',
     borderRadius: 0
+  }),
+  menuList: (provided, state) => _objectSpread(_objectSpread({}, provided), {}, {
+    overflowY: 'hidden'
   })
 };
 
@@ -77,6 +80,7 @@ class SelectItem extends (external_react_default()).Component {
 
   render() {
     return /*#__PURE__*/jsx_runtime_.jsx((external_react_select_default()), {
+      ref: this.props.innerRef,
       styles: customStyles,
       options: this.state.options,
       placeholder: "",
@@ -88,7 +92,9 @@ class SelectItem extends (external_react_default()).Component {
 
 }
 
-/* harmony default export */ const select_SelectItem = (SelectItem);
+/* harmony default export */ const select_SelectItem = (/*#__PURE__*/external_react_default().forwardRef((props, ref) => /*#__PURE__*/jsx_runtime_.jsx(SelectItem, _objectSpread({
+  innerRef: ref
+}, props))));
 ;// CONCATENATED MODULE: ./components/fields/FieldSelect.js
 function FieldSelect_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
@@ -114,6 +120,7 @@ class FieldSelect extends (external_react_default()).Component {
         className: `form__label${this.props.required ? ' required' : ''}`,
         children: this.props.label
       }), /*#__PURE__*/jsx_runtime_.jsx(select_SelectItem, {
+        innerRef: this.props.selectRef,
         className: "form__select",
         optionsArray: this.props.optionsArray,
         required: this.props.required ? "required" : "",

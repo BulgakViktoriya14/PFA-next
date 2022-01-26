@@ -3,6 +3,7 @@ import Select from 'react-select';
 
 const customStyles = {
     control: styles => ({ ...styles, backgroundColor: 'white' }),
+
     option: (styles, { data, isDisabled, isFocused, isSelected }) => {
         return {
             backgroundColor: isSelected ? '#ffb8b8' : '#fff',
@@ -10,12 +11,18 @@ const customStyles = {
             fontSize: '16px'
         };
     },
+
     menu: (provided, state) => ({
         ...provided,
         padding: 0,
         cursor: 'pointer',
         border: '1px solid #000',
-        borderRadius: 0
+        borderRadius: 0,
+    }),
+
+    menuList: (provided, state) => ({
+        ...provided,
+        overflowY: 'hidden',
     })
 }
 
@@ -39,9 +46,9 @@ class SelectItem extends React.Component {
 
     render() {
         return (
-            <Select styles={customStyles} options={this.state.options} placeholder={""} className={this.props.className} id={this.props.id} required={this.props.required}/>
+            <Select ref={this.props.innerRef} styles={customStyles} options={this.state.options} placeholder={""} className={this.props.className} id={this.props.id} required={this.props.required}/>
         );
     }
 }
 
-export default SelectItem;
+export default React.forwardRef((props, ref) => <SelectItem innerRef={ref} {...props}/>);

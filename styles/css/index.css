@@ -605,6 +605,18 @@ a:hover:after, a:focus:after {
   margin-left: 0;
   margin-right: 0;
 }
+.form__select > div:nth-child(3) {
+  max-height: 250px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.form__select > div:nth-child(3)::-webkit-scrollbar {
+  width: 4px;
+}
+.form__select > div:nth-child(3)::-webkit-scrollbar-thumb {
+  background-color: #828282;
+  outline: none;
+}
 .form__wrapper-buttons {
   display: flex;
   flex-basis: 100%;

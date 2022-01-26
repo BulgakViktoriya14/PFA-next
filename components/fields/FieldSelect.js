@@ -13,7 +13,7 @@ class FieldSelect extends React.Component {
                     <label htmlFor={this.props.id}
                        className={`form__label${this.props.required ? ' required' : ''}`}>{this.props.label}</label>
                 }
-                <SelectItem className="form__select" optionsArray={this.props.optionsArray}
+                <SelectItem innerRef={this.props.selectRef} className="form__select" optionsArray={this.props.optionsArray}
                             required={this.props.required ? "required" : ""} id={this.props.id}/>
             </div>
         )

@@ -21,6 +21,7 @@ class FormCreateCard extends React.Component {
         this.category = React.createRef();
         this.description = React.createRef();
         this.form = React.createRef();
+        this.select = React.createRef();
     }
 
     componentDidMount() {
@@ -92,7 +93,7 @@ class FormCreateCard extends React.Component {
         })
             .then(() => {
                 _this.form.current.reset();
-                document.querySelector("#select-categories > div > div > div").innerText = '';
+                this.select.current.select.clearValue();
             })
             .then(() => {_this.props.setUserSumFunction(sum)})
             .then(() => {
@@ -147,7 +148,7 @@ class FormCreateCard extends React.Component {
                                        flagPasswordField={false} inputMode={"text"}/>
                 }
                 {this.props.enableCategoryFlag && this.state.categoryList[0].length !== 0 &&
-                    <FieldSelect label={"Category"} optionsArray={this.state.categoryList} id={"select-categories"}/>
+                    <FieldSelect selectRef={this.select} label={"Category"} optionsArray={this.state.categoryList} id={"select-categories"}/>
                 }
                 <FieldFormWithoutValue innerRef={this.sum} required={true} label={"Amount"} type={"number"} id={"sum"} flagPasswordField={false} inputMode={"decimal"}/>
                 <FieldFormWithoutValue innerRef={this.description} label={"Description"} type={"text"} id={"description"} flagPasswordField={false} inputMode={"text"}/>

@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/CRYCOjgSoqqqvLrSVtFJJ/_buildManifest.js",
-    "static/CRYCOjgSoqqqvLrSVtFJJ/_ssgManifest.js"
+    "static/KwMaThHlEAEMxqalsoDXM/_buildManifest.js",
+    "static/KwMaThHlEAEMxqalsoDXM/_ssgManifest.js"
   ],
   "pages": {
     "/": [
@@ -22,7 +22,7 @@
       "static/chunks/webpack-fa9d2134d22c68812db4.js",
       "static/chunks/framework-0441fae7fd130f37dee1.js",
       "static/chunks/main-e938f006a0820172ec87.js",
-      "static/css/f544e77c2029313c0af9.css",
+      "static/css/1f4e237eb65c0c7bf7a4.css",
       "static/chunks/pages/_app-a327577a752832c38e5c.js"
     ],
     "/_error": [
@@ -38,7 +38,7 @@
       "static/chunks/947-2f37d9c6c7f2d126d786.js",
       "static/chunks/617-9eae6d7fd8c4117f36b4.js",
       "static/chunks/706-e3f3e08b6ccc5a4e0411.js",
-      "static/chunks/620-eeade29d108b4ffd7475.js",
+      "static/chunks/620-b6fb38061b4794a854b8.js",
       "static/chunks/pages/expenses-d74af7b7e955aba1f64e.js"
     ],
     "/income": [
@@ -48,7 +48,7 @@
       "static/chunks/947-2f37d9c6c7f2d126d786.js",
       "static/chunks/617-9eae6d7fd8c4117f36b4.js",
       "static/chunks/706-e3f3e08b6ccc5a4e0411.js",
-      "static/chunks/620-eeade29d108b4ffd7475.js",
+      "static/chunks/620-b6fb38061b4794a854b8.js",
       "static/chunks/pages/income-ec4236b8c5110cbbded5.js"
     ],
     "/profile": [
@@ -78,7 +78,7 @@
       "static/chunks/385-946c873ebd45b58fdc7b.js",
       "static/chunks/706-e3f3e08b6ccc5a4e0411.js",
       "static/chunks/943-1eb746b3f00257524186.js",
-      "static/chunks/pages/reports-d84790e4cbb34ec29865.js"
+      "static/chunks/pages/reports-fd443fdc911d887e5dc3.js"
     ]
   },
   "ampFirstPages": []
