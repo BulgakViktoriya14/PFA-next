@@ -161,8 +161,6 @@ class Profile extends React.Component {
                                              userName={this.props.userName} userEmail={this.props.userEmail}/>
                         </div>
                         <div className="profile__wrapper-buttons">
-                            <ButtonProfile functionOnCLick={this.openCategoryList}
-                                           nameButton={"Open my category list"}/>
                             {this.state.flag &&
                             <ButtonProfile functionOnCLick={this.changeUserInfo}
                                            nameButton={"Change information about yourself"}/>
@@ -170,6 +168,8 @@ class Profile extends React.Component {
                             {!this.state.flag &&
                             <ButtonProfile functionOnCLick={this.saveUserInfo} nameButton={"Save"}/>
                             }
+                            <ButtonProfile functionOnCLick={this.openCategoryList}
+                                           nameButton={"Open my category list"}/>
                             <ButtonProfile functionOnCLick={this.openModalWindowChangePassword}
                                            nameButton={"Change password"}/>
                             <ButtonProfile functionOnCLick={this.openModalWindowChangeAvatar} nameButton={"Change avatar"}/>

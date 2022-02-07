@@ -588,7 +588,7 @@ class BlockCategories extends (external_react_default()).Component {
     BlockCategories_defineProperty(this, "deleteCategory", e => {
       let _this = this;
 
-      let id = e.target.parentElement.parentElement.getAttribute("id");
+      let id = e.target.parentElement.parentElement.querySelector(".form__input").getAttribute("id");
       let array = _this.props.arrayCategory;
       array.splice(Number(id), 1);
       let string = array.join('#');

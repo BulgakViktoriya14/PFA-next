@@ -20,7 +20,7 @@
     padding: 5px;
     font-size: 14px;
     line-height: 22px;
-    width: 200px;
+    width: 180px;
     letter-spacing: 0.3px;
     border-bottom: 1px solid $colorWhite;
 
@@ -32,7 +32,7 @@
   .table {
     .form {
       &__input {
-        width: 200px;
+        width: 180px;
 
         &.hidden {
           display: none;

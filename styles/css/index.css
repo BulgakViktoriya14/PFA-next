@@ -841,7 +841,7 @@ a:hover:after, a:focus:after {
 .form-add-category {
   display: flex;
   width: 100%;
-  align-items: flex-end;
+  align-items: end;
   flex-wrap: wrap;
   height: 0;
   overflow-y: hidden;
@@ -1202,7 +1202,6 @@ a:hover:after, a:focus:after {
     flex-direction: column;
   }
   .profile__image {
-    flex-basis: 100%;
     margin: 0 0 20px 0;
     max-width: 100%;
     width: 100%;
@@ -1523,7 +1522,7 @@ a:hover:after, a:focus:after {
   padding: 5px;
   font-size: 14px;
   line-height: 22px;
-  width: 200px;
+  width: 180px;
   letter-spacing: 0.3px;
   border-bottom: 1px solid #fff;
 }
@@ -1531,7 +1530,7 @@ a:hover:after, a:focus:after {
   display: none;
 }
 .block-categories .table .form__input {
-  width: 200px;
+  width: 180px;
 }
 .block-categories .table .form__input.hidden {
   display: none;
