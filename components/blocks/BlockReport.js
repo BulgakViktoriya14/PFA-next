@@ -10,8 +10,8 @@ class BlockReport extends React.Component {
         return (
             <div className="report">
                 {this.props.data.length > 0 &&
-                    <Chart width={'500px'}
-                           height={'300px'}
+                    <Chart width={window.innerWidth < 550 ? '100%' : '500px'}
+                           height={window.innerWidth < 550 ? '100%' : '400px'}
                            chartType="PieChart"
                            loader={<div>Loading Chart</div>}
                            data={this.props.data}
