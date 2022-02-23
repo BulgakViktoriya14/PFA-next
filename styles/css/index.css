@@ -841,7 +841,7 @@ a:hover:after, a:focus:after {
 .form-add-category {
   display: flex;
   width: 100%;
-  align-items: end;
+  align-items: flex-end;
   flex-wrap: wrap;
   height: 0;
   overflow-y: hidden;
